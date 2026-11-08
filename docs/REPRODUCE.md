@@ -1,18 +1,19 @@
 # Reproduce the publication
 
-The repository publishes **derivatives only**. The sealed run — raw logs, frozen
-workspaces, patches, unsanitized report — is preserved outside the repository
-and is not redistributed. This document describes how the committed derivatives
-were produced, how to re-derive and check them, and which steps are present in
-this checkout.
+The repository publishes **derivatives only**. The sealed run is preserved
+outside the repository and is not redistributed. This document covers how the
+derivatives were produced, how to re-derive and check them, and which steps are
+present here.
 
 ## Prerequisites
 
-- **Python 3.13, standard library only.** No third-party packages are required
-  for derivation, charts or checks.
-- Optional: Node.js and Playwright for site QA; a browser to inspect figures.
-- The sealed run directory, if re-deriving data. Without it you can still
-  regenerate the charts from the committed dataset and verify hashes.
+- **Python 3.13, standard library only** for derivation, charts, site and
+  checks.
+- Optional Node.js with Playwright and Chromium for visual QA.
+- The sealed run directory for re-derivation; without it the charts, site and
+  hashes can still be checked.
+- The repository test suite runs with
+  `python3 -m unittest discover -s tests -p "test_*.py" -v`.
 
 ## 1. Rebuild the sanitized dataset
 
@@ -21,11 +22,11 @@ python3 tools/derive_data.py --source <sealed-run> --out results
 ```
 
 `<sealed-run>` contains `SHA256SUMS`, `summary_raw.json`, `telemetry/`,
-`runs/<task>/<agent>/` and `verdict.json`. The script verifies every hash and
-aborts on mismatch, recomputes tokens, cost, CPU, memory, elapsed time and
-aggregates from primary records, re-checks them against the controller summary,
-redacts host identifiers, and writes `results/publication-data.json`,
-`results/telemetry/*.jsonl` and `results/TRANSFORM.json`.
+`runs/<task>/<agent>/` and `verdict.json`. The script verifies every hash,
+aborts on mismatch, recomputes metrics from primary records, re-checks them
+against the controller summary, redacts host identifiers, and writes
+`results/publication-data.json`, `results/telemetry/*.jsonl` and
+`results/TRANSFORM.json`.
 
 Expected output for the recorded run:
 
@@ -45,8 +46,8 @@ python3 tools/make_charts.py --check    # regenerate in memory and compare
 ```
 
 `--check` prints `CHART CHECK OK: 12 SVGs byte-identical` and exits 0 when the
-committed light and dark figures match the committed data; otherwise it lists
-the differences and exits non-zero. Six figures × two themes.
+committed figures match the committed data; otherwise it lists differences and
+exits non-zero. Six figures × two themes.
 
 A dependency-free structural check without the repository's SVG checker:
 
@@ -66,42 +67,40 @@ python3 tools/build_site.py
 ```
 
 Renders the static site from `docs/`, `assets/` and
-`results/publication-data.json` into `site/`, deterministically (no clocks,
-network or environment-dependent output).
-
-**Status:** not included in this documentation-only checkout; listed for
-reproducibility, not run here.
+`results/publication-data.json` into `site/`, deterministically. Confirm it is
+current with `python3 tools/build_site.py --check`, which reports
+`SITE CHECK OK: 15 files byte-identical`.
 
 ## 4. Publication checks
 
 ```bash
-python3 tools/check_svg.py           # SVG well-formedness and hygiene
-python3 tools/check_contrast.py      # WCAG AA contrast for every token pair
-python3 tools/check_publish.py       # secret/path/PII scan over the tree
-python3 tools/verify_publication.py  # end-to-end gate
-python3 tools/make_charts.py --check
+python3 tools/make_charts.py --check   # CHART CHECK OK: 12 SVGs byte-identical
+python3 tools/check_svg.py             # SVG structure, light/dark parity
+python3 tools/check_contrast.py        # WCAG AA for every enforced pair
+python3 tools/build_site.py --check    # SITE CHECK OK: 15 files byte-identical
+python3 tools/check_publish.py         # secrets, identifiers, links, report seal
+python3 tools/verify_publication.py    # end-to-end gate -> publication-audit.json
 ```
 
 `check_contrast.py` and `check_publish.py` are inherited from the author's
 previous benchmark ([`ddawnlll/goal-extension-benchmark`](https://github.com/ddawnlll/goal-extension-benchmark),
-MIT); `verify_publication.py` is the aggregate gate.
-
-**Status:** only `make_charts.py --check` is present here and was run.
-`check_svg.py`, `check_contrast.py`, `check_publish.py` and
-`verify_publication.py` belong to the full repository but not this
-documentation-only checkout, so their passing status is not asserted. The checks
-that can be run here are documented in [SECURITY.md](SECURITY.md).
+MIT); `verify_publication.py` aggregates 19 checks into
+`publication-audit.json`. On the release commit all six commands exit 0, and the
+audit reports `PUBLICATION AUDIT: PASS (19 checks)`.
 
 ## 5. Browser QA (optional)
 
 ```bash
 npx playwright install chromium
-npx playwright test tests/site.spec.ts
+node tests/visual_qa.js            # checks + tests/qa-report.json
+node tests/visual_qa.js --shots    # also write tests/screenshots/*.png
 ```
 
-The spec loads `site/index.html` from disk, asserts no request leaves the local
-filesystem, exercises both colour schemes, checks every figure has an
-`alt`/`aria-label`, and captures light/dark screenshots. Optional; not run here.
+The script loads `site/index.html` from disk at five viewports (1440, 1280, 768,
+390, 360 px) in light and dark, exercises the trial filters, checks figure
+labels and overflow, and records console errors, page errors and failed
+requests. The committed `tests/qa-report.json` shows 0 errors, 0 failed
+requests, no overflow and working filter counts (3 / 1 / 9 trials).
 
 ## 6. Transformation and hashes
 
@@ -117,15 +116,14 @@ filesystem, exercises both colour schemes, checks every figure has an
 | Sealed `summary_raw.json` | `870017e13f9a11f15e8d7b47f55a00c6838ea8ff50c3297fd5760bb3f8e8e06a` |
 | Sealed `verdict.json` | `3bd83ed03945b33cf8627321bc954b533064e19290eb00b44a3be1998572f490` |
 
-Transformation: read-only copy from the sealed run → verify seal → recompute
-metrics → redact → deterministic JSON/JSONL. No original file is modified and no
-metric is estimated.
+Transformation: read-only copy → verify seal → recompute metrics → redact →
+deterministic JSON/JSONL. No original file is modified and no metric is
+estimated.
 
 ## 7. What cannot be reproduced
 
-- **The agent runs.** Model sampling is stochastic and the provider external;
-  only the data the nine trials produced is preserved.
-- **The sealed evidence** (not redistributed). Without it `derive_data.py`
-  cannot run, but the published data and charts can still be checked against
-  their hashes and regenerated from the committed dataset.
-- **JCode's tool trace**, which was never emitted.
+- **The agent runs.** Sampling is stochastic and the provider external; only the
+  data the nine trials produced is preserved.
+- **The sealed evidence.** Without it `derive_data.py` cannot run, but the data
+  and charts can still be checked against their hashes.
+- **JCode's tool trace**, never emitted.

@@ -27,13 +27,13 @@ new codebase with a new palette, canvas, type scale and figure set. The
 | Agent | Version recorded in the run | Binary SHA-256 | Upstream |
 |---|---|---|---|
 | Pi-Bolt | `1.5.0 (Pi-Bolt 1.1.4, linux-x64-baseline, JIT off)` | `1eecc82d40ad38e57bc8ebb68a04976cf08cd1366e132ae778cb77f6e894e363` | [`opensec-git/Pi-Bolt`](https://github.com/opensec-git/Pi-Bolt) (MIT) |
-| JCode | `jcode v0.99.1 (7206efd0c)` | `059d05f0a167b5496bc5a7bdf963edff8f8a483d61f290847b5765104c476298` | repository URL not recorded in the sealed evidence |
-| Hax | `hax v0.6.1` | `377d315e5a1cd75811d5022a82db5ea028c5ee361cb2abf0869ef4e1542ecef5` | repository URL not recorded in the sealed evidence |
+| JCode | `jcode v0.99.1 (7206efd0c)` | `059d05f0a167b5496bc5a7bdf963edff8f8a483d61f290847b5765104c476298` | [`CHWEZI19/jcode`](https://github.com/CHWEZI19/jcode) |
+| Hax | `hax v0.6.1` | `377d315e5a1cd75811d5022a82db5ea028c5ee361cb2abf0869ef4e1542ecef5` | [`OleksandrChekhovskyi/hax`](https://github.com/OleksandrChekhovskyi/hax) |
 
 JCode and Hax were provided as pre-built binaries. Their upstream repositories
-and licenses were not captured in the sealed evidence and are stated as
-**unverified** rather than guessed. Anyone redistributing those binaries is
-responsible for their licenses; this repository does not.
+are now recorded, but their licenses were not captured in the sealed evidence
+and are stated as **unverified** rather than guessed. Anyone redistributing
+those binaries is responsible for their licenses; this repository does not.
 
 ## Model, provider and third-party code
 

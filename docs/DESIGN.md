@@ -1,10 +1,10 @@
 # Design system
 
-The figures are the argument, so they are designed rather than decorated: editorial
-data journalism crossed with dashboard restraint. Every figure is generated from
+The figures are the argument, so they are designed, not decorated: editorial data
+journalism crossed with dashboard restraint. Every figure comes from
 `results/publication-data.json`; hand-drawn marks are annotations, never data.
-This document defines what `tools/chartkit.py` and `tools/make_charts.py`
-implement. If they disagree, the code and `--check` win.
+This defines what `tools/chartkit.py` and `tools/make_charts.py` implement; if
+they disagree, the code and `--check` win.
 
 ## Constraints
 
@@ -24,8 +24,7 @@ implement. If they disagree, the code and `--check` win.
 | Text | `ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif` | 14, 12.5, 11 |
 | Numerals | `ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace` | 64, 50, 24, 14, 11 |
 
-Serif for titles, sans for labels, mono for measured values so digits keep their
-width across themes. Nothing is below 11 px.
+Serif for titles, sans for labels, mono for measured values. Nothing below 11 px.
 
 ## Colour tokens
 
@@ -35,8 +34,9 @@ width across themes. Nothing is below 11 px.
 | `panel` | `#f3f0e9` | `#171c23` | grouping surface |
 | `ink` | `#14171a` | `#f2f0ea` | primary type |
 | `muted` | `#46505c` | `#bcc5d1` | secondary type |
-| `faint` | `#657080` | `#8d98a7` | captions, axis labels |
+| `faint` | `#5c6675` | `#8d98a7` | captions, axis labels |
 | `rule` | `#e4dfd4` | `#29313c` | hairlines, grid |
+| `wash` | `#f0ece3` | `#151a21` | neutral wash |
 | `rule_strong` | `#cec7b8` | `#3b4552` | emphasis rules |
 | `pi` / `pi_soft` | `#2456c9` / `#e3e9fb` | `#8fb3ff` / `#1b2745` | Pi-Bolt accent, wash |
 | `jcode` / `jcode_soft` | `#a94f05` / `#fbeed9` | `#f6b45b` / `#3a2a12` | JCode accent, wash |
@@ -49,13 +49,14 @@ width across themes. Nothing is below 11 px.
 | `cpu` | `#0f6b60` | `#5eead4` | CPU seconds |
 | `on_accent` / `on_soft` | `#ffffff` / `#14171a` | `#0f1216` / `#f2f0ea` | type on accent, wash |
 
-Contrast was measured with the WCAG relative-luminance formula on the pairs used
-for text. `ink` on `surface` is 17.24:1 light / 16.48:1 dark; `muted` 7.85 / 10.77;
-`faint` 4.81 / 6.42; agent hues 5.28–7.99 / 8.99–10.37; `pass` and `fail` 6.11 and
-6.95 / 12.69 and 9.19. One margin case: `faint` on `panel` is **4.41:1** in
-light, below AA for normal text, so captions sit on `surface`, never on `panel`.
-The pale `*_soft` lanes are below 3:1 by design; every label inside them uses
-`ink` or the full-strength agent hue.
+`tools/check_contrast.py` measures every enforced pair with the WCAG
+relative-luminance formula and exits non-zero below AA. Reported ratios:
+`ink` on `surface` 17.24:1 light / 16.48:1 dark; `muted` 7.85 / 10.77; `faint`
+5.57 / 6.42 (5.11 / 5.85 on `panel`); agent hues 5.28–7.99 / 8.99–10.37;
+`pass`/`fail` 6.11/6.95 light and 12.69/9.19 dark. All pass. The pale `*_soft`
+lanes are below 3:1 by design; labels inside them use `ink` or the agent hue,
+and the checker lists `busy`, `rule` and `rule_strong` as exempt fills that are
+always accompanied by a direct label.
 
 ## Agent mapping
 
@@ -91,8 +92,8 @@ is identical across themes; only token values change.
 
 ## Accessibility
 
-WCAG 2.2 AA: 4.5:1 for text and 3:1 for graphical objects in both themes (the one
-exception is documented above). No colour-only encoding: every agent also has a
+WCAG 2.2 AA: 4.5:1 for text and 3:1 for graphical objects in both themes,
+enforced by `tools/check_contrast.py`. No colour-only encoding: every agent also has a
 marker shape, a text label and a fixed lane. Every SVG has `<title>`, `<desc>`,
 `role="img"` and an `aria-label` reading the headline numbers. No text below
 11 px; pass/fail is printed as a word as well as a colour. Annotations duplicate
@@ -113,9 +114,8 @@ in `RESULTS.md`.
 The philosophy — direct labels, editorial type, deterministic hand annotations,
 system fonts — is adapted from
 [`ddawnlll/goal-extension-benchmark`](https://github.com/ddawnlll/goal-extension-benchmark),
-whose `chartkit.py` established the primitives and the light/dark token
-mechanism. This is a new design: canvas 920 → 1000 px, palette from two-hue
-indigo/amber to three-agent blue/orange/violet on warm paper, type scale extended
-with hero/mega sizes, and three agents across three tasks instead of two
-extensions across two pairs. The previous repository was not modified. See
-[ATTRIBUTION.md](ATTRIBUTION.md).
+whose `chartkit.py` established the primitives and light/dark token mechanism.
+This is a new design: canvas 920 → 1000 px, palette from two-hue indigo/amber to
+three-agent blue/orange/violet, extended type scale, and three agents across
+three tasks instead of two extensions across two pairs. The previous repository
+was not modified. See [ATTRIBUTION.md](ATTRIBUTION.md).
