@@ -1,0 +1,24 @@
+{
+  "banned_pattern_findings": [],
+  "public_bytes": 347756,
+  "public_file": "AGENT_BENCHMARK_FORENSIC_REPORT.html",
+  "public_sha256": "9900f9843253efacf3f61e423b7e1e91a64d8f40b7e5250e571f7dfde6a2e0cd",
+  "schema": "agent-harness-bench/report-seal/1",
+  "source_bytes": 347624,
+  "source_file": "AGENT_BENCHMARK_FORENSIC_REPORT.html",
+  "source_sha256": "f73ca4878c7872a529f464a0296b5e845fda5490b96b958ee5365fca5077c08c",
+  "status": "PASS",
+  "transformation": {
+    "data_semantics": "unchanged except identifier redaction",
+    "gzip_mtime": 0,
+    "replacement_count_outer": 0,
+    "replacement_count_payload": 183,
+    "replacements": [
+      "home directories -> /home/researcher",
+      "hostname -> bench-host",
+      "IP addresses -> 0.0.0.0",
+      "credential-shaped strings -> <redacted-*>"
+    ],
+    "script": "tools/sanitize_report.py"
+  }
+}

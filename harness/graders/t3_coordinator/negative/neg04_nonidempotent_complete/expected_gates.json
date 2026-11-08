@@ -1,0 +1,4 @@
+{
+  "expected_failed_gates": ["idempotent_completion"],
+  "reason": "a duplicate completion overwrites the stored result and adds a second result"
+}

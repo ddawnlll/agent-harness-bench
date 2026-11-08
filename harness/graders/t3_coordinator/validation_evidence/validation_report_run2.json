@@ -1,0 +1,806 @@
+{
+  "task_id": "t3",
+  "grader_version": "1.0.0",
+  "validated_at": "2026-11-07T23:13:18Z",
+  "elapsed_s": 311.1,
+  "passed": true,
+  "failures": [],
+  "fixture_integrity": {
+    "passed": true,
+    "details": {
+      "git_head": "4b4f88d092b049f9ae02d9aa678337ace96c4d10",
+      "git_status": "",
+      "manifest_start_commit": "4b4f88d092b049f9ae02d9aa678337ace96c4d10",
+      "tracked_files": 10
+    },
+    "errors": []
+  },
+  "baseline": {
+    "status": "FAIL",
+    "total": 38.0,
+    "failed_gates": [
+      "no_duplicate_ownership",
+      "no_lost_completion",
+      "bounded_retries",
+      "crash_recovery",
+      "corrupted_state_safe",
+      "idempotent_completion"
+    ],
+    "failed_cases": [
+      "F4",
+      "F5",
+      "F7",
+      "F8",
+      "F10",
+      "C1",
+      "C2",
+      "C3",
+      "C5",
+      "C6",
+      "T2"
+    ],
+    "grade": {
+      "rc": 1,
+      "elapsed_s": 56.19,
+      "stderr_tail": ""
+    }
+  },
+  "oracle": {
+    "runs": [
+      {
+        "status": "PASS",
+        "total": 100.0,
+        "failed_gates": [],
+        "failed_cases": [],
+        "grade": {
+          "rc": 0,
+          "elapsed_s": 18.29,
+          "stderr_tail": ""
+        }
+      },
+      {
+        "status": "PASS",
+        "total": 100.0,
+        "failed_gates": [],
+        "failed_cases": [],
+        "grade": {
+          "rc": 0,
+          "elapsed_s": 17.54,
+          "stderr_tail": ""
+        }
+      },
+      {
+        "status": "PASS",
+        "total": 100.0,
+        "failed_gates": [],
+        "failed_cases": [],
+        "grade": {
+          "rc": 0,
+          "elapsed_s": 18.13,
+          "stderr_tail": ""
+        }
+      }
+    ],
+    "all_passed": true
+  },
+  "negatives": [
+    {
+      "name": "neg01_inmemory",
+      "reason": "storage is a per-process in-memory SQLite database; a restart loses everything",
+      "expected_failed_gates": [
+        "non_memory_storage",
+        "persistence_restart"
+      ],
+      "runs": [
+        {
+          "status": "FAIL",
+          "total": 53.0,
+          "failed_gates": [
+            "no_duplicate_ownership",
+            "persistence_restart",
+            "no_lost_completion",
+            "non_memory_storage",
+            "crash_recovery",
+            "test_integrity",
+            "corrupted_state_safe"
+          ],
+          "failed_cases": [
+            "F10",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "T1",
+            "S_MEMDB"
+          ],
+          "grade": {
+            "rc": 1,
+            "elapsed_s": 9.64,
+            "stderr_tail": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": "neg02_nonatomic_claim",
+      "reason": "SELECT then UPDATE outside a transaction lets two workers own the same job",
+      "expected_failed_gates": [
+        "no_duplicate_ownership"
+      ],
+      "runs": [
+        {
+          "status": "FAIL",
+          "total": 84.0,
+          "failed_gates": [
+            "no_duplicate_ownership",
+            "no_lost_completion"
+          ],
+          "failed_cases": [
+            "C1",
+            "C5"
+          ],
+          "grade": {
+            "rc": 1,
+            "elapsed_s": 20.36,
+            "stderr_tail": ""
+          }
+        },
+        {
+          "status": "FAIL",
+          "total": 84.0,
+          "failed_gates": [
+            "no_duplicate_ownership",
+            "no_lost_completion"
+          ],
+          "failed_cases": [
+            "C1",
+            "C5"
+          ],
+          "grade": {
+            "rc": 1,
+            "elapsed_s": 20.36,
+            "stderr_tail": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": "neg03_no_lease_expiry",
+      "reason": "an expired lease is never reclaimed, so a crashed worker's job is stuck forever",
+      "expected_failed_gates": [
+        "crash_recovery"
+      ],
+      "runs": [
+        {
+          "status": "FAIL",
+          "total": 60.0,
+          "failed_gates": [
+            "no_duplicate_ownership",
+            "no_lost_completion",
+            "bounded_retries",
+            "crash_recovery",
+            "test_integrity"
+          ],
+          "failed_cases": [
+            "F5",
+            "C2",
+            "C3",
+            "C5",
+            "C6",
+            "T1",
+            "T2"
+          ],
+          "grade": {
+            "rc": 1,
+            "elapsed_s": 58.18,
+            "stderr_tail": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": "neg04_nonidempotent_complete",
+      "reason": "a duplicate completion overwrites the stored result and adds a second result",
+      "expected_failed_gates": [
+        "idempotent_completion"
+      ],
+      "runs": [
+        {
+          "status": "FAIL",
+          "total": 89.0,
+          "failed_gates": [
+            "no_lost_completion",
+            "idempotent_completion"
+          ],
+          "failed_cases": [
+            "F4",
+            "C3"
+          ],
+          "grade": {
+            "rc": 1,
+            "elapsed_s": 18.17,
+            "stderr_tail": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": "neg05_unbounded_retries",
+      "reason": "jobs retry forever; attempts exceed max_attempts and never become terminal",
+      "expected_failed_gates": [
+        "bounded_retries"
+      ],
+      "runs": [
+        {
+          "status": "FAIL",
+          "total": 79.0,
+          "failed_gates": [
+            "bounded_retries",
+            "test_integrity"
+          ],
+          "failed_cases": [
+            "F5",
+            "T1",
+            "T2"
+          ],
+          "grade": {
+            "rc": 1,
+            "elapsed_s": 17.59,
+            "stderr_tail": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": "neg06_corrupt_state_crash",
+      "reason": "a corrupt job row raises ValueError and kills the service; no repair happens",
+      "expected_failed_gates": [
+        "corrupted_state_safe"
+      ],
+      "runs": [
+        {
+          "status": "FAIL",
+          "total": 96.0,
+          "failed_gates": [
+            "corrupted_state_safe"
+          ],
+          "failed_cases": [
+            "F10"
+          ],
+          "grade": {
+            "rc": 1,
+            "elapsed_s": 18.54,
+            "stderr_tail": ""
+          }
+        },
+        {
+          "status": "FAIL",
+          "total": 96.0,
+          "failed_gates": [
+            "corrupted_state_safe"
+          ],
+          "failed_cases": [
+            "F10"
+          ],
+          "grade": {
+            "rc": 1,
+            "elapsed_s": 18.0,
+            "stderr_tail": ""
+          }
+        }
+      ]
+    },
+    {
+      "name": "neg07_test_deletion",
+      "reason": "baseline public tests were deleted/weakened instead of kept green",
+      "expected_failed_gates": [
+        "test_integrity"
+      ],
+      "runs": [
+        {
+          "status": "FAIL",
+          "total": 100.0,
+          "failed_gates": [
+            "test_integrity"
+          ],
+          "failed_cases": [
+            "S_TESTS"
+          ],
+          "grade": {
+            "rc": 1,
+            "elapsed_s": 18.25,
+            "stderr_tail": ""
+          }
+        }
+      ]
+    }
+  ],
+  "determinism": {
+    "oracle_repeats": 3,
+    "oracle_agreement": true,
+    "oracle_signature": [
+      "PASS",
+      100.0,
+      [
+        [
+          "C1",
+          true
+        ],
+        [
+          "C2",
+          true
+        ],
+        [
+          "C3",
+          true
+        ],
+        [
+          "C4",
+          true
+        ],
+        [
+          "C5",
+          true
+        ],
+        [
+          "C6",
+          true
+        ],
+        [
+          "F1",
+          true
+        ],
+        [
+          "F10",
+          true
+        ],
+        [
+          "F2",
+          true
+        ],
+        [
+          "F3",
+          true
+        ],
+        [
+          "F4",
+          true
+        ],
+        [
+          "F5",
+          true
+        ],
+        [
+          "F7",
+          true
+        ],
+        [
+          "F8",
+          true
+        ],
+        [
+          "F9",
+          true
+        ],
+        [
+          "M1",
+          true
+        ],
+        [
+          "M2",
+          true
+        ],
+        [
+          "M3",
+          true
+        ],
+        [
+          "M4",
+          true
+        ],
+        [
+          "M5",
+          true
+        ],
+        [
+          "S_IMPORTS",
+          true
+        ],
+        [
+          "S_MEMDB",
+          true
+        ],
+        [
+          "S_TESTS",
+          true
+        ],
+        [
+          "T1",
+          true
+        ],
+        [
+          "T2",
+          true
+        ]
+      ],
+      [
+        [
+          "bounded_retries",
+          true
+        ],
+        [
+          "corrupted_state_safe",
+          true
+        ],
+        [
+          "crash_recovery",
+          true
+        ],
+        [
+          "idempotent_completion",
+          true
+        ],
+        [
+          "no_duplicate_ownership",
+          true
+        ],
+        [
+          "no_lost_completion",
+          true
+        ],
+        [
+          "no_network_thirdparty",
+          true
+        ],
+        [
+          "non_memory_storage",
+          true
+        ],
+        [
+          "persistence_restart",
+          true
+        ],
+        [
+          "test_integrity",
+          true
+        ]
+      ]
+    ],
+    "negative_repeats": {
+      "neg01_inmemory": 1,
+      "neg02_nonatomic_claim": 2,
+      "neg03_no_lease_expiry": 1,
+      "neg04_nonidempotent_complete": 1,
+      "neg05_unbounded_retries": 1,
+      "neg06_corrupt_state_crash": 2,
+      "neg07_test_deletion": 1
+    },
+    "negative_stability": {
+      "neg01_inmemory": {
+        "stable": true,
+        "statuses": [
+          "FAIL"
+        ],
+        "failed_gate_sets": [
+          [
+            "corrupted_state_safe",
+            "crash_recovery",
+            "no_duplicate_ownership",
+            "no_lost_completion",
+            "non_memory_storage",
+            "persistence_restart",
+            "test_integrity"
+          ]
+        ]
+      },
+      "neg02_nonatomic_claim": {
+        "stable": true,
+        "statuses": [
+          "FAIL"
+        ],
+        "failed_gate_sets": [
+          [
+            "no_duplicate_ownership",
+            "no_lost_completion"
+          ]
+        ]
+      },
+      "neg03_no_lease_expiry": {
+        "stable": true,
+        "statuses": [
+          "FAIL"
+        ],
+        "failed_gate_sets": [
+          [
+            "bounded_retries",
+            "crash_recovery",
+            "no_duplicate_ownership",
+            "no_lost_completion",
+            "test_integrity"
+          ]
+        ]
+      },
+      "neg04_nonidempotent_complete": {
+        "stable": true,
+        "statuses": [
+          "FAIL"
+        ],
+        "failed_gate_sets": [
+          [
+            "idempotent_completion",
+            "no_lost_completion"
+          ]
+        ]
+      },
+      "neg05_unbounded_retries": {
+        "stable": true,
+        "statuses": [
+          "FAIL"
+        ],
+        "failed_gate_sets": [
+          [
+            "bounded_retries",
+            "test_integrity"
+          ]
+        ]
+      },
+      "neg06_corrupt_state_crash": {
+        "stable": true,
+        "statuses": [
+          "FAIL"
+        ],
+        "failed_gate_sets": [
+          [
+            "corrupted_state_safe"
+          ]
+        ]
+      },
+      "neg07_test_deletion": {
+        "stable": true,
+        "statuses": [
+          "FAIL"
+        ],
+        "failed_gate_sets": [
+          [
+            "test_integrity"
+          ]
+        ]
+      }
+    }
+  },
+  "outcomes": [
+    {
+      "target": "fixture_integrity",
+      "passed": true,
+      "detail": {
+        "passed": true,
+        "details": {
+          "git_head": "4b4f88d092b049f9ae02d9aa678337ace96c4d10",
+          "git_status": "",
+          "manifest_start_commit": "4b4f88d092b049f9ae02d9aa678337ace96c4d10",
+          "tracked_files": 10
+        },
+        "errors": []
+      }
+    },
+    {
+      "target": "baseline",
+      "passed": true,
+      "detail": {
+        "status": "FAIL",
+        "total": 38.0,
+        "failed_gates": [
+          "no_duplicate_ownership",
+          "no_lost_completion",
+          "bounded_retries",
+          "crash_recovery",
+          "corrupted_state_safe",
+          "idempotent_completion"
+        ],
+        "failed_cases": [
+          "F4",
+          "F5",
+          "F7",
+          "F8",
+          "F10",
+          "C1",
+          "C2",
+          "C3",
+          "C5",
+          "C6",
+          "T2"
+        ]
+      }
+    },
+    {
+      "target": "oracle[run 0]",
+      "passed": true,
+      "detail": {
+        "status": "PASS",
+        "total": 100.0,
+        "failed_gates": [],
+        "failed_cases": []
+      }
+    },
+    {
+      "target": "oracle[run 1]",
+      "passed": true,
+      "detail": {
+        "status": "PASS",
+        "total": 100.0,
+        "failed_gates": [],
+        "failed_cases": []
+      }
+    },
+    {
+      "target": "oracle[run 2]",
+      "passed": true,
+      "detail": {
+        "status": "PASS",
+        "total": 100.0,
+        "failed_gates": [],
+        "failed_cases": []
+      }
+    },
+    {
+      "target": "neg01_inmemory[run 0]",
+      "passed": true,
+      "detail": {
+        "reason": "storage is a per-process in-memory SQLite database; a restart loses everything",
+        "status": "FAIL",
+        "total": 53.0,
+        "failed_gates": [
+          "corrupted_state_safe",
+          "crash_recovery",
+          "no_duplicate_ownership",
+          "no_lost_completion",
+          "non_memory_storage",
+          "persistence_restart",
+          "test_integrity"
+        ],
+        "expected_gates": [
+          "non_memory_storage",
+          "persistence_restart"
+        ],
+        "missed_gates": []
+      }
+    },
+    {
+      "target": "neg02_nonatomic_claim[run 0]",
+      "passed": true,
+      "detail": {
+        "reason": "SELECT then UPDATE outside a transaction lets two workers own the same job",
+        "status": "FAIL",
+        "total": 84.0,
+        "failed_gates": [
+          "no_duplicate_ownership",
+          "no_lost_completion"
+        ],
+        "expected_gates": [
+          "no_duplicate_ownership"
+        ],
+        "missed_gates": []
+      }
+    },
+    {
+      "target": "neg02_nonatomic_claim[run 1]",
+      "passed": true,
+      "detail": {
+        "reason": "SELECT then UPDATE outside a transaction lets two workers own the same job",
+        "status": "FAIL",
+        "total": 84.0,
+        "failed_gates": [
+          "no_duplicate_ownership",
+          "no_lost_completion"
+        ],
+        "expected_gates": [
+          "no_duplicate_ownership"
+        ],
+        "missed_gates": []
+      }
+    },
+    {
+      "target": "neg03_no_lease_expiry[run 0]",
+      "passed": true,
+      "detail": {
+        "reason": "an expired lease is never reclaimed, so a crashed worker's job is stuck forever",
+        "status": "FAIL",
+        "total": 60.0,
+        "failed_gates": [
+          "bounded_retries",
+          "crash_recovery",
+          "no_duplicate_ownership",
+          "no_lost_completion",
+          "test_integrity"
+        ],
+        "expected_gates": [
+          "crash_recovery"
+        ],
+        "missed_gates": []
+      }
+    },
+    {
+      "target": "neg04_nonidempotent_complete[run 0]",
+      "passed": true,
+      "detail": {
+        "reason": "a duplicate completion overwrites the stored result and adds a second result",
+        "status": "FAIL",
+        "total": 89.0,
+        "failed_gates": [
+          "idempotent_completion",
+          "no_lost_completion"
+        ],
+        "expected_gates": [
+          "idempotent_completion"
+        ],
+        "missed_gates": []
+      }
+    },
+    {
+      "target": "neg05_unbounded_retries[run 0]",
+      "passed": true,
+      "detail": {
+        "reason": "jobs retry forever; attempts exceed max_attempts and never become terminal",
+        "status": "FAIL",
+        "total": 79.0,
+        "failed_gates": [
+          "bounded_retries",
+          "test_integrity"
+        ],
+        "expected_gates": [
+          "bounded_retries"
+        ],
+        "missed_gates": []
+      }
+    },
+    {
+      "target": "neg06_corrupt_state_crash[run 0]",
+      "passed": true,
+      "detail": {
+        "reason": "a corrupt job row raises ValueError and kills the service; no repair happens",
+        "status": "FAIL",
+        "total": 96.0,
+        "failed_gates": [
+          "corrupted_state_safe"
+        ],
+        "expected_gates": [
+          "corrupted_state_safe"
+        ],
+        "missed_gates": []
+      }
+    },
+    {
+      "target": "neg06_corrupt_state_crash[run 1]",
+      "passed": true,
+      "detail": {
+        "reason": "a corrupt job row raises ValueError and kills the service; no repair happens",
+        "status": "FAIL",
+        "total": 96.0,
+        "failed_gates": [
+          "corrupted_state_safe"
+        ],
+        "expected_gates": [
+          "corrupted_state_safe"
+        ],
+        "missed_gates": []
+      }
+    },
+    {
+      "target": "neg07_test_deletion[run 0]",
+      "passed": true,
+      "detail": {
+        "reason": "baseline public tests were deleted/weakened instead of kept green",
+        "status": "FAIL",
+        "total": 100.0,
+        "failed_gates": [
+          "test_integrity"
+        ],
+        "expected_gates": [
+          "test_integrity"
+        ],
+        "missed_gates": []
+      }
+    }
+  ]
+}

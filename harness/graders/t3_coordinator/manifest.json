@@ -1,0 +1,251 @@
+{
+  "anti_cheat": [
+    "workspace copied to a temp dir; candidate tree hash checked before/after",
+    "baseline test file hashes compared before and after the public run",
+    "random uuid job ids and per-run stress tokens (no hardcoded-id answers)",
+    "claim payload cross-checked against the requested job id",
+    "real OS process concurrency and real SIGKILL (no thread-based fake concurrency)",
+    "hidden cases executed from a randomly named directory inside the copied workspace",
+    "static import scan rejects third-party and network modules",
+    "static scan rejects sqlite3 ':memory:' connections",
+    "restart persistence verified from separate processes and by reading the sqlite file directly"
+  ],
+  "baseline_export": "graders/t3_coordinator/baseline_repo",
+  "case_inventory": {
+    "concurrency_recovery": {
+      "C1": {
+        "requirement": "8 processes x 200 jobs, 2 rounds: exactly one owner per job",
+        "weight": 12
+      },
+      "C2": {
+        "requirement": "SIGKILL mid-ownership + lease expiry reclaim",
+        "weight": 8
+      },
+      "C3": {
+        "requirement": "late duplicate completion is not lost/corrupting",
+        "weight": 5
+      },
+      "C4": {
+        "requirement": "state survives process restart (graceful + abrupt)",
+        "weight": 4
+      },
+      "C5": {
+        "requirement": "SIGKILL a worker holding a job; survivors recover everything",
+        "weight": 4
+      },
+      "C6": {
+        "requirement": "expired lease reclaimed with incremented attempt",
+        "weight": 2
+      }
+    },
+    "functional": {
+      "F1": {
+        "requirement": "add_job persists payload; duplicate id rejected",
+        "weight": 4
+      },
+      "F10": {
+        "requirement": "corrupt persisted state tolerated and repaired",
+        "weight": 4
+      },
+      "F2": {
+        "requirement": "claim atomically leases one job; no second owner",
+        "weight": 4
+      },
+      "F3": {
+        "requirement": "complete persists result and releases the lease",
+        "weight": 4
+      },
+      "F4": {
+        "requirement": "repeated completion is idempotent (no double count)",
+        "weight": 6
+      },
+      "F5": {
+        "requirement": "bounded retries; exhaustion is terminal FAILED",
+        "weight": 6
+      },
+      "F7": {
+        "requirement": "heartbeat extends the lease",
+        "weight": 4
+      },
+      "F8": {
+        "requirement": "invalid input rejected with documented errors",
+        "weight": 6
+      },
+      "F9": {
+        "requirement": "ordered, filterable append-only audit trail",
+        "weight": 2
+      }
+    },
+    "maintainability": {
+      "M1": {
+        "requirement": "public API documented",
+        "weight": 3
+      },
+      "M2": {
+        "requirement": "no TODO/FIXME/NotImplementedError stubs",
+        "weight": 2
+      },
+      "M3": {
+        "requirement": "append-only audit enforced in SQL",
+        "weight": 2
+      },
+      "M4": {
+        "requirement": "no bare excepts / debug prints; compiles",
+        "weight": 2
+      },
+      "M5": {
+        "requirement": "no eval/exec/wildcard imports",
+        "weight": 1
+      }
+    },
+    "tests": {
+      "T1": {
+        "requirement": "public test suite passes unmodified",
+        "weight": 10
+      },
+      "T2": {
+        "requirement": "candidate added at least one passing test",
+        "weight": 5
+      }
+    }
+  },
+  "categories": {
+    "concurrency_recovery": 35,
+    "functional": 40,
+    "maintainability": 10,
+    "tests": 15
+  },
+  "dependencies": "standard library only (sqlite3, unittest); no network",
+  "gates": [
+    {
+      "evidence": [
+        "C1",
+        "C2",
+        "C5",
+        "C6"
+      ],
+      "id": "no_duplicate_ownership",
+      "p0": true
+    },
+    {
+      "evidence": [
+        "C4"
+      ],
+      "id": "persistence_restart",
+      "p0": true
+    },
+    {
+      "evidence": [
+        "C3",
+        "C5"
+      ],
+      "id": "no_lost_completion",
+      "p0": true
+    },
+    {
+      "evidence": [
+        "F5"
+      ],
+      "id": "bounded_retries",
+      "p0": true
+    },
+    {
+      "evidence": [
+        "C4",
+        "S_MEMDB"
+      ],
+      "id": "non_memory_storage",
+      "p0": true
+    },
+    {
+      "evidence": [
+        "C2",
+        "C6"
+      ],
+      "id": "crash_recovery",
+      "p0": true
+    },
+    {
+      "evidence": [
+        "T1",
+        "S_TESTS"
+      ],
+      "id": "test_integrity",
+      "p0": true
+    },
+    {
+      "evidence": [
+        "F10"
+      ],
+      "id": "corrupted_state_safe",
+      "p0": true
+    },
+    {
+      "evidence": [
+        "S_IMPORTS"
+      ],
+      "id": "no_network_thirdparty",
+      "p0": true
+    },
+    {
+      "evidence": [
+        "F4"
+      ],
+      "id": "idempotent_completion",
+      "p0": true
+    }
+  ],
+  "grader_command": "python3 grade.py --workspace DIR --json-out OUT.json",
+  "grader_version": "1.0.0",
+  "hidden_modules": [
+    "hidden/test_functional.py",
+    "hidden/test_corruption.py",
+    "hidden/test_recovery.py"
+  ],
+  "language": "python3.13",
+  "name": "crash-safe durable concurrent job coordinator",
+  "negatives": {
+    "neg01_inmemory": [
+      "non_memory_storage",
+      "persistence_restart"
+    ],
+    "neg02_nonatomic_claim": [
+      "no_duplicate_ownership"
+    ],
+    "neg03_no_lease_expiry": [
+      "crash_recovery"
+    ],
+    "neg04_nonidempotent_complete": [
+      "idempotent_completion"
+    ],
+    "neg05_unbounded_retries": [
+      "bounded_retries"
+    ],
+    "neg06_corrupt_state_crash": [
+      "corrupted_state_safe"
+    ],
+    "neg07_test_deletion": [
+      "test_integrity"
+    ]
+  },
+  "oracle": "oracle/apply_oracle.sh WORKSPACE",
+  "pass_rule": "total >= 80 and all P0 gates pass",
+  "start_commit": "4b4f88d092b049f9ae02d9aa678337ace96c4d10",
+  "start_commit_sha": "4b4f88d092b049f9ae02d9aa678337ace96c4d10",
+  "static_gates": {
+    "S_IMPORTS": "stdlib-only imports, no network-capable modules",
+    "S_MEMDB": "no sqlite3 :memory: connection used for storage",
+    "S_TESTS": "baseline test files present and byte-identical (checked before and after the run)"
+  },
+  "task_id": "t3",
+  "task_repo": "tasks/t3_coordinator/repo",
+  "test_command": "python3 -m unittest discover -s tests -v",
+  "timeout_seconds": {
+    "grader_total": 175,
+    "hidden_corruption": 45,
+    "hidden_functional": 60,
+    "hidden_recovery": 110,
+    "public_suite": 60,
+    "task_agent_budget": 1800
+  }
+}

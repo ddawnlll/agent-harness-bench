@@ -1,0 +1,109 @@
+{
+  "checks": [
+    {
+      "detail": "agent-harness-bench/public-data/1",
+      "id": "schema",
+      "status": "PASS"
+    },
+    {
+      "detail": "9 trials",
+      "id": "trial_count",
+      "status": "PASS"
+    },
+    {
+      "detail": "one trial per task/agent",
+      "id": "trial_uniqueness",
+      "status": "PASS"
+    },
+    {
+      "detail": "0 discrepancies",
+      "id": "reconciliation",
+      "status": "PASS"
+    },
+    {
+      "detail": "755 files verified",
+      "id": "seal",
+      "status": "PASS"
+    },
+    {
+      "detail": "all aggregates match trials",
+      "id": "aggregate_recompute",
+      "status": "PASS"
+    },
+    {
+      "detail": "verified_pass mirrors grader status",
+      "id": "pass_semantics",
+      "status": "PASS"
+    },
+    {
+      "detail": "ranking ['jcode', 'pi-bolt', 'hax']",
+      "id": "verdict_rule",
+      "status": "PASS"
+    },
+    {
+      "detail": "CHART CHECK OK: 12 SVGs byte-identical",
+      "id": "charts_deterministic",
+      "status": "PASS"
+    },
+    {
+      "detail": "SVG CHECK OK: 12 files, 6 light/dark pairs, structural parity verified",
+      "id": "svg_structure",
+      "status": "PASS"
+    },
+    {
+      "detail": "CONTRAST OK: all enforced pairs meet WCAG AA thresholds",
+      "id": "contrast",
+      "status": "PASS"
+    },
+    {
+      "detail": "SITE CHECK OK: 15 files byte-identical",
+      "id": "site_current",
+      "status": "PASS"
+    },
+    {
+      "detail": "PUBLISH CHECK OK: 268 text files scanned, 0 secret/identifier findings, links and report seal verified, 0 warnings",
+      "id": "publish_safety",
+      "status": "PASS"
+    },
+    {
+      "detail": "12/12 present",
+      "id": "figures_present",
+      "status": "PASS"
+    },
+    {
+      "detail": "sanitized forensic report",
+      "id": "report_present",
+      "status": "PASS"
+    },
+    {
+      "detail": "sealed run directories are not published",
+      "id": "no_raw_runs",
+      "status": "PASS"
+    },
+    {
+      "detail": "5 files verified",
+      "id": "results_seal",
+      "status": "PASS"
+    },
+    {
+      "detail": "all figures referenced",
+      "id": "readme_figures",
+      "status": "PASS"
+    },
+    {
+      "detail": "report linked from README",
+      "id": "readme_report",
+      "status": "PASS"
+    }
+  ],
+  "generated_utc": "2026-11-08T10:09:48.861743+00:00",
+  "hashes": {
+    "README.md": "9b4a837701f7bf35e0859c85121579e3d35059ca7bad4dce45363110adb27a5e",
+    "publication-data.json": "76a6383123425507e1a25a8e2a257917fac1311804b232c6664af9fdb32b9d6b",
+    "report": "9900f9843253efacf3f61e423b7e1e91a64d8f40b7e5250e571f7dfde6a2e0cd",
+    "report-seal": "393b92ae2c52b6bd1d52ee15910e47bf09d322cce502bcb37383f8ed67165aaf",
+    "site/index.html": "1a9873e7dd08d9ae20870582aaef410a023e83716fc8c662eccd5272375a5736"
+  },
+  "schema": "agent-harness-bench/publication-audit/1",
+  "status": "PASS"
+}

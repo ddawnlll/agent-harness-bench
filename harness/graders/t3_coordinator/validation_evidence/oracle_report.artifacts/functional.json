@@ -1,0 +1,69 @@
+{
+  "start_dir": "/tmp/t3-grade-xmf4r8xw/workspace/_hidden_a0d885e9",
+  "records": [
+    {
+      "id": "test_functional.TestFunctional.test_F1_add_and_status_roundtrip",
+      "case": "F1",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 62.51
+    },
+    {
+      "id": "test_functional.TestFunctional.test_F2_atomic_claim_visibility",
+      "case": "F2",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 11.38
+    },
+    {
+      "id": "test_functional.TestFunctional.test_F3_completion_persists_result_and_releases_lease",
+      "case": "F3",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 15.16
+    },
+    {
+      "id": "test_functional.TestFunctional.test_F4_completion_is_idempotent",
+      "case": "F4",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 10.22
+    },
+    {
+      "id": "test_functional.TestFunctional.test_F5_retries_are_bounded_and_terminal",
+      "case": "F5",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 1021.07
+    },
+    {
+      "id": "test_functional.TestFunctional.test_F7_heartbeat_extends_the_lease",
+      "case": "F7",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 1220.13
+    },
+    {
+      "id": "test_functional.TestFunctional.test_F8_invalid_input_is_rejected_cleanly",
+      "case": "F8",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 1127.39
+    },
+    {
+      "id": "test_functional.TestFunctional.test_F9_audit_trail_is_ordered_and_filterable",
+      "case": "F9",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 33.43
+    }
+  ],
+  "counts": {
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "elapsed_s": 3.522,
+  "discovery_error": null
+}

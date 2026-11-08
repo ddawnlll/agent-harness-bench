@@ -1,0 +1,422 @@
+{
+  "task_id": "t3",
+  "status": "FAIL",
+  "total": 38.0,
+  "categories": {
+    "functional": {
+      "score": 14.0,
+      "max": 40,
+      "passed_cases": 4,
+      "total_cases": 9
+    },
+    "concurrency_recovery": {
+      "score": 4.0,
+      "max": 35,
+      "passed_cases": 1,
+      "total_cases": 6
+    },
+    "tests": {
+      "score": 10.0,
+      "max": 15,
+      "passed_cases": 1,
+      "total_cases": 2
+    },
+    "maintainability": {
+      "score": 10.0,
+      "max": 10,
+      "passed_cases": 5,
+      "total_cases": 5
+    }
+  },
+  "gates": [
+    {
+      "id": "no_duplicate_ownership",
+      "severity": "P0",
+      "passed": false,
+      "detail": "C1:     self._stress_round(round_index, directory, db, metrics)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_recovery.py\", line 123, in _stress_round\n    self.assertEqual(errors, [], f\"workers reported errors: {errors[:5]}\")\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists diff; C2:   File \"/usr/lib/python3.13/unittest/case.py\", line 651, in run\n    self._callTestMethod(testMethod)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/unittest/case.py\", line 606, in _callTestMethod\n    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_recovery.py\", line 208, in test_C2_sigkill_mid_ownership_then_lease_expiry_rec; C5:     H.wait_until(\n    ~~~~~~~~~~~~^\n        lambda: inspector.stats()[\"by_state\"].get(\"DONE\") == total,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        timeout=40, message=\"survivors to reclaim and complete all jobs\",\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/harness.py; C6:   File \"/usr/lib/python3.13/unittest/case.py\", line 58, in testPartExecutor\n    yield\n  File \"/usr/lib/python3.13/unittest/case.py\", line 651, in run\n    self._callTestMethod(testMethod)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/unittest/case.py\", line 60",
+      "evidence": [
+        "C1",
+        "C2",
+        "C5",
+        "C6"
+      ]
+    },
+    {
+      "id": "persistence_restart",
+      "severity": "P0",
+      "passed": true,
+      "detail": "all evidence passed",
+      "evidence": [
+        "C4"
+      ]
+    },
+    {
+      "id": "no_lost_completion",
+      "severity": "P0",
+      "passed": false,
+      "detail": "C3:   File \"/usr/lib/python3.13/unittest/case.py\", line 58, in testPartExecutor\n    yield\n  File \"/usr/lib/python3.13/unittest/case.py\", line 651, in run\n    self._callTestMethod(testMethod)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/unittest/case.py\", line 606, in _callTestMethod\n    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c7; C5:     H.wait_until(\n    ~~~~~~~~~~~~^\n        lambda: inspector.stats()[\"by_state\"].get(\"DONE\") == total,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        timeout=40, message=\"survivors to reclaim and complete all jobs\",\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/harness.py",
+      "evidence": [
+        "C3",
+        "C5"
+      ]
+    },
+    {
+      "id": "bounded_retries",
+      "severity": "P0",
+      "passed": false,
+      "detail": "F5: AssertionError: Lists differ: ['RETRY', 'RETRY', 'RETRY'] != ['RETRY', 'RETRY', 'FAILED']\n\nFirst differing element 2:\n'RETRY'\n'FAILED'\n\n- ['RETRY', 'RETRY', 'RETRY']\n?                     ^ ^^^\n\n+ ['RETRY', 'RETRY', 'FAILED']\n?                     ^^^^ ^\n : third failed attempt must be terminal FAILED",
+      "evidence": [
+        "F5"
+      ]
+    },
+    {
+      "id": "non_memory_storage",
+      "severity": "P0",
+      "passed": true,
+      "detail": "all evidence passed",
+      "evidence": [
+        "C4",
+        "S_MEMDB"
+      ]
+    },
+    {
+      "id": "crash_recovery",
+      "severity": "P0",
+      "passed": false,
+      "detail": "C2:   File \"/usr/lib/python3.13/unittest/case.py\", line 651, in run\n    self._callTestMethod(testMethod)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/unittest/case.py\", line 606, in _callTestMethod\n    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_recovery.py\", line 208, in test_C2_sigkill_mid_ownership_then_lease_expiry_rec; C6:   File \"/usr/lib/python3.13/unittest/case.py\", line 58, in testPartExecutor\n    yield\n  File \"/usr/lib/python3.13/unittest/case.py\", line 651, in run\n    self._callTestMethod(testMethod)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/unittest/case.py\", line 606, in _callTestMethod\n    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c7",
+      "evidence": [
+        "C2",
+        "C6"
+      ]
+    },
+    {
+      "id": "test_integrity",
+      "severity": "P0",
+      "passed": true,
+      "detail": "all evidence passed",
+      "evidence": [
+        "T1",
+        "S_TESTS"
+      ]
+    },
+    {
+      "id": "corrupted_state_safe",
+      "severity": "P0",
+      "passed": false,
+      "detail": "F10:     self._callTestMethod(testMethod)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/unittest/case.py\", line 606, in _callTestMethod\n    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_corruption.py\", line 107, in test_F10_corrupt_state_is_tolerated_and_repaired\n    tolerant = self.coord(lease_seconds=60.0, auto_repair=False)",
+      "evidence": [
+        "F10"
+      ]
+    },
+    {
+      "id": "no_network_thirdparty",
+      "severity": "P0",
+      "passed": true,
+      "detail": "all evidence passed",
+      "evidence": [
+        "S_IMPORTS"
+      ]
+    },
+    {
+      "id": "idempotent_completion",
+      "severity": "P0",
+      "passed": false,
+      "detail": "F4:     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/unittest/case.py\", line 606, in _callTestMethod\n    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_functional.py\", line 121, in test_F4_completion_is_idempotent\n    repeat = coord.complete(job_id, \"worker-a\", {\"v\": 1, \"winner\": \"worker-a\"})\n  File \"/tmp/t3-grade-muh40qib/worksp",
+      "evidence": [
+        "F4"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "F1",
+      "requirement": "add_job persists payload; duplicate id rejected",
+      "severity": "P1",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 94.27
+    },
+    {
+      "id": "F2",
+      "requirement": "claim atomically leases one job; no second owner",
+      "severity": "P1",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 19.17
+    },
+    {
+      "id": "F3",
+      "requirement": "complete persists result and releases the lease",
+      "severity": "P1",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 19.57
+    },
+    {
+      "id": "F4",
+      "requirement": "repeated completion is idempotent (no double count)",
+      "severity": "P0",
+      "passed": false,
+      "detail": "    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/unittest/case.py\", line 606, in _callTestMethod\n    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_functional.py\", line 121, in test_F4_completion_is_idempotent\n    repeat = coord.complete(job_id, \"worker-a\", {\"v\": 1, \"winner\": \"worker-a\"})\n  File \"/tmp/t3-grade-muh40qib/workspace/coordinator/core.py\", line 315, in complete\n    self._check_lease(row, worker_id)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"/tmp/t3-grade-muh40qib/workspace/coordinator/core.py\", line 264, in _check_lease\n    raise InvalidTransitionError(f\"job {row['job_id']} is already {row['state']}\")\ncoordinator.errors.InvalidTransitionError: job f4-b7fd3990e3174a5d99e68156f0bd1990 is already DONE",
+      "duration_ms": 25.76
+    },
+    {
+      "id": "F5",
+      "requirement": "bounded retries; exhaustion is terminal FAILED",
+      "severity": "P0",
+      "passed": false,
+      "detail": "AssertionError: Lists differ: ['RETRY', 'RETRY', 'RETRY'] != ['RETRY', 'RETRY', 'FAILED']\n\nFirst differing element 2:\n'RETRY'\n'FAILED'\n\n- ['RETRY', 'RETRY', 'RETRY']\n?                     ^ ^^^\n\n+ ['RETRY', 'RETRY', 'FAILED']\n?                     ^^^^ ^\n : third failed attempt must be terminal FAILED",
+      "duration_ms": 29.3
+    },
+    {
+      "id": "F7",
+      "requirement": "heartbeat extends the lease",
+      "severity": "P1",
+      "passed": false,
+      "detail": "    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_functional.py\", line 202, in test_F7_heartbeat_extends_the_lease\n    self.assertGreaterEqual(\n    ~~~~~~~~~~~~~~~~~~~~~~~^\n        first.lease_expires_at, time.time() + 0.5,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        \"heartbeat must push lease_expires_at ~lease_seconds into the future\",\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\nAssertionError: 1794093312.1222024 not greater than or equal to 1794093312.1273105 : heartbeat must push lease_expires_at ~lease_seconds into the future",
+      "duration_ms": 519.25
+    },
+    {
+      "id": "F8",
+      "requirement": "invalid input rejected with documented errors",
+      "severity": "P1",
+      "passed": false,
+      "detail": "  File \"/usr/lib/python3.13/unittest/case.py\", line 58, in testPartExecutor\n    yield\n  File \"/usr/lib/python3.13/unittest/case.py\", line 651, in run\n    self._callTestMethod(testMethod)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/unittest/case.py\", line 606, in _callTestMethod\n    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_functional.py\", line 250, in test_F8_invalid_input_is_rejected_cleanly\n    with self.assertRaises(lease_error, msg=\"expired lease must not complete\"):\n         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: LeaseError not raised : expired lease must not complete",
+      "duration_ms": 1120.22
+    },
+    {
+      "id": "F9",
+      "requirement": "ordered, filterable append-only audit trail",
+      "severity": "P1",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 15.88
+    },
+    {
+      "id": "F10",
+      "requirement": "corrupt persisted state tolerated and repaired",
+      "severity": "P0",
+      "passed": false,
+      "detail": "    self._callTestMethod(testMethod)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/unittest/case.py\", line 606, in _callTestMethod\n    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_corruption.py\", line 107, in test_F10_corrupt_state_is_tolerated_and_repaired\n    tolerant = self.coord(lease_seconds=60.0, auto_repair=False)\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_corruption.py\", line 21, in coord\n    coord = H.make_coord(self.db, **kwargs)\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/harness.py\", line 53, in make_coord\n    return Coordinator(db, **kwargs)\nTypeError: Coordinator.__init__() got an unexpected keyword argument 'auto_repair'",
+      "duration_ms": 93.52
+    },
+    {
+      "id": "C1",
+      "requirement": "8 processes x 200 jobs: exactly one owner per job",
+      "severity": "P0",
+      "passed": false,
+      "detail": "    self._stress_round(round_index, directory, db, metrics)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_recovery.py\", line 123, in _stress_round\n    self.assertEqual(errors, [], f\"workers reported errors: {errors[:5]}\")\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: [{'op': 'complete_error', 'job': 'stress-0[860 chars]w7'}] != []\n\nFirst list contains 7 additional elements.\nFirst extra element 0:\n{'op': 'complete_error', 'job': 'stress-0b8cd24e-0000', 'error': 'InvalidTransitionError: job stress-0b8cd24e-0000 is already DONE'}\n\nDiff is 989 characters long. Set self.maxDiff to None to see it. : workers reported errors: [{'op': 'complete_error', 'job': 'stress-0b8cd24e-0000', 'error': 'InvalidTransitionError: job stress-0b8cd24e-0000 is already DONE'}, {'op': 'complete_error', 'job': 'stress-0b8cd24e-0000', 'error': 'LeaseError: job stress-0b8cd24e-0000 has no lease'}, {'op': 'complete_error', 'job': 'stress-0b8cd24e-0001', 'error': 'LeaseError: job stress-0b8cd24e-0001 is leased by w4, not w2'}, {'op': 'complete_error', 'job': 'stress-0b8cd24e-0002', 'error': 'InvalidTransitionError: job stress-0b8cd24e-0002 is already DONE'}, {'op': 'complete_error', 'job': 'stress-0b8cd24e-0001', 'error': 'LeaseError: job stress-0b8cd24e-0001 is leased by w2, not w5'}]",
+      "duration_ms": 1820.47
+    },
+    {
+      "id": "C2",
+      "requirement": "SIGKILL mid-ownership + lease expiry reclaim",
+      "severity": "P0",
+      "passed": false,
+      "detail": "  File \"/usr/lib/python3.13/unittest/case.py\", line 651, in run\n    self._callTestMethod(testMethod)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/unittest/case.py\", line 606, in _callTestMethod\n    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_recovery.py\", line 208, in test_C2_sigkill_mid_ownership_then_lease_expiry_reclaim\n    self.assertEqual(reclaimed.job_id, job_id)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'c2-6e1387cf4dab4d58a56e64e652e18b4f' != 'c2-007720461cfe40928b5dbbee528c0be4'\n- c2-6e1387cf4dab4d58a56e64e652e18b4f\n+ c2-007720461cfe40928b5dbbee528c0be4",
+      "duration_ms": 1703.42
+    },
+    {
+      "id": "C3",
+      "requirement": "late duplicate completion is not lost/corrupting",
+      "severity": "P0",
+      "passed": false,
+      "detail": "  File \"/usr/lib/python3.13/unittest/case.py\", line 58, in testPartExecutor\n    yield\n  File \"/usr/lib/python3.13/unittest/case.py\", line 651, in run\n    self._callTestMethod(testMethod)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/unittest/case.py\", line 606, in _callTestMethod\n    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_recovery.py\", line 234, in test_C3_late_duplicate_completion_after_reclaim\n    self.assertIsNotNone(reclaimed)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^\nAssertionError: unexpectedly None",
+      "duration_ms": 1757.05
+    },
+    {
+      "id": "C4",
+      "requirement": "state survives process restart (graceful + abrupt)",
+      "severity": "P0",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 809.16
+    },
+    {
+      "id": "C5",
+      "requirement": "kill one of three workers; survivors recover all",
+      "severity": "P0",
+      "passed": false,
+      "detail": "    H.wait_until(\n    ~~~~~~~~~~~~^\n        lambda: inspector.stats()[\"by_state\"].get(\"DONE\") == total,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        timeout=40, message=\"survivors to reclaim and complete all jobs\",\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/harness.py\", line 169, in wait_until\n    raise AssertionError(f\"timed out after {timeout}s waiting for {message}\"\n                         + (f\" (last error: {last_error!r})\" if last_error else \"\"))\nAssertionError: timed out after 40s waiting for survivors to reclaim and complete all jobs",
+      "duration_ms": 44707.09
+    },
+    {
+      "id": "C6",
+      "requirement": "expired lease reclaimed with incremented attempt",
+      "severity": "P0",
+      "passed": false,
+      "detail": "  File \"/usr/lib/python3.13/unittest/case.py\", line 58, in testPartExecutor\n    yield\n  File \"/usr/lib/python3.13/unittest/case.py\", line 651, in run\n    self._callTestMethod(testMethod)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/unittest/case.py\", line 606, in _callTestMethod\n    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_recovery.py\", line 436, in test_C6_expired_lease_is_reclaimed_and_counted\n    self.assertIsNotNone(again, \"expired lease was never reclaimed\")\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: unexpectedly None : expired lease was never reclaimed",
+      "duration_ms": 1264.03
+    },
+    {
+      "id": "T1",
+      "requirement": "public test suite passes unmodified",
+      "severity": "P0",
+      "passed": true,
+      "detail": "public suite: 11 tests, 0 failures, 0 errors",
+      "duration_ms": 960
+    },
+    {
+      "id": "T2",
+      "requirement": "candidate added at least one passing test of their own",
+      "severity": "P1",
+      "passed": false,
+      "detail": "no tests were added under tests/",
+      "duration_ms": null
+    },
+    {
+      "id": "M1",
+      "requirement": "public API is documented (docstrings)",
+      "severity": "P1",
+      "passed": true,
+      "detail": "Coordinator and all public methods documented",
+      "duration_ms": null
+    },
+    {
+      "id": "M2",
+      "requirement": "no TODO/FIXME/NotImplementedError stubs left",
+      "severity": "P1",
+      "passed": true,
+      "detail": "no stub markers",
+      "duration_ms": null
+    },
+    {
+      "id": "M3",
+      "requirement": "audit receipts are append-only (enforced in SQL)",
+      "severity": "P1",
+      "passed": true,
+      "detail": "append-only triggers declared (2)",
+      "duration_ms": null
+    },
+    {
+      "id": "M4",
+      "requirement": "no bare excepts / debug prints; sources compile",
+      "severity": "P1",
+      "passed": true,
+      "detail": "no bare excepts, no debug prints, sources compile",
+      "duration_ms": null
+    },
+    {
+      "id": "M5",
+      "requirement": "no eval/exec/wildcard imports",
+      "severity": "P1",
+      "passed": true,
+      "detail": "no eval/exec/wildcard imports",
+      "duration_ms": null
+    },
+    {
+      "id": "S_TESTS",
+      "requirement": "baseline test files are present and byte-identical",
+      "severity": "P0",
+      "passed": true,
+      "detail": "baseline tests intact",
+      "duration_ms": null
+    },
+    {
+      "id": "S_IMPORTS",
+      "requirement": "no third-party imports and no network modules",
+      "severity": "P0",
+      "passed": true,
+      "detail": "stdlib-only imports, no network modules",
+      "duration_ms": null
+    },
+    {
+      "id": "S_MEMDB",
+      "requirement": "no in-memory SQLite database is used for storage",
+      "severity": "P0",
+      "passed": true,
+      "detail": "no sqlite3 :memory: connection",
+      "duration_ms": null
+    }
+  ],
+  "determinism": {
+    "repeats": 1,
+    "agreement": true,
+    "stress_rounds": [
+      {
+        "round": 0,
+        "passed": false,
+        "claimed": 200,
+        "duplicates": 17,
+        "errors": 7,
+        "done": 0,
+        "results": 0,
+        "jobs": 200,
+        "workers": 8,
+        "failure": "Lists differ: [{'op': 'complete_error', 'job': 'stress-0[860 chars]w7'}] != []\n\nFirst list contains 7 additional elements.\nFirst extra element 0:\n{'op': 'complete_error', 'job': 'stress-0b8cd24e-0000', 'error': 'InvalidTransitionError: job stress-0b8cd24e-0000 is already DONE'}\n\nDiff is 989 characters long. Set self.maxDiff to None to see it. : workers reported errors: [{'op': 'complete_error', 'job': 'stress-0b8cd24e-0000', 'error': 'InvalidTransitionError: job stress-0b8cd24e-0000 is already DONE'}, {'op': 'complete_error', 'job': 'stress-0b8cd24e-0000', 'error': 'LeaseError: job stress-0b8cd24e-0000 has no lease'}, {'op': 'complete_error', 'job': 'stress-0b8cd24e-0001', 'error': 'LeaseError: job stress-0b8cd24e-0001 is leased by w4, not w2'}, {'op': 'complete_error', 'job': 'stress-0b8c"
+      }
+    ]
+  },
+  "evidence_refs": [
+    "/home/researcher/agent-benchmark/graders/t3_coordinator/validation_evidence/baseline_report.artifacts/public.json",
+    "/home/researcher/agent-benchmark/graders/t3_coordinator/validation_evidence/baseline_report.artifacts/functional.json",
+    "/home/researcher/agent-benchmark/graders/t3_coordinator/validation_evidence/baseline_report.artifacts/corruption.json",
+    "/home/researcher/agent-benchmark/graders/t3_coordinator/validation_evidence/baseline_report.artifacts/recovery.json",
+    "/home/researcher/agent-benchmark/graders/t3_coordinator/validation_evidence/baseline_report.artifacts/static_analysis.json"
+  ],
+  "grader": {
+    "version": "1.0.0",
+    "task_id": "t3",
+    "elapsed_s": 56.14,
+    "workspace": "/home/researcher/agent-benchmark/graders/t3_coordinator/baseline_repo",
+    "workspace_untouched": true,
+    "baseline_repo": "/home/researcher/agent-benchmark/graders/t3_coordinator/baseline_repo",
+    "baseline_sha": "4b4f88d092b049f9ae02d9aa678337ace96c4d10",
+    "test_command": "python3 -m unittest discover -s tests -v",
+    "time_budget_s": 175.0,
+    "groups": [
+      {
+        "label": "public",
+        "rc": 0,
+        "timed_out": false,
+        "elapsed_s": 0.96,
+        "discovery_error": null,
+        "counts": {
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "label": "functional",
+        "rc": 1,
+        "timed_out": false,
+        "elapsed_s": 2.23,
+        "discovery_error": null,
+        "counts": {
+          "tests": 8,
+          "failures": 3,
+          "errors": 1,
+          "skipped": 0
+        }
+      },
+      {
+        "label": "corruption",
+        "rc": 1,
+        "timed_out": false,
+        "elapsed_s": 0.4,
+        "discovery_error": null,
+        "counts": {
+          "tests": 1,
+          "failures": 0,
+          "errors": 1,
+          "skipped": 0
+        }
+      },
+      {
+        "label": "recovery",
+        "rc": 1,
+        "timed_out": false,
+        "elapsed_s": 52.3,
+        "discovery_error": null,
+        "counts": {
+          "tests": 6,
+          "failures": 5,
+          "errors": 0,
+          "skipped": 0
+        }
+      }
+    ]
+  }
+}

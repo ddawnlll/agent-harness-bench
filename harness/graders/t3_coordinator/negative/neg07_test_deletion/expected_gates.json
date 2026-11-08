@@ -1,0 +1,4 @@
+{
+  "expected_failed_gates": ["test_integrity"],
+  "reason": "baseline public tests were deleted/weakened instead of kept green"
+}

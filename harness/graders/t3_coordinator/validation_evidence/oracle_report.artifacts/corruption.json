@@ -1,0 +1,20 @@
+{
+  "start_dir": "/tmp/t3-grade-xmf4r8xw/workspace/_hidden_a0d885e9",
+  "records": [
+    {
+      "id": "test_corruption.TestCorruptState.test_F10_corrupt_state_is_tolerated_and_repaired",
+      "case": "F10",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 123.97
+    }
+  ],
+  "counts": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "elapsed_s": 0.165,
+  "discovery_error": null
+}

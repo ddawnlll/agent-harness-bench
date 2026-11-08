@@ -1,0 +1,20 @@
+{
+  "start_dir": "/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799",
+  "records": [
+    {
+      "id": "test_corruption.TestCorruptState.test_F10_corrupt_state_is_tolerated_and_repaired",
+      "case": "F10",
+      "passed": false,
+      "detail": "    self._callTestMethod(testMethod)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/unittest/case.py\", line 606, in _callTestMethod\n    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_corruption.py\", line 107, in test_F10_corrupt_state_is_tolerated_and_repaired\n    tolerant = self.coord(lease_seconds=60.0, auto_repair=False)\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_corruption.py\", line 21, in coord\n    coord = H.make_coord(self.db, **kwargs)\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/harness.py\", line 53, in make_coord\n    return Coordinator(db, **kwargs)\nTypeError: Coordinator.__init__() got an unexpected keyword argument 'auto_repair'",
+      "duration_ms": 93.52
+    }
+  ],
+  "counts": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 1,
+    "skipped": 0
+  },
+  "elapsed_s": 0.16,
+  "discovery_error": null
+}

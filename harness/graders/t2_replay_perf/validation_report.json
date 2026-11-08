@@ -1,0 +1,224 @@
+{
+  "baseline": {
+    "expectation_met": true,
+    "failed_gates": [],
+    "grader_elapsed_s": 116.43,
+    "grader_exit_code": 1,
+    "invalid_reason": null,
+    "performance_score": 0.0,
+    "speedup_adversarial": 0.961,
+    "speedup_large": 1.076,
+    "status": "FAIL",
+    "total": 60.71
+  },
+  "expectations_met": true,
+  "failures": [],
+  "finished_at": "2026-11-07T23:32:28Z",
+  "grader_version": "1.0.0",
+  "negatives": [
+    {
+      "description": "Applies the oracle and then changes the fee rate (FEE_BPS 2 -> 20). Fast, but cash/fees/pnl values differ from the baseline.",
+      "expectation_met": true,
+      "expected_failing_gates": [
+        "parity"
+      ],
+      "expected_zero_performance": true,
+      "failed_gates": [
+        "parity",
+        "pristine_tests",
+        "public_tests"
+      ],
+      "id": "neg01_output_value_changed",
+      "missing_expected_gates": [],
+      "performance_score": 0.0,
+      "report_path": "/home/researcher/agent-benchmark/graders/t2_replay_perf/validation_reports/neg01_output_value_changed.json",
+      "speedup_large": 5.767,
+      "status": "FAIL",
+      "total": 29.79
+    },
+    {
+      "description": "Optimised, but the public tests are weakened: test_cli.py is deleted and the accounting tests are skipped.",
+      "expectation_met": true,
+      "expected_failing_gates": [
+        "public_tests",
+        "test_integrity"
+      ],
+      "expected_zero_performance": false,
+      "failed_gates": [
+        "public_tests",
+        "test_integrity"
+      ],
+      "id": "neg02_tests_weakened",
+      "missing_expected_gates": [],
+      "performance_score": 35.0,
+      "report_path": "/home/researcher/agent-benchmark/graders/t2_replay_perf/validation_reports/neg02_tests_weakened.json",
+      "speedup_large": 5.626,
+      "status": "FAIL",
+      "total": 88.88
+    },
+    {
+      "description": "The CLI ignores the input and always writes the committed golden document for data/small.jsonl. Extremely fast, completely wrong for every hidden workload.",
+      "expectation_met": true,
+      "expected_failing_gates": [
+        "constant_output",
+        "parity"
+      ],
+      "expected_zero_performance": true,
+      "failed_gates": [
+        "constant_output",
+        "parity",
+        "pristine_tests",
+        "public_tests"
+      ],
+      "id": "neg03_hardcoded_output",
+      "missing_expected_gates": [],
+      "performance_score": 0.0,
+      "report_path": "/home/researcher/agent-benchmark/graders/t2_replay_perf/validation_reports/neg03_hardcoded_output.json",
+      "speedup_large": 55.574,
+      "status": "FAIL",
+      "total": 28.0
+    },
+    {
+      "description": "Skips every second event in the loader (half the work), so it is faster but reports fewer events and different numbers.",
+      "expectation_met": true,
+      "expected_failing_gates": [
+        "parity"
+      ],
+      "expected_zero_performance": true,
+      "failed_gates": [
+        "parity",
+        "pristine_tests",
+        "public_tests"
+      ],
+      "id": "neg04_reduced_workload",
+      "missing_expected_gates": [],
+      "performance_score": 0.0,
+      "report_path": "/home/researcher/agent-benchmark/graders/t2_replay_perf/validation_reports/neg04_reduced_workload.json",
+      "speedup_large": 1.253,
+      "status": "FAIL",
+      "total": 28.0
+    },
+    {
+      "description": "Optimised, but same-price orders are matched in random order (random tie-break), so trades and outputs differ between runs.",
+      "expectation_met": true,
+      "expected_failing_gates": [
+        "determinism"
+      ],
+      "expected_zero_performance": false,
+      "failed_gates": [
+        "determinism",
+        "parity",
+        "pristine_tests",
+        "public_tests"
+      ],
+      "id": "neg05_nondeterministic_ties",
+      "missing_expected_gates": [],
+      "performance_score": 0.0,
+      "report_path": "/home/researcher/agent-benchmark/graders/t2_replay_perf/validation_reports/neg05_nondeterministic_ties.json",
+      "speedup_large": 5.281,
+      "status": "FAIL",
+      "total": 26.88
+    },
+    {
+      "description": "Keeps a result cache keyed by the sha256 of the input file in .replay_cache/. First run does real work; later runs copy the cached document, which fakes the measured speedup and writes state into the workspace.",
+      "expectation_met": true,
+      "expected_failing_gates": [
+        "fake_speed",
+        "no_cache_artifacts"
+      ],
+      "expected_zero_performance": true,
+      "failed_gates": [
+        "fake_speed",
+        "no_cache_artifacts"
+      ],
+      "id": "neg06_hash_cache",
+      "missing_expected_gates": [],
+      "performance_score": 0.0,
+      "report_path": "/home/researcher/agent-benchmark/graders/t2_replay_perf/validation_reports/neg06_hash_cache.json",
+      "speedup_large": 49.289,
+      "status": "FAIL",
+      "total": 60.6
+    },
+    {
+      "description": "Optimised and output-correct, but the engine imports socket (forbidden network module). Must fail the P0 policy gate even with a perfect score.",
+      "expectation_met": true,
+      "expected_failing_gates": [
+        "no_third_party_or_network"
+      ],
+      "expected_zero_performance": false,
+      "failed_gates": [
+        "no_third_party_or_network"
+      ],
+      "id": "neg07_network_import",
+      "missing_expected_gates": [],
+      "performance_score": 35.0,
+      "report_path": "/home/researcher/agent-benchmark/graders/t2_replay_perf/validation_reports/neg07_network_import.json",
+      "speedup_large": 5.569,
+      "status": "FAIL",
+      "total": 97.78
+    }
+  ],
+  "oracle": {
+    "expectation_met": true,
+    "expected": {
+      "min_speedup_large": 3.0,
+      "min_total": 80.0,
+      "status": "PASS"
+    },
+    "identical_verdicts": true,
+    "runs": [
+      {
+        "failed_gates": [],
+        "grader_elapsed_s": 75.77,
+        "grader_exit_code": 0,
+        "invalid_reason": null,
+        "performance_score": 35.0,
+        "speedup_adversarial": 3.422,
+        "speedup_large": 4.701,
+        "status": "PASS",
+        "total": 98.85
+      },
+      {
+        "failed_gates": [],
+        "grader_elapsed_s": 70.26,
+        "grader_exit_code": 0,
+        "invalid_reason": null,
+        "performance_score": 35.0,
+        "speedup_adversarial": 3.75,
+        "speedup_large": 6.784,
+        "status": "PASS",
+        "total": 98.78
+      },
+      {
+        "failed_gates": [],
+        "grader_elapsed_s": 72.99,
+        "grader_exit_code": 0,
+        "invalid_reason": null,
+        "performance_score": 35.0,
+        "speedup_adversarial": 3.17,
+        "speedup_large": 4.76,
+        "status": "PASS",
+        "total": 98.85
+      }
+    ],
+    "speedups_large": [
+      4.701,
+      6.784,
+      4.76
+    ],
+    "totals": [
+      98.85,
+      98.78,
+      98.85
+    ]
+  },
+  "settings": {
+    "negative_repeats": 1,
+    "oracle_runs": 3,
+    "repeats": 3
+  },
+  "started_at": "2026-11-07T23:21:33Z",
+  "task_id": "t2",
+  "task_repo": "/home/researcher/agent-benchmark/tasks/t2_replay_perf/repo",
+  "work_dir": "/tmp/t2-validate-et5dws09"
+}

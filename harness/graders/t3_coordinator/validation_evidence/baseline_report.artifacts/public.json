@@ -1,0 +1,90 @@
+{
+  "start_dir": "tests",
+  "records": [
+    {
+      "id": "test_public.TestBasics.test_add_and_status_roundtrip",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 8.08
+    },
+    {
+      "id": "test_public.TestBasics.test_audit_records_events",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 9.0
+    },
+    {
+      "id": "test_public.TestBasics.test_claim_and_complete_happy_path",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 11.24
+    },
+    {
+      "id": "test_public.TestBasics.test_duplicate_add_raises",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 6.47
+    },
+    {
+      "id": "test_public.TestBasics.test_list_jobs_filter",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 11.4
+    },
+    {
+      "id": "test_public.TestBasics.test_stats_counts_results",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 12.22
+    },
+    {
+      "id": "test_public.TestBasics.test_unknown_job_raises",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 6.79
+    },
+    {
+      "id": "test_public.TestBasics.test_wrong_worker_cannot_complete",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 9.36
+    },
+    {
+      "id": "test_public.TestCli.test_cli_add_and_status",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 557.74
+    },
+    {
+      "id": "test_public.TestPersistence.test_jobs_survive_reopen",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 19.34
+    },
+    {
+      "id": "test_public.TestStorageShape.test_schema_is_created_and_audit_is_append_only",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 12.8
+    }
+  ],
+  "counts": {
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "elapsed_s": 0.733,
+  "discovery_error": null
+}

@@ -1,0 +1,91 @@
+diff -ruN '--exclude=__pycache__' '--exclude=.git' /home/researcher/agent-benchmark/tasks/t1_order_lifecycle/repo/v9/engine.py /home/researcher/agent-benchmark/tasks/t1_order_lifecycle/reference/v9/engine.py
+--- a/v9/engine.py	2026-11-07 23:41:34.400426821 +0100
++++ b/v9/engine.py	2026-11-07 23:41:26.152274604 +0100
+@@ -189,13 +189,9 @@
+             return
+         result = order.apply_cancel_result(bool(ev["accepted"]))
+         self.audit.append("CANCEL_RESULT", order_id=order.order_id, result=result)
+-        if result == "CANCELLED" and self.position(order.symbol).is_open:
+-            prot = self.protection_for(order.symbol)
+-            if prot is not None:
+-                self.broker.cancel_stop(prot.client_stop_id)
+-                prot.cancel()
+-                self.protection_for_symbol.pop(order.symbol, None)
+-        elif self.position(order.symbol).is_open:
++        # A position opened by this order must keep its protection regardless
++        # of the cancel outcome.
++        if self.position(order.symbol).is_open:
+             self._reconcile_protection(order)
+ 
+     def _on_stop_ack(self, ev: dict) -> None:
+@@ -233,6 +229,7 @@
+             self.audit.append(
+                 "RISK_PROTECTION_LOST", client_stop_id=prot.client_stop_id, symbol=prot.symbol
+             )
++            self._halt(RISK_PROTECTION_LOST)
+ 
+     # ------------------------------------------------------------- internals
+     def _is_risk_reducing(self, side: str, symbol: str, qty: float) -> bool:
+@@ -261,7 +258,9 @@
+             return
+         desired_qty = abs(pos.qty)
+         if prot is not None:
+-            return
++            covering = prot.status in (PROT_PENDING, ACTIVE) and abs(prot.qty - desired_qty) <= 1e-9
++            if covering:
++                return
+             if prot.status in (PROT_PENDING, ACTIVE):
+                 self.broker.cancel_stop(prot.client_stop_id)
+                 prot.cancel()
+@@ -289,7 +288,6 @@
+             symbol=symbol,
+             qty=desired_qty,
+             stop_price=round(stop_price, 8),
+-            status=ACTIVE,
+         )
+         self.protections[cid] = p
+         self.protection_for_symbol[symbol] = cid
+@@ -364,7 +362,7 @@
+                 symbol=d["symbol"],
+                 qty=d["qty"],
+                 stop_price=d["stop_price"],
+-                status=ACTIVE if d["status"] == PROT_PENDING else d["status"],
++                status=d["status"],
+                 native_id=d["native_id"],
+                 version=d["version"],
+             )
+diff -ruN '--exclude=__pycache__' '--exclude=.git' /home/researcher/agent-benchmark/tasks/t1_order_lifecycle/repo/v9/order.py /home/researcher/agent-benchmark/tasks/t1_order_lifecycle/reference/v9/order.py
+--- a/v9/order.py	2026-11-07 23:43:18.030339269 +0100
++++ b/v9/order.py	2026-11-07 23:41:26.152274604 +0100
+@@ -36,7 +36,7 @@
+         Returns True when the fill is new and was applied, False when the same
+         venue fill id was already seen (duplicate delivery).
+         """
+-        if self.filled_qty > 0:
++        if fill_id in self.fill_ids:
+             return False
+         self.fill_ids.add(fill_id)
+         self.filled_qty = min(self.qty, self.filled_qty + float(qty))
+@@ -50,6 +50,10 @@
+ 
+     def acknowledge(self, native_id: str | None, accepted: bool, expected_native: str | None = None) -> str:
+         """Apply an entry acknowledgement and return a result token."""
++        if self.native_id is not None and native_id is not None and native_id != self.native_id:
++            return "IDENTITY_MISMATCH"
++        if expected_native is not None and native_id != expected_native:
++            return "IDENTITY_MISMATCH"
+         if self.status not in (NEW, PENDING_ACK):
+             return "IGNORED_TERMINAL"
+         if not accepted:
+diff -ruN '--exclude=__pycache__' '--exclude=.git' /home/researcher/agent-benchmark/tasks/t1_order_lifecycle/repo/v9/protection.py /home/researcher/agent-benchmark/tasks/t1_order_lifecycle/reference/v9/protection.py
+--- a/v9/protection.py	2026-11-07 23:41:34.400426821 +0100
++++ b/v9/protection.py	2026-11-07 23:39:39.778311515 +0100
+@@ -51,6 +51,8 @@
+ 
+     def apply_callback(self, version: int, state: str) -> str:
+         """Apply a venue callback, rejecting stale/duplicate versions."""
++        if version <= self.version:
++            return "IGNORED_STALE"
+         self.version = version
+         if state == "ACTIVE":
+             if self.status == PENDING_ACK:

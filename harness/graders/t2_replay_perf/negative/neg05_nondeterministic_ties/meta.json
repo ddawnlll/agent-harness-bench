@@ -1,0 +1,7 @@
+{
+  "id": "neg05_nondeterministic_ties",
+  "description": "Optimised, but same-price orders are matched in random order (random tie-break), so trades and outputs differ between runs.",
+  "expect_status": "FAIL",
+  "expected_failing_gates": ["determinism"],
+  "expected_zero_performance": false
+}

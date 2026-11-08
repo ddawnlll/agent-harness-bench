@@ -1,0 +1,4 @@
+{
+  "expected_failed_gates": ["non_memory_storage", "persistence_restart"],
+  "reason": "storage is a per-process in-memory SQLite database; a restart loses everything"
+}

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="540" viewBox="0 0 1000 540" role="img" aria-label="Token and cost comparison. Pi-Bolt 2.30 million tokens and 0.084 dollars nominal; JCode 4.32 million and 0.096; Hax 4.89 million and 0.109. Cost per verified task: JCode 0.0318, Pi-Bolt 0.0419, Hax 0.0543.">
+<title>Token volume is not the same as verified value</title>
+<desc>Token and cost comparison. Pi-Bolt 2.30 million tokens and 0.084 dollars nominal; JCode 4.32 million and 0.096; Hax 4.89 million and 0.109. Cost per verified task: JCode 0.0318, Pi-Bolt 0.0419, Hax 0.0543.</desc>
+<rect x="0.0" y="0.0" width="1000.0" height="540.0" fill="#0f1216"/>
+<text x="30.0" y="38.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#8d98a7" text-anchor="start" letter-spacing="1.6">FIGURE 5  ·  ECONOMICS</text>
+<text x="30.0" y="64.0" font-family="ui-serif, 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif" font-size="24" font-weight="650" fill="#f2f0ea" text-anchor="start">Token volume is not the same as verified value</text>
+<text x="30.0" y="86.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#bcc5d1" text-anchor="start">Provider-reported tokens and nominal list-price cost, with cost per verified completion.</text>
+<line x1="30.0" y1="104.0" x2="970.0" y2="104.0" stroke="#29313c" stroke-width="1"/>
+<text x="30.0" y="136.0" font-family="ui-serif, 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#f2f0ea" text-anchor="start">Total tokens per agent</text>
+<text x="30.0" y="154.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">input + output; cached reads reported separately</text>
+<text x="30.0" y="198.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#8fb3ff" text-anchor="start">Pi-Bolt</text>
+<rect x="100.0" y="188.0" width="113.2" height="20.0" fill="#8fb3ff" rx="2"/>
+<rect x="213.2" y="188.0" width="4.5" height="20.0" fill="#151a21" rx="2"/>
+<text x="225.7" y="203.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" font-weight="700" fill="#f2f0ea" text-anchor="start">2.30M</text>
+<text x="100.0" y="222.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">in 2.21M · out 89k · cached 2.05M</text>
+<text x="30.0" y="260.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#f6b45b" text-anchor="start">JCode</text>
+<rect x="100.0" y="250.0" width="216.4" height="20.0" fill="#f6b45b" rx="2"/>
+<rect x="316.4" y="250.0" width="4.4" height="20.0" fill="#151a21" rx="2"/>
+<text x="328.8" y="265.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" font-weight="700" fill="#f2f0ea" text-anchor="start">4.32M</text>
+<text x="100.0" y="284.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">in 4.23M · out 87k · cached 4.02M</text>
+<text x="30.0" y="322.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#c9a6ff" text-anchor="start">Hax</text>
+<rect x="100.0" y="312.0" width="244.8" height="20.0" fill="#c9a6ff" rx="2"/>
+<rect x="344.8" y="312.0" width="5.2" height="20.0" fill="#151a21" rx="2"/>
+<text x="358.0" y="327.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" font-weight="700" fill="#f2f0ea" text-anchor="start">4.89M</text>
+<text x="100.0" y="346.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">in 4.79M · out 102k · cached 4.56M</text>
+<text x="520.0" y="136.0" font-family="ui-serif, 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#f2f0ea" text-anchor="start">Cost per verified completion</text>
+<text x="520.0" y="154.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">nominal list price ÷ verified passes; lower is better</text>
+<text x="520.0" y="198.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#8fb3ff" text-anchor="start">Pi-Bolt</text>
+<rect x="598.0" y="188.0" width="177.6" height="20.0" fill="#8fb3ff" rx="2"/>
+<text x="781.6" y="203.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" font-weight="700" fill="#f2f0ea" text-anchor="start">$0.0419</text>
+<text x="598.0" y="222.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">total nominal $0.0838 · allowance $0.0503</text>
+<text x="520.0" y="260.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#f6b45b" text-anchor="start">JCode</text>
+<rect x="598.0" y="250.0" width="135.0" height="20.0" fill="#f6b45b" rx="2"/>
+<text x="739.0" y="265.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" font-weight="700" fill="#f2f0ea" text-anchor="start">$0.0318</text>
+<text x="598.0" y="284.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">total nominal $0.0955 · allowance $0.0573</text>
+<text x="520.0" y="322.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#c9a6ff" text-anchor="start">Hax</text>
+<rect x="598.0" y="312.0" width="230.0" height="20.0" fill="#c9a6ff" rx="2"/>
+<text x="834.0" y="327.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="14" font-weight="700" fill="#f2f0ea" text-anchor="start">$0.0543</text>
+<text x="598.0" y="346.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">total nominal $0.1085 · allowance $0.0651</text>
+<path d="M595.1,370.2 L604.1,369.9 L610.3,370.1 L617.9,370.9 L624.7,371.6 L632.0,370.6 L638.5,371.3 L646.3,370.7 L653.6,371.3 L660.7,370.3 L666.9,369.9 L674.2,370.2 L681.2,369.9 L689.3,370.4 L695.4,369.9 L702.2,370.6 L710.8,369.6" fill="none" stroke="#f2f0ea" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+<text x="520.0" y="392.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#bcc5d1" text-anchor="start">JCode spends less per verified task,</text>
+<text x="520.0" y="408.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">but Pi-Bolt has the lowest total spend: it completed less work.</text>
+<line x1="30.0" y1="428.0" x2="970.0" y2="428.0" stroke="#29313c" stroke-width="1"/>
+<text x="30.0" y="454.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#bcc5d1" text-anchor="start">Quality / million tokens</text>
+<text x="270.0" y="454.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="17" font-weight="700" fill="#f2f0ea" text-anchor="start">129.2</text>
+<text x="270.0" y="472.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8fb3ff" text-anchor="start">Pi-Bolt</text>
+<text x="490.0" y="454.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="17" font-weight="700" fill="#f2f0ea" text-anchor="start">69.0</text>
+<text x="490.0" y="472.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#f6b45b" text-anchor="start">JCode</text>
+<text x="710.0" y="454.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="17" font-weight="700" fill="#f2f0ea" text-anchor="start">60.9</text>
+<text x="710.0" y="472.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#c9a6ff" text-anchor="start">Hax</text>
+<text x="30.0" y="524.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">Total 11.51M tokens. Nominal cost is list-price accounting on a subscription, not incremental cash.</text>
+</svg>

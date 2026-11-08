@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+title: "Agent Harness Bench: an evidence-first coding-agent benchmark"
+message: "If you use this benchmark, its data or its figures, please cite this repository."
+type: software
+version: 0.1.0
+date-released: 2026-11-08
+license: MIT
+repository-code: "https://github.com/ddawnlll/agent-harness-bench"
+url: "https://github.com/ddawnlll/agent-harness-bench"
+abstract: >-
+  A reproducible comparison of three coding agents (Pi-Bolt, JCode, Hax) on
+  three engineering tasks under an identical provider, model and reasoning
+  effort. Nine trials, independent hidden graders, cgroup v2 resource
+  accounting, provider-reported token usage and a single-file forensic audit.
+  One trial per agent-task: the result is a screening signal, not a universal
+  ranking.
+keywords:
+  - coding agents
+  - benchmark
+  - evaluation
+  - safety
+  - reproducibility
+authors:
+  - name: ddawnlll

@@ -1,0 +1,4 @@
+{
+  "expected_failed_gates": ["bounded_retries"],
+  "reason": "jobs retry forever; attempts exceed max_attempts and never become terminal"
+}

@@ -1,0 +1,66 @@
+{
+  "viewports": {
+    "desktop-1440": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "figures": 12,
+      "visibleFigures": 6,
+      "texts": 251,
+      "rows": 9,
+      "overflow": false
+    },
+    "desktop-1280": {
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "figures": 12,
+      "visibleFigures": 6,
+      "texts": 251,
+      "rows": 9,
+      "overflow": false
+    },
+    "tablet-768": {
+      "scrollWidth": 768,
+      "clientWidth": 768,
+      "figures": 12,
+      "visibleFigures": 6,
+      "texts": 251,
+      "rows": 9,
+      "overflow": false
+    },
+    "mobile-390": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "figures": 12,
+      "visibleFigures": 6,
+      "texts": 251,
+      "rows": 9,
+      "overflow": false
+    },
+    "mobile-360": {
+      "scrollWidth": 360,
+      "clientWidth": 360,
+      "figures": 12,
+      "visibleFigures": 6,
+      "texts": 251,
+      "rows": 9,
+      "overflow": false
+    }
+  },
+  "console": [],
+  "pageerrors": [],
+  "requestsfailed": [],
+  "checks": {
+    "interactions": {
+      "count1": "3 trials",
+      "count2": "1 trial",
+      "count3": "9 trials"
+    },
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "failedRequests": 0,
+    "noOverflow": true,
+    "allFigures": true,
+    "tableRows": true,
+    "ok": true
+  }
+}

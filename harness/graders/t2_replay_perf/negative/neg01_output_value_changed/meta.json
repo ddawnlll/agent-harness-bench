@@ -1,0 +1,7 @@
+{
+  "id": "neg01_output_value_changed",
+  "description": "Applies the oracle and then changes the fee rate (FEE_BPS 2 -> 20). Fast, but cash/fees/pnl values differ from the baseline.",
+  "expect_status": "FAIL",
+  "expected_failing_gates": ["parity"],
+  "expected_zero_performance": true
+}

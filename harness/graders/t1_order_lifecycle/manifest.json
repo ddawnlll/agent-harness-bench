@@ -1,0 +1,59 @@
+{
+  "gates": [
+    "G1_PREMATURE_PROTECTION",
+    "G2_FAIL_CLOSED",
+    "G3_FILL_ATTRIBUTION",
+    "G4_PROTECTION_LOSS",
+    "G5_RESTART_FIDELITY",
+    "G6_CANCEL_RACE",
+    "G7_NATIVE_IDENTITY",
+    "G8_TEST_INTEGRITY",
+    "G9_NO_SHORTCUT"
+  ],
+  "grader_version": "1.0.0",
+  "hashes": {
+    "baseline_repo/v9/engine.py": "8aeb20a78c33c4d3e3be5a41532822d90d82ef26448e7b3e5c7fbc88fe76a23e",
+    "baseline_repo/v9/order.py": "91ae4c776675b28823b19e458c971ccd25a964f6d18f4ba6b28c0308918529e5",
+    "baseline_repo/v9/protection.py": "51c6c4507a4254479a6dd69043c8db62741a9ca9c67bb3aa5db142867e6fff95",
+    "grade.py": "dbc0102ee883d4ef8bd11c8a2f0004682f8e6629e860d4c15a6325d4ad40e2f8",
+    "hidden/test_hidden.py": "51a3896912c168d9df7e966ef4f34d2f4913b81b792f2fe74e6d3723f253598a",
+    "oracle/fix.patch": "043ce564e38b298bfaceb1c12b8f1895ea021b287f178e4793aa99209de83e99"
+  },
+  "hidden_cases": [
+    "h01",
+    "h02",
+    "h03",
+    "h04",
+    "h05",
+    "h06",
+    "h07",
+    "h08",
+    "h09",
+    "h10",
+    "h11",
+    "h12",
+    "h13",
+    "h14",
+    "h15",
+    "h16"
+  ],
+  "language": "python3",
+  "negative_controls": 8,
+  "pass_rule": "all P0 gates pass AND total >= 80",
+  "reference_status": "PASS 100.0 (oracle applied to seeded baseline)",
+  "seeded_status": "FAIL 22.03",
+  "start_commit_sha": "18559cc3a301b9468c7a5bd1b1bc38a56b5f9e47",
+  "stdlib_only": true,
+  "task_dir": "tasks/t1_order_lifecycle/repo",
+  "task_id": "t1",
+  "test_command": "python3 grade.py --workspace <candidate> --json-out <out>",
+  "timeout_seconds": 300,
+  "title": "Cross-module execution-safety defect (protective coverage)",
+  "validated_at_utc": null,
+  "weights": {
+    "correctness_adversarial": 50,
+    "maintainability": 10,
+    "regression": 15,
+    "safety_invariants": 25
+  }
+}

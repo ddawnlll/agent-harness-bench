@@ -1,0 +1,7 @@
+{
+  "id": "neg06_hash_cache",
+  "description": "Keeps a result cache keyed by the sha256 of the input file in .replay_cache/. First run does real work; later runs copy the cached document, which fakes the measured speedup and writes state into the workspace.",
+  "expect_status": "FAIL",
+  "expected_failing_gates": ["no_cache_artifacts", "fake_speed"],
+  "expected_zero_performance": true
+}

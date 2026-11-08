@@ -1,0 +1,61 @@
+{
+  "experiment_id": "agent-harness-bench-public-example",
+  "model": "deepseek-v4.1-flash",
+  "provider": "opencode-go",
+  "reasoning_effort": "low",
+  "results_root": "results/local",
+  "workspaces_root": "workspaces",
+  "memory_max_bytes": 3221225472,
+  "cpu_quota": 200000,
+  "cpu_period": 100000,
+  "pids_max": 4096,
+  "relay_base_port": 8841,
+  "global_deadline_seconds": 7200,
+  "grader_timeout_seconds": 600,
+  "min_free_disk_bytes": 2147483648,
+  "cpu_groups": [
+    "0,1",
+    "2,3",
+    "4,5"
+  ],
+  "agents": [
+    {
+      "id": "pi-bolt",
+      "binary": "pi-bolt"
+    },
+    {
+      "id": "jcode",
+      "binary": "jcode"
+    },
+    {
+      "id": "hax",
+      "binary": "hax"
+    }
+  ],
+  "rounds": [
+    {
+      "round_id": "r1-safety",
+      "task_id": "t1_order_lifecycle",
+      "task_repo": "tasks/t1_order_lifecycle/repo",
+      "grader_script": "graders/t1_order_lifecycle/grade.py",
+      "duration_seconds": 1680,
+      "cpu_group_offset": 0
+    },
+    {
+      "round_id": "r2-performance",
+      "task_id": "t2_replay_perf",
+      "task_repo": "tasks/t2_replay_perf/repo",
+      "grader_script": "graders/t2_replay_perf/grade.py",
+      "duration_seconds": 1680,
+      "cpu_group_offset": 1
+    },
+    {
+      "round_id": "r3-coordinator",
+      "task_id": "t3_coordinator",
+      "task_repo": "tasks/t3_coordinator/repo",
+      "grader_script": "graders/t3_coordinator/grade.py",
+      "duration_seconds": 1680,
+      "cpu_group_offset": 2
+    }
+  ]
+}

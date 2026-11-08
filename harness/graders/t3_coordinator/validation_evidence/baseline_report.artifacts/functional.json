@@ -1,0 +1,69 @@
+{
+  "start_dir": "/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799",
+  "records": [
+    {
+      "id": "test_functional.TestFunctional.test_F1_add_and_status_roundtrip",
+      "case": "F1",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 94.27
+    },
+    {
+      "id": "test_functional.TestFunctional.test_F2_atomic_claim_visibility",
+      "case": "F2",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 19.17
+    },
+    {
+      "id": "test_functional.TestFunctional.test_F3_completion_persists_result_and_releases_lease",
+      "case": "F3",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 19.57
+    },
+    {
+      "id": "test_functional.TestFunctional.test_F4_completion_is_idempotent",
+      "case": "F4",
+      "passed": false,
+      "detail": "    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/unittest/case.py\", line 606, in _callTestMethod\n    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_functional.py\", line 121, in test_F4_completion_is_idempotent\n    repeat = coord.complete(job_id, \"worker-a\", {\"v\": 1, \"winner\": \"worker-a\"})\n  File \"/tmp/t3-grade-muh40qib/workspace/coordinator/core.py\", line 315, in complete\n    self._check_lease(row, worker_id)\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\n  File \"/tmp/t3-grade-muh40qib/workspace/coordinator/core.py\", line 264, in _check_lease\n    raise InvalidTransitionError(f\"job {row['job_id']} is already {row['state']}\")\ncoordinator.errors.InvalidTransitionError: job f4-b7fd3990e3174a5d99e68156f0bd1990 is already DONE",
+      "duration_ms": 25.76
+    },
+    {
+      "id": "test_functional.TestFunctional.test_F5_retries_are_bounded_and_terminal",
+      "case": "F5",
+      "passed": false,
+      "detail": "AssertionError: Lists differ: ['RETRY', 'RETRY', 'RETRY'] != ['RETRY', 'RETRY', 'FAILED']\n\nFirst differing element 2:\n'RETRY'\n'FAILED'\n\n- ['RETRY', 'RETRY', 'RETRY']\n?                     ^ ^^^\n\n+ ['RETRY', 'RETRY', 'FAILED']\n?                     ^^^^ ^\n : third failed attempt must be terminal FAILED",
+      "duration_ms": 29.3
+    },
+    {
+      "id": "test_functional.TestFunctional.test_F7_heartbeat_extends_the_lease",
+      "case": "F7",
+      "passed": false,
+      "detail": "    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_functional.py\", line 202, in test_F7_heartbeat_extends_the_lease\n    self.assertGreaterEqual(\n    ~~~~~~~~~~~~~~~~~~~~~~~^\n        first.lease_expires_at, time.time() + 0.5,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        \"heartbeat must push lease_expires_at ~lease_seconds into the future\",\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\nAssertionError: 1794093312.1222024 not greater than or equal to 1794093312.1273105 : heartbeat must push lease_expires_at ~lease_seconds into the future",
+      "duration_ms": 519.25
+    },
+    {
+      "id": "test_functional.TestFunctional.test_F8_invalid_input_is_rejected_cleanly",
+      "case": "F8",
+      "passed": false,
+      "detail": "  File \"/usr/lib/python3.13/unittest/case.py\", line 58, in testPartExecutor\n    yield\n  File \"/usr/lib/python3.13/unittest/case.py\", line 651, in run\n    self._callTestMethod(testMethod)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/unittest/case.py\", line 606, in _callTestMethod\n    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_functional.py\", line 250, in test_F8_invalid_input_is_rejected_cleanly\n    with self.assertRaises(lease_error, msg=\"expired lease must not complete\"):\n         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: LeaseError not raised : expired lease must not complete",
+      "duration_ms": 1120.22
+    },
+    {
+      "id": "test_functional.TestFunctional.test_F9_audit_trail_is_ordered_and_filterable",
+      "case": "F9",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 15.88
+    }
+  ],
+  "counts": {
+    "tests": 8,
+    "failures": 3,
+    "errors": 1,
+    "skipped": 0
+  },
+  "elapsed_s": 1.887,
+  "discovery_error": null
+}

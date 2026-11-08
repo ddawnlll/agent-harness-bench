@@ -1,0 +1,115 @@
+{
+  "determinism": {
+    "agreement": true,
+    "repeats": 3,
+    "statuses": [
+      "PASS",
+      "PASS",
+      "PASS"
+    ],
+    "totals": [
+      100.0,
+      100.0,
+      100.0
+    ]
+  },
+  "negatives": {
+    "n1_premature_ack": {
+      "expectation_met": true,
+      "expected_failing_gate": "G1_PREMATURE_PROTECTION",
+      "failed_gates": [
+        "G1_PREMATURE_PROTECTION",
+        "G2_FAIL_CLOSED",
+        "G3_FILL_ATTRIBUTION",
+        "G5_RESTART_FIDELITY",
+        "G8_TEST_INTEGRITY"
+      ],
+      "status": "FAIL",
+      "total": 53.03
+    },
+    "n2_fill_dedupe_bug": {
+      "expectation_met": true,
+      "expected_failing_gate": "G3_FILL_ATTRIBUTION",
+      "failed_gates": [
+        "G3_FILL_ATTRIBUTION",
+        "G8_TEST_INTEGRITY"
+      ],
+      "status": "FAIL",
+      "total": 58.42
+    },
+    "n3_restart_promotes": {
+      "expectation_met": true,
+      "expected_failing_gate": "G5_RESTART_FIDELITY",
+      "failed_gates": [
+        "G5_RESTART_FIDELITY"
+      ],
+      "status": "FAIL",
+      "total": 96.77
+    },
+    "n4_stale_callback": {
+      "expectation_met": true,
+      "expected_failing_gate": "G4_PROTECTION_LOSS",
+      "failed_gates": [
+        "G4_PROTECTION_LOSS"
+      ],
+      "status": "FAIL",
+      "total": 97.58
+    },
+    "n5_no_identity_check": {
+      "expectation_met": true,
+      "expected_failing_gate": "G7_NATIVE_IDENTITY",
+      "failed_gates": [
+        "G7_NATIVE_IDENTITY"
+      ],
+      "status": "FAIL",
+      "total": 97.58
+    },
+    "n6_cancel_drops_protection": {
+      "expectation_met": true,
+      "expected_failing_gate": "G6_CANCEL_RACE",
+      "failed_gates": [
+        "G6_CANCEL_RACE"
+      ],
+      "status": "FAIL",
+      "total": 97.58
+    },
+    "n7_deleted_tests": {
+      "expectation_met": true,
+      "expected_failing_gate": "G8_TEST_INTEGRITY",
+      "failed_gates": [
+        "G8_TEST_INTEGRITY"
+      ],
+      "status": "FAIL",
+      "total": 98.0
+    },
+    "n8_hardcoded_fixture": {
+      "expectation_met": true,
+      "expected_failing_gate": "G9_NO_SHORTCUT",
+      "failed_gates": [
+        "G9_NO_SHORTCUT"
+      ],
+      "status": "FAIL",
+      "total": 98.0
+    }
+  },
+  "ok": true,
+  "oracle": {
+    "gates": {
+      "G1_PREMATURE_PROTECTION": true,
+      "G2_FAIL_CLOSED": true,
+      "G3_FILL_ATTRIBUTION": true,
+      "G4_PROTECTION_LOSS": true,
+      "G5_RESTART_FIDELITY": true,
+      "G6_CANCEL_RACE": true,
+      "G7_NATIVE_IDENTITY": true,
+      "G8_TEST_INTEGRITY": true,
+      "G9_NO_SHORTCUT": true
+    },
+    "status": "PASS",
+    "total": 100.0
+  },
+  "seeded": {
+    "status": "FAIL",
+    "total": 22.03
+  }
+}

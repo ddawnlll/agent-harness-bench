@@ -1,0 +1,60 @@
+{
+  "cases": {
+    "S_TESTS": {
+      "passed": true,
+      "detail": "baseline tests intact"
+    },
+    "S_IMPORTS": {
+      "passed": true,
+      "detail": "stdlib-only imports, no network modules"
+    },
+    "S_MEMDB": {
+      "passed": true,
+      "detail": "no sqlite3 :memory: connection"
+    },
+    "M1": {
+      "passed": true,
+      "detail": "Coordinator and all public methods documented"
+    },
+    "M2": {
+      "passed": true,
+      "detail": "no stub markers"
+    },
+    "M3": {
+      "passed": true,
+      "detail": "append-only triggers declared (2)"
+    },
+    "M4": {
+      "passed": true,
+      "detail": "no bare excepts, no debug prints, sources compile"
+    },
+    "M5": {
+      "passed": true,
+      "detail": "no eval/exec/wildcard imports"
+    }
+  },
+  "metrics": {
+    "tree_digest": "e269b0fff145d77823ba997f42eb9221e1bb1f42ca72938789d81d3db55f5786",
+    "test_hashes": {
+      "missing": [],
+      "modified": [],
+      "extra": [
+        "tests/test_recovery_extra.py"
+      ]
+    },
+    "imports": {
+      "third_party": [],
+      "network": [],
+      "parse_errors": []
+    },
+    "memory_db_hits": []
+  },
+  "test_hashes_after": {
+    "missing": [],
+    "modified": [],
+    "extra": [
+      "tests/test_recovery_extra.py"
+    ]
+  },
+  "workspace_untouched": true
+}

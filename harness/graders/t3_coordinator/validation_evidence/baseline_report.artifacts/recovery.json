@@ -1,0 +1,55 @@
+{
+  "start_dir": "/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799",
+  "records": [
+    {
+      "id": "test_recovery.TestConcurrency.test_C1_parallel_claiming_has_exactly_one_owner",
+      "case": "C1",
+      "passed": false,
+      "detail": "    self._stress_round(round_index, directory, db, metrics)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_recovery.py\", line 123, in _stress_round\n    self.assertEqual(errors, [], f\"workers reported errors: {errors[:5]}\")\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: [{'op': 'complete_error', 'job': 'stress-0[860 chars]w7'}] != []\n\nFirst list contains 7 additional elements.\nFirst extra element 0:\n{'op': 'complete_error', 'job': 'stress-0b8cd24e-0000', 'error': 'InvalidTransitionError: job stress-0b8cd24e-0000 is already DONE'}\n\nDiff is 989 characters long. Set self.maxDiff to None to see it. : workers reported errors: [{'op': 'complete_error', 'job': 'stress-0b8cd24e-0000', 'error': 'InvalidTransitionError: job stress-0b8cd24e-0000 is already DONE'}, {'op': 'complete_error', 'job': 'stress-0b8cd24e-0000', 'error': 'LeaseError: job stress-0b8cd24e-0000 has no lease'}, {'op': 'complete_error', 'job': 'stress-0b8cd24e-0001', 'error': 'LeaseError: job stress-0b8cd24e-0001 is leased by w4, not w2'}, {'op': 'complete_error', 'job': 'stress-0b8cd24e-0002', 'error': 'InvalidTransitionError: job stress-0b8cd24e-0002 is already DONE'}, {'op': 'complete_error', 'job': 'stress-0b8cd24e-0001', 'error': 'LeaseError: job stress-0b8cd24e-0001 is leased by w2, not w5'}]",
+      "duration_ms": 1820.47
+    },
+    {
+      "id": "test_recovery.TestCrashRecovery.test_C2_sigkill_mid_ownership_then_lease_expiry_reclaim",
+      "case": "C2",
+      "passed": false,
+      "detail": "  File \"/usr/lib/python3.13/unittest/case.py\", line 651, in run\n    self._callTestMethod(testMethod)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/unittest/case.py\", line 606, in _callTestMethod\n    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_recovery.py\", line 208, in test_C2_sigkill_mid_ownership_then_lease_expiry_reclaim\n    self.assertEqual(reclaimed.job_id, job_id)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'c2-6e1387cf4dab4d58a56e64e652e18b4f' != 'c2-007720461cfe40928b5dbbee528c0be4'\n- c2-6e1387cf4dab4d58a56e64e652e18b4f\n+ c2-007720461cfe40928b5dbbee528c0be4",
+      "duration_ms": 1703.42
+    },
+    {
+      "id": "test_recovery.TestCrashRecovery.test_C3_late_duplicate_completion_after_reclaim",
+      "case": "C3",
+      "passed": false,
+      "detail": "  File \"/usr/lib/python3.13/unittest/case.py\", line 58, in testPartExecutor\n    yield\n  File \"/usr/lib/python3.13/unittest/case.py\", line 651, in run\n    self._callTestMethod(testMethod)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/unittest/case.py\", line 606, in _callTestMethod\n    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_recovery.py\", line 234, in test_C3_late_duplicate_completion_after_reclaim\n    self.assertIsNotNone(reclaimed)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^\nAssertionError: unexpectedly None",
+      "duration_ms": 1757.05
+    },
+    {
+      "id": "test_recovery.TestCrashRecovery.test_C4_state_survives_process_restart",
+      "case": "C4",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 809.16
+    },
+    {
+      "id": "test_recovery.TestCrashRecovery.test_C5_kill_worker_mid_flight_survivors_recover",
+      "case": "C5",
+      "passed": false,
+      "detail": "    H.wait_until(\n    ~~~~~~~~~~~~^\n        lambda: inspector.stats()[\"by_state\"].get(\"DONE\") == total,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        timeout=40, message=\"survivors to reclaim and complete all jobs\",\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/harness.py\", line 169, in wait_until\n    raise AssertionError(f\"timed out after {timeout}s waiting for {message}\"\n                         + (f\" (last error: {last_error!r})\" if last_error else \"\"))\nAssertionError: timed out after 40s waiting for survivors to reclaim and complete all jobs",
+      "duration_ms": 44707.09
+    },
+    {
+      "id": "test_recovery.TestCrashRecovery.test_C6_expired_lease_is_reclaimed_and_counted",
+      "case": "C6",
+      "passed": false,
+      "detail": "  File \"/usr/lib/python3.13/unittest/case.py\", line 58, in testPartExecutor\n    yield\n  File \"/usr/lib/python3.13/unittest/case.py\", line 651, in run\n    self._callTestMethod(testMethod)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/unittest/case.py\", line 606, in _callTestMethod\n    if method() is not None:\n       ~~~~~~^^\n  File \"/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_recovery.py\", line 436, in test_C6_expired_lease_is_reclaimed_and_counted\n    self.assertIsNotNone(again, \"expired lease was never reclaimed\")\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: unexpectedly None : expired lease was never reclaimed",
+      "duration_ms": 1264.03
+    }
+  ],
+  "counts": {
+    "tests": 6,
+    "failures": 5,
+    "errors": 0,
+    "skipped": 0
+  },
+  "elapsed_s": 52.099,
+  "discovery_error": null
+}

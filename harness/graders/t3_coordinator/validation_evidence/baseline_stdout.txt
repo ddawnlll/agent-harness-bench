@@ -1,0 +1,101 @@
+==============================================================================
+t3_coordinator grader v1.0.0 -- task t3
+status: FAIL   total: 38.0/100
+------------------------------------------------------------------------------
+  functional              14.00/40  (4/9 cases)
+  concurrency_recovery     4.00/35  (1/6 cases)
+  tests                   10.00/15  (1/2 cases)
+  maintainability         10.00/10  (5/5 cases)
+------------------------------------------------------------------------------
+P0 gates:
+  [FAIL] no_duplicate_ownership
+         C1:     self._stress_round(round_index, directory, db, metrics)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_recovery.py", line 123, in _stress_round
+    self.assertEqual(errors, [], f"workers reported errors: {errors[:5]}")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists diff; C2:   File "/usr/lib/python3.13/unittest/case.py", line 651, in run
+    self._callTestMethod(t
+  [PASS] persistence_restart
+  [FAIL] no_lost_completion
+         C3:   File "/usr/lib/python3.13/unittest/case.py", line 58, in testPartExecutor
+    yield
+  File "/usr/lib/python3.13/unittest/case.py", line 651, in run
+    self._callTestMethod(testMethod)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/usr/lib/python3.13/unittest/case.py", line 606, in _callTestMethod
+    if method() is not None:
+       ~~~~~~^^
+  File "/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c7; C5:     H.wait_until(
+    ~~~~~~~~~~~~^
+        lambda: inspector.stats()["by_state"].get("DON
+  [FAIL] bounded_retries
+         F5: AssertionError: Lists differ: ['RETRY', 'RETRY', 'RETRY'] != ['RETRY', 'RETRY', 'FAILED']
+
+First differing element 2:
+'RETRY'
+'FAILED'
+
+- ['RETRY', 'RETRY', 'RETRY']
+?                     ^ ^^^
+
++ ['RETRY', 'RETRY', 'FAILED']
+?                     ^^^^ ^
+ : third failed attempt must be terminal FAILED
+  [PASS] non_memory_storage
+  [FAIL] crash_recovery
+         C2:   File "/usr/lib/python3.13/unittest/case.py", line 651, in run
+    self._callTestMethod(testMethod)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/usr/lib/python3.13/unittest/case.py", line 606, in _callTestMethod
+    if method() is not None:
+       ~~~~~~^^
+  File "/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_recovery.py", line 208, in test_C2_sigkill_mid_ownership_then_lease_expiry_rec; C6:   File "/usr/lib/python3.13/unittest/case.py", line 58, in testPartExecutor
+    yield
+  Fi
+  [PASS] test_integrity
+  [FAIL] corrupted_state_safe
+         F10:     self._callTestMethod(testMethod)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/usr/lib/python3.13/unittest/case.py", line 606, in _callTestMethod
+    if method() is not None:
+       ~~~~~~^^
+  File "/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_corruption.py", line 107, in test_F10_corrupt_state_is_tolerated_and_repaired
+    tolerant = self.coord(lease_seconds=60.0, auto_repair=False)
+  [PASS] no_network_thirdparty
+  [FAIL] idempotent_completion
+         F4:     ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/usr/lib/python3.13/unittest/case.py", line 606, in _callTestMethod
+    if method() is not None:
+       ~~~~~~^^
+  File "/tmp/t3-grade-muh40qib/workspace/_hidden_59d4c799/test_functional.py", line 121, in test_F4_completion_is_idempotent
+    repeat = coord.complete(job_id, "worker-a", {"v": 1, "winner": "worker-a"})
+  File "/tmp/t3-grade-muh40qib/worksp
+------------------------------------------------------------------------------
+cases: 14/25 passed
+  FAIL F4    repeated completion is idempotent (no double count)
+        coordinator.errors.InvalidTransitionError: job f4-b7fd3990e3174a5d99e68156f0bd1990 is already DONE
+  FAIL F5    bounded retries; exhaustion is terminal FAILED
+         : third failed attempt must be terminal FAILED
+  FAIL F7    heartbeat extends the lease
+        AssertionError: 1794093312.1222024 not greater than or equal to 1794093312.1273105 : heartbeat must push lease_expires_at ~lease_seconds into the future
+  FAIL F8    invalid input rejected with documented errors
+        AssertionError: LeaseError not raised : expired lease must not complete
+  FAIL F10   corrupt persisted state tolerated and repaired
+        TypeError: Coordinator.__init__() got an unexpected keyword argument 'auto_repair'
+  FAIL C1    8 processes x 200 jobs: exactly one owner per job
+        Diff is 989 characters long. Set self.maxDiff to None to see it. : workers reported errors: [{'op': 'complete_error', 'job': 'stress-0b8cd24e-0000', 'error': 'InvalidTransitionError: job stress-0b8cd24e-0000 is already DONE'}, {'op': 'compl
+  FAIL C2    SIGKILL mid-ownership + lease expiry reclaim
+        + c2-007720461cfe40928b5dbbee528c0be4
+  FAIL C3    late duplicate completion is not lost/corrupting
+        AssertionError: unexpectedly None
+  FAIL C5    kill one of three workers; survivors recover all
+        AssertionError: timed out after 40s waiting for survivors to reclaim and complete all jobs
+  FAIL C6    expired lease reclaimed with incremented attempt
+        AssertionError: unexpectedly None : expired lease was never reclaimed
+  FAIL T2    candidate added at least one passing test of their own
+        no tests were added under tests/
+determinism: repeats=1 agreement=True
+elapsed: 56.14s
+json: /home/researcher/agent-benchmark/graders/t3_coordinator/validation_evidence/baseline_report.json
+==============================================================================

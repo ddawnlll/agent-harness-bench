@@ -1,0 +1,7 @@
+{
+  "id": "neg04_reduced_workload",
+  "description": "Skips every second event in the loader (half the work), so it is faster but reports fewer events and different numbers.",
+  "expect_status": "FAIL",
+  "expected_failing_gates": ["parity"],
+  "expected_zero_performance": true
+}

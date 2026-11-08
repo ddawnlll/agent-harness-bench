@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560" role="img" aria-label="Time decomposition per trial. Measured API service time and the derived remainder of the agent's wall clock, with CPU seconds marked. T2 dominates elapsed time for all agents.">
+<title>Where the time went — and what is actually measured</title>
+<desc>Time decomposition per trial. Measured API service time and the derived remainder of the agent's wall clock, with CPU seconds marked. T2 dominates elapsed time for all agents.</desc>
+<rect x="0.0" y="0.0" width="1000.0" height="560.0" fill="#0f1216"/>
+<text x="30.0" y="38.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#8d98a7" text-anchor="start" letter-spacing="1.6">FIGURE 4  ·  EXECUTION TIME</text>
+<text x="30.0" y="64.0" font-family="ui-serif, 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif" font-size="24" font-weight="650" fill="#f2f0ea" text-anchor="start">Where the time went — and what is actually measured</text>
+<text x="30.0" y="86.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#bcc5d1" text-anchor="start">Measured API service time plus the derived remainder of each trial's wall clock.</text>
+<line x1="30.0" y1="104.0" x2="970.0" y2="104.0" stroke="#29313c" stroke-width="1"/>
+<text x="30.0" y="128.0" font-family="ui-serif, 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#f2f0ea" text-anchor="start">T1</text>
+<line x1="86.0" y1="140.0" x2="86.0" y2="260.0" stroke="#29313c" stroke-width="1"/>
+<text x="86.0" y="274.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="middle">0s</text>
+<line x1="183.0" y1="140.0" x2="183.0" y2="260.0" stroke="#29313c" stroke-width="1"/>
+<text x="183.0" y="274.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="middle">210s</text>
+<line x1="280.0" y1="140.0" x2="280.0" y2="260.0" stroke="#29313c" stroke-width="1"/>
+<text x="280.0" y="274.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="middle">420s</text>
+<text x="30.0" y="158.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#8fb3ff" text-anchor="start">Pi-Bolt</text>
+<rect x="86.0" y="148.0" width="163.3" height="12.0" fill="#c2cbd8" rx="2"/>
+<rect x="249.3" y="148.0" width="5.6" height="12.0" fill="#44505f" rx="2"/>
+<circle cx="95.3" cy="154.0" r="3.2" fill="#5eead4" stroke="#0f1216" stroke-width="1"/>
+<text x="259.9" y="158.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="start">366 s</text>
+<text x="30.0" y="198.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#f6b45b" text-anchor="start">JCode</text>
+<rect x="86.0" y="188.0" width="91.4" height="12.0" fill="#c2cbd8" rx="2"/>
+<rect x="177.4" y="188.0" width="3.8" height="12.0" fill="#44505f" rx="2"/>
+<circle cx="90.0" cy="194.0" r="3.2" fill="#5eead4" stroke="#0f1216" stroke-width="1"/>
+<text x="186.2" y="198.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="start">206 s</text>
+<text x="30.0" y="238.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#c9a6ff" text-anchor="start">Hax</text>
+<rect x="86.0" y="228.0" width="85.7" height="12.0" fill="#c2cbd8" rx="2"/>
+<rect x="171.7" y="228.0" width="3.1" height="12.0" fill="#44505f" rx="2"/>
+<circle cx="90.3" cy="234.0" r="3.2" fill="#5eead4" stroke="#0f1216" stroke-width="1"/>
+<text x="179.8" y="238.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="start">192 s</text>
+<text x="352.0" y="128.0" font-family="ui-serif, 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#f2f0ea" text-anchor="start">T2</text>
+<line x1="408.0" y1="140.0" x2="408.0" y2="260.0" stroke="#29313c" stroke-width="1"/>
+<text x="408.0" y="274.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="middle">0s</text>
+<line x1="505.0" y1="140.0" x2="505.0" y2="260.0" stroke="#29313c" stroke-width="1"/>
+<text x="505.0" y="274.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="middle">510s</text>
+<line x1="602.0" y1="140.0" x2="602.0" y2="260.0" stroke="#29313c" stroke-width="1"/>
+<text x="602.0" y="274.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="middle">1020s</text>
+<text x="352.0" y="158.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#8fb3ff" text-anchor="start">Pi-Bolt</text>
+<rect x="408.0" y="148.0" width="54.3" height="12.0" fill="#c2cbd8" rx="2"/>
+<rect x="462.3" y="148.0" width="29.2" height="12.0" fill="#44505f" rx="2"/>
+<circle cx="438.5" cy="154.0" r="3.2" fill="#5eead4" stroke="#0f1216" stroke-width="1"/>
+<text x="496.5" y="158.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="start">439 s</text>
+<text x="352.0" y="198.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#f6b45b" text-anchor="start">JCode</text>
+<rect x="408.0" y="188.0" width="57.4" height="12.0" fill="#c2cbd8" rx="2"/>
+<rect x="465.4" y="188.0" width="65.4" height="12.0" fill="#44505f" rx="2"/>
+<circle cx="473.4" cy="194.0" r="3.2" fill="#5eead4" stroke="#0f1216" stroke-width="1"/>
+<text x="535.8" y="198.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="start">645 s</text>
+<text x="352.0" y="238.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#c9a6ff" text-anchor="start">Hax</text>
+<rect x="408.0" y="228.0" width="71.3" height="12.0" fill="#c2cbd8" rx="2"/>
+<rect x="479.3" y="228.0" width="114.6" height="12.0" fill="#44505f" rx="2"/>
+<circle cx="524.1" cy="234.0" r="3.2" fill="#5eead4" stroke="#0f1216" stroke-width="1"/>
+<text x="598.9" y="238.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="start">978 s</text>
+<text x="674.0" y="128.0" font-family="ui-serif, 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#f2f0ea" text-anchor="start">T3</text>
+<line x1="730.0" y1="140.0" x2="730.0" y2="260.0" stroke="#29313c" stroke-width="1"/>
+<text x="730.0" y="274.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="middle">0s</text>
+<line x1="827.0" y1="140.0" x2="827.0" y2="260.0" stroke="#29313c" stroke-width="1"/>
+<text x="827.0" y="274.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="middle">210s</text>
+<line x1="924.0" y1="140.0" x2="924.0" y2="260.0" stroke="#29313c" stroke-width="1"/>
+<text x="924.0" y="274.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="middle">420s</text>
+<text x="674.0" y="158.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#8fb3ff" text-anchor="start">Pi-Bolt</text>
+<rect x="730.0" y="148.0" width="114.5" height="12.0" fill="#c2cbd8" rx="2"/>
+<rect x="844.5" y="148.0" width="6.7" height="12.0" fill="#44505f" rx="2"/>
+<circle cx="740.2" cy="154.0" r="3.2" fill="#5eead4" stroke="#0f1216" stroke-width="1"/>
+<text x="856.2" y="158.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="start">262 s</text>
+<text x="674.0" y="198.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#f6b45b" text-anchor="start">JCode</text>
+<rect x="730.0" y="188.0" width="102.3" height="12.0" fill="#c2cbd8" rx="2"/>
+<rect x="832.3" y="188.0" width="17.6" height="12.0" fill="#44505f" rx="2"/>
+<circle cx="740.5" cy="194.0" r="3.2" fill="#5eead4" stroke="#0f1216" stroke-width="1"/>
+<text x="854.9" y="198.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="start">260 s</text>
+<text x="674.0" y="238.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#c9a6ff" text-anchor="start">Hax</text>
+<rect x="730.0" y="228.0" width="141.8" height="12.0" fill="#c2cbd8" rx="2"/>
+<rect x="871.8" y="228.0" width="32.3" height="12.0" fill="#44505f" rx="2"/>
+<circle cx="752.2" cy="234.0" r="3.2" fill="#5eead4" stroke="#0f1216" stroke-width="1"/>
+<text x="909.1" y="238.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="start">377 s</text>
+<rect x="30.0" y="291.0" width="22.0" height="10.0" fill="#c2cbd8" rx="2"/>
+<text x="60.0" y="300.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">API service time · exact sum of request durations (spans may overlap)</text>
+<rect x="460.0" y="291.0" width="22.0" height="10.0" fill="#44505f" rx="2"/>
+<text x="490.0" y="300.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">remainder · derived as wall clock minus API sum</text>
+<circle cx="792.0" cy="296.0" r="3.4" fill="#5eead4" stroke="none"/>
+<text x="804.0" y="300.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">CPU seconds · cgroup accounting</text>
+<text x="30.0" y="326.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">The remainder is not a tool-level phase trace: JCode exposes no tool events, and API spans can overlap.</text>
+<text x="30.0" y="544.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">No phase categories are invented. Exact values: results/publication-data.json · api_service_s, elapsed_s, cpu_s.</text>
+</svg>

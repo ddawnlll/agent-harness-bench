@@ -1,0 +1,4 @@
+{
+  "expected_failed_gates": ["corrupted_state_safe"],
+  "reason": "a corrupt job row raises ValueError and kills the service; no repair happens"
+}

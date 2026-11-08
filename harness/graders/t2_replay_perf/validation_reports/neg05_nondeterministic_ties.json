@@ -1,0 +1,336 @@
+{
+  "candidate_problems": [],
+  "cases": [
+    {
+      "detail": "fixtures unchanged",
+      "duration_ms": 0.0,
+      "id": "c_fixtures_untampered",
+      "passed": true,
+      "requirement": "TASK.md: do not touch data/ (committed fixtures are inputs)",
+      "severity": "P1"
+    },
+    {
+      "detail": "replay/ and tests/ present",
+      "duration_ms": 0.0,
+      "id": "c_layout",
+      "passed": true,
+      "requirement": "TASK.md: keep the replay package, the CLI and the tests in place",
+      "severity": "P0"
+    },
+    {
+      "detail": "46 passed, 5 failed, 0 skipped",
+      "duration_ms": 3532.8,
+      "id": "c_public_tests",
+      "passed": false,
+      "requirement": "TASK.md: python3 -m unittest discover -s tests -v must pass",
+      "severity": "P0"
+    },
+    {
+      "detail": "baseline suite has 51 tests, candidate suite has 51",
+      "duration_ms": 0.0,
+      "id": "c_tests_not_reduced",
+      "passed": true,
+      "requirement": "TASK.md: do not delete tests (the suite must not shrink)",
+      "severity": "P1"
+    },
+    {
+      "detail": "45 passed, 6 failed",
+      "duration_ms": 3631.1,
+      "id": "c_pristine_tests",
+      "passed": false,
+      "requirement": "TASK.md: public tests must keep passing (pristine copies)",
+      "severity": "P0"
+    },
+    {
+      "detail": "extra input fields changed the output: [[\"/accounts/acct00/cash\", \"22661864\", \"21234228\"], [\"/accounts/acct00/fees\", \"22148\", \"22433\"], [\"/accounts/acct00/pnl\", \"-24085\", \"-24213\"], [\"/accounts/acct00/positions/BBB\", \"220\", \"239\"]]",
+      "duration_ms": 0.0,
+      "id": "c_irrelevant_field_invariance",
+      "passed": false,
+      "requirement": "Parity must not depend on input file bytes/known hashes: unknown event fields are ignored by the documented loader",
+      "severity": "P1"
+    },
+    {
+      "detail": "rc=2 output_written=False",
+      "duration_ms": 0.0,
+      "id": "c_cli_invalid_input",
+      "passed": true,
+      "requirement": "TASK.md: the event schema/CLI contract is unchanged (invalid input exits 2 and writes nothing)",
+      "severity": "P1"
+    },
+    {
+      "detail": "parity fraction 0.00; mismatches: h_large: [[\"/accounts/acct00/cash\", \"34777495\", \"47295907\"], [\"/accounts/acct00/fees\", \"244610\", \"245113\"], [\"/accounts/acct00/pnl\", \"-211765\", \"-216013\"], [\"/accounts/acct00/positions/AAA\", \"-40\", \"-20\"], [\"/accounts/acct00/positions/BBB\", \"-210\", \"-230\"], [\"/accounts/acct00/positions/CCC\", \"110\", \"60\"]]; h_adversarial: [[\"/accounts/acct00/cash\", \"251846129\", \"251147614\"], [\"/accounts/acct00/fees\", \"303182\", \"303391\"], [\"/accounts/acct00/pnl\", \"-214735\", \"-209839\"], [\"/accounts/acct00/positions/AAA\", \"-1071\", \"-1073\"], [\"/accounts/acct00/positions/BBB\", \"-1893\", \"-1881\"], [\"/accounts/acct00/positions/CCC\", \"-2063\", \"-2059\"]]; h_small: [[\"/accounts/acct02/cash\", \"-18054671\", \"-18056673\"], [\"/accounts/acct02/fees\", \"22821\", \"24823\"], [\"/accounts/acct02/pnl\", \"-18636\", \"-20638\"], [\"/accounts/acct02/traded_qty\", \"1140\", \"1240\"], [\"/accounts/acct03/cash\", \"-21531831\", \"-20029701\"], [\"/accounts/acct03/fees\", \"20101\", \"20401\"]]",
+      "duration_ms": 0.0,
+      "id": "c_parity_hidden_workloads",
+      "passed": false,
+      "requirement": "TASK.md: output must be identical to the pristine engine on the hidden small/large/adversarial/fresh workloads",
+      "severity": "P0"
+    },
+    {
+      "detail": "byte differences on: h_large, h_adversarial, h_small, h_fresh",
+      "duration_ms": 0.0,
+      "id": "c_byte_identical",
+      "passed": false,
+      "requirement": "TASK.md: output must be byte-identical (canonical JSON, one line, trailing newline)",
+      "severity": "P1"
+    },
+    {
+      "detail": "contract valid on all profiles",
+      "duration_ms": 0.0,
+      "id": "c_output_contract",
+      "passed": true,
+      "requirement": "TASK.md: result schema, digest format and lifecycle counters stay valid",
+      "severity": "P0"
+    },
+    {
+      "detail": "event_count/audit.entries match the input on every profile",
+      "duration_ms": 0.0,
+      "id": "c_no_skipped_work",
+      "passed": true,
+      "requirement": "TASK.md: every event must be processed (no workload reduction)",
+      "severity": "P0"
+    },
+    {
+      "detail": "no debug prints",
+      "duration_ms": 0.0,
+      "id": "c_no_debug_prints",
+      "passed": true,
+      "requirement": "TASK.md: keep the code maintainable (no debug prints, no dead debug scaffolding in replay/)",
+      "severity": "P2"
+    },
+    {
+      "detail": "241 changed lines in .py files",
+      "duration_ms": 0.0,
+      "id": "c_change_scope",
+      "passed": true,
+      "requirement": "TASK.md: implementation changes only, keep the result contract",
+      "severity": "P2"
+    },
+    {
+      "detail": "large median speedup 5.28x (baseline 11083 ms, candidate 2099 ms)",
+      "duration_ms": 0.0,
+      "id": "c_speedup_large",
+      "passed": true,
+      "requirement": "TASK.md: at least 3x faster on a large workload",
+      "severity": "P1"
+    },
+    {
+      "detail": "adversarial median speedup 4.03x (baseline 2608 ms, candidate 648 ms)",
+      "duration_ms": 0.0,
+      "id": "c_speedup_adversarial",
+      "passed": true,
+      "requirement": "TASK.md: similar speedups on adversarial workloads",
+      "severity": "P2"
+    },
+    {
+      "detail": "peak RSS ratio 0.85x (baseline 66228224 bytes, candidate 56438784 bytes)",
+      "duration_ms": 0.0,
+      "id": "c_memory_no_regression",
+      "passed": true,
+      "requirement": "TASK.md: peak memory must not regress meaningfully",
+      "severity": "P2"
+    }
+  ],
+  "categories": {
+    "correctness": {
+      "components": {
+        "determinism": 0.0,
+        "output_contract": 3.0,
+        "parity_hidden_workloads": 0.0,
+        "pristine_tests": 0.0,
+        "public_tests": 0.0
+      },
+      "max": 40.0,
+      "score": 3.0
+    },
+    "maintainability": {
+      "components": {
+        "changed_lines": 241,
+        "fixtures_untampered": true,
+        "no_debug_prints": true,
+        "no_forbidden_imports": true,
+        "suite_not_reduced": true,
+        "test_files_intact": true
+      },
+      "max": 10.0,
+      "score": 10.0
+    },
+    "memory": {
+      "components": {
+        "peak_rss_ratio_h_large": 0.852
+      },
+      "max": 15.0,
+      "score": 13.88
+    },
+    "performance": {
+      "components": {
+        "adversarial_speedup": 0.0,
+        "large_speedup": 0.0
+      },
+      "max": 35.0,
+      "scaling": {
+        "adversarial_full_marks_at_speedup": 2.5,
+        "anti_cheat_gate_zeroes_performance": true,
+        "large_full_marks_at_speedup": 3.0,
+        "noise_dead_band_speedup": 1.2,
+        "parity_gate_zeroes_performance": true
+      },
+      "score": 0.0
+    }
+  },
+  "determinism": {
+    "agreement": false,
+    "detail": {
+      "h_adversarial": {
+        "baseline_distinct_outputs": 1,
+        "candidate_distinct_outputs": 2
+      },
+      "h_fresh": {
+        "baseline_distinct_outputs": 1,
+        "candidate_distinct_outputs": 2
+      },
+      "h_large": {
+        "baseline_distinct_outputs": 1,
+        "candidate_distinct_outputs": 2
+      },
+      "h_small": {
+        "baseline_distinct_outputs": 1,
+        "candidate_distinct_outputs": 2
+      }
+    },
+    "repeats": 1
+  },
+  "evidence_refs": [
+    "/tmp/t2-validate-et5dws09/work_neg05_nondeterministic_ties/t2-79_stcl5/candidate",
+    "/tmp/t2-validate-et5dws09/work_neg05_nondeterministic_ties/t2-79_stcl5/baseline",
+    "/tmp/t2-validate-et5dws09/work_neg05_nondeterministic_ties/t2-79_stcl5/inputs",
+    "/tmp/t2-validate-et5dws09/work_neg05_nondeterministic_ties/t2-79_stcl5/outputs"
+  ],
+  "gates": [
+    {
+      "detail": "public test files are unchanged",
+      "evidence": [],
+      "id": "test_integrity",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "no third-party imports, network use, timing tricks or persistent caches detected",
+      "evidence": [],
+      "id": "no_third_party_or_network",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "rc=1 total=51 failed=['test_cli.CliTests.test_repeated_runs_are_byte_identical::test_repeated_runs_are_byte_identical', 'test_cli.CliTests.test_small_fixture_produces_golden_output::test_small_fixture_produces_golden_output', 'test_engine.ResultDocumentTests.test_medium_fixture_digest::test_medium_fixture_digest', 'test_engine.ResultDocumentTests.test_result_is_deterministic::test_result_is_deterministic', 'test_engine.ResultDocumentTests.test_small_fixture_matches_golden_document::test_small_fixture_matches_golden_document'] skipped=[]\ndeterministic)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/t2-validate-et5dws09/work_neg05_nondeterministic_ties/t2-79_stcl5/candidate/tests/test_engine.py\", line 253, in test_result_is_deterministic\n    self.assertEqual(first, second)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\nAssertionError: {'sch[52 chars]': 282, 'trades': [{'ts': 1000017, 'seq': 23, [46006 chars]600}} != {'sch[52 chars]': 286, 'trades': [{'ts': 1000017, 'seq': 23, [46635 chars]600}}\nDiff is 123750 characters long. Set self.maxDiff to None to see it.\n\n======================================================================\nFAIL: test_small_fixture_matches_golden_document (test_engine.ResultDocumentTests.test_small_fixture_matches_golden_document)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/t2-validate-et5dws09/work_neg05_nondeterministic_ties/t2-79_stcl5/candidate/tests/test_engine.py\", line 240, in test_small_fixture_matches_golden_document\n    self.assertEqual(text, expected)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\nAssertionError: '{\"ac[23 chars]h\":-11513055,\"fees\":6300,\"pnl\":-8460,\"position[9519 chars]]}\\n' != '{\"ac[23 chars]h\":-10512705,\"fees\":6100,\"pnl\":-8010,\"position[9524 chars]]}\\n'\nDiff is 36491 characters long. Set self.maxDiff to None to see it.\n\n----------------------------------------------------------------------\nRan 51 tests in 3.233s\n\nFAILED (failures=5)\n",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg05_nondeterministic_ties/t2-79_stcl5/candidate/tests"
+      ],
+      "id": "public_tests",
+      "passed": false,
+      "severity": "P0"
+    },
+    {
+      "detail": "candidate code fails the pristine tests: failed=['test_cli.CliTests.test_repeated_runs_are_byte_identical::test_repeated_runs_are_byte_identical', 'test_cli.CliTests.test_small_fixture_produces_golden_output::test_small_fixture_produces_golden_output', 'test_engine.MatchingTests.test_time_priority::test_time_priority', 'test_engine.ResultDocumentTests.test_medium_fixture_digest::test_medium_fixture_digest', 'test_engine.ResultDocumentTests.test_result_is_deterministic::test_result_is_deterministic', 'test_engine.ResultDocumentTests.test_small_fixture_matches_golden_document::test_small_fixture_matches_golden_document'] skipped=[]\nc)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/t2-validate-et5dws09/work_neg05_nondeterministic_ties/t2-79_stcl5/pristine_tests/tests/test_engine.py\", line 253, in test_result_is_deterministic\n    self.assertEqual(first, second)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\nAssertionError: {'sch[52 chars]': 280, 'trades': [{'ts': 1000017, 'seq': 23, [45699 chars]600}} != {'sch[52 chars]': 288, 'trades': [{'ts': 1000017, 'seq': 23, [46945 chars]600}}\nDiff is 121934 characters long. Set self.maxDiff to None to see it.\n\n======================================================================\nFAIL: test_small_fixture_matches_golden_document (test_engine.ResultDocumentTests.test_small_fixture_matches_golden_document)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/tmp/t2-validate-et5dws09/work_neg05_nondeterministic_ties/t2-79_stcl5/pristine_tests/tests/test_engine.py\", line 240, in test_small_fixture_matches_golden_document\n    self.assertEqual(text, expected)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^\nAssertionError: '{\"ac[131 chars]ash\":494936,\"fees\":5099,\"pnl\":-2604,\"positions[9282 chars]]}\\n' != '{\"ac[131 chars]ash\":2995811,\"fees\":4599,\"pnl\":-1479,\"position[9416 chars]]}\\n'\nDiff is 33245 characters long. Set self.maxDiff to None to see it.\n\n----------------------------------------------------------------------\nRan 51 tests in 3.257s\n\nFAILED (failures=6)\n",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg05_nondeterministic_ties/t2-79_stcl5/pristine_tests"
+      ],
+      "id": "pristine_tests",
+      "passed": false,
+      "severity": "P0"
+    },
+    {
+      "detail": "pristine baseline replays all hidden workloads cleanly",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg05_nondeterministic_ties/t2-79_stcl5/outputs/baseline_*"
+      ],
+      "id": "baseline_sane",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "ok",
+      "evidence": [],
+      "id": "constant_output",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "output parity mismatch: h_large: [[\"/accounts/acct00/cash\", \"34777495\", \"47295907\"], [\"/accounts/acct00/fees\", \"244610\", \"245113\"], [\"/accounts/acct00/pnl\", \"-211765\", \"-216013\"], [\"/accounts/acct00/positions/AAA\", \"-40\", \"-20\"], [\"/accounts/acct00/positions/BBB\", \"-210\", \"-230\"], [\"/accounts/acct00/positions/CCC\", \"110\", \"60\"]]; h_adversarial: [[\"/accounts/acct00/cash\", \"251846129\", \"251147614\"], [\"/accounts/acct00/fees\", \"303182\", \"303391\"], [\"/accounts/acct00/pnl\", \"-214735\", \"-209839\"], [\"/accounts/acct00/positions/AAA\", \"-1071\", \"-1073\"], [\"/accounts/acct00/positions/BBB\", \"-1893\", \"-1881\"], [\"/accounts/acct00/positions/CCC\", \"-2063\", \"-2059\"]]; h_small: [[\"/accounts/acct02/cash\", \"-18054671\", \"-18056673\"], [\"/accounts/acct02/fees\", \"22821\", \"24823\"], [\"/accounts/acct02/pnl\", \"-18636\", \"-20638\"], [\"/accounts/acct02/traded_qty\", \"1140\", \"1240\"], [\"/accounts/acct03/cash\", \"-21531831\", \"-20029701\"], [\"/accounts/acct03/fees\", \"20101\", \"20401\"]]",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg05_nondeterministic_ties/t2-79_stcl5/outputs/baseline_*",
+        "/tmp/t2-validate-et5dws09/work_neg05_nondeterministic_ties/t2-79_stcl5/outputs/candidate_*"
+      ],
+      "id": "parity",
+      "passed": false,
+      "severity": "P0"
+    },
+    {
+      "detail": "candidate output varies between runs: {\"h_large\": {\"candidate_distinct_outputs\": 2, \"baseline_distinct_outputs\": 1}, \"h_adversarial\": {\"candidate_distinct_outputs\": 2, \"baseline_distinct_outputs\": 1}, \"h_small\": {\"candidate_distinct_outputs\": 2, \"baseline_distinct_outputs\": 1}, \"h_fresh\": {\"candidate_distinct_outputs\": 2, \"baseline_distinct_outputs\": 1}}",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg05_nondeterministic_ties/t2-79_stcl5/outputs/candidate_*"
+      ],
+      "id": "determinism",
+      "passed": false,
+      "severity": "P0"
+    },
+    {
+      "detail": "candidate does not write cache/state files",
+      "evidence": [],
+      "id": "no_cache_artifacts",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "no timing/caching anomalies (large median 2098.6 ms, floor 110.8 ms, first/later ratio n/a)",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg05_nondeterministic_ties/t2-79_stcl5/outputs/candidate_h_large_*"
+      ],
+      "id": "fake_speed",
+      "passed": true,
+      "severity": "P0"
+    }
+  ],
+  "grader_version": "1.0.0",
+  "kept_work_dir": true,
+  "metrics": {
+    "baseline_median_ms": {
+      "h_adversarial": 2607.81,
+      "h_fresh": 237.21,
+      "h_large": 11083.31,
+      "h_small": 281.82
+    },
+    "candidate_median_ms": {
+      "h_adversarial": 647.9,
+      "h_fresh": 229.56,
+      "h_large": 2098.61,
+      "h_small": 177.16
+    },
+    "peak_rss_bytes": {
+      "baseline": {
+        "h_adversarial": 33087488,
+        "h_fresh": 18796544,
+        "h_large": 66228224,
+        "h_small": 18558976
+      },
+      "candidate": {
+        "h_adversarial": 30412800,
+        "h_fresh": 18644992,
+        "h_large": 56438784,
+        "h_small": 18636800
+      },
+      "ratio_h_large": 0.852
+    },
+    "repeats": 1,
+    "speedup": {
+      "h_adversarial": 4.025,
+      "h_fresh": 1.033,
+      "h_large": 5.281,
+      "h_small": 1.591
+    }
+  },
+  "pass_threshold": 80.0,
+  "status": "FAIL",
+  "task_id": "t2",
+  "total": 26.88,
+  "work_dir": "/tmp/t2-validate-et5dws09/work_neg05_nondeterministic_ties/t2-79_stcl5"
+}

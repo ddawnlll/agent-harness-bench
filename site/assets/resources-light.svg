@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="576" viewBox="0 0 1000 576" role="img" aria-label="Resource comparison. Peak cgroup memory per trial stays far below the 3 GiB ceiling. CPU seconds range from 202 for Pi-Bolt to 668 for Hax. All nine trials completed with no timeouts, OOM kills or throttling.">
+<title>Resource use and reliability</title>
+<desc>Resource comparison. Peak cgroup memory per trial stays far below the 3 GiB ceiling. CPU seconds range from 202 for Pi-Bolt to 668 for Hax. All nine trials completed with no timeouts, OOM kills or throttling.</desc>
+<rect x="0.0" y="0.0" width="1000.0" height="576.0" fill="#fbfaf7"/>
+<text x="30.0" y="38.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#5c6675" text-anchor="start" letter-spacing="1.6">FIGURE 6  ·  COMPUTE</text>
+<text x="30.0" y="64.0" font-family="ui-serif, 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif" font-size="24" font-weight="650" fill="#14171a" text-anchor="start">Resource use and reliability</text>
+<text x="30.0" y="86.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#46505c" text-anchor="start">cgroup v2 peak memory per trial and total CPU seconds; the ceiling was shared fairly.</text>
+<line x1="30.0" y1="104.0" x2="970.0" y2="104.0" stroke="#e4dfd4" stroke-width="1"/>
+<text x="30.0" y="138.0" font-family="ui-serif, 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#14171a" text-anchor="start">Peak memory per trial</text>
+<text x="30.0" y="156.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="start">cgroup memory.peak in MiB; 3 GiB ceiling is off-scale (≈25–40× headroom)</text>
+<line x1="96.0" y1="178.0" x2="96.0" y2="438.0" stroke="#e4dfd4" stroke-width="1"/>
+<text x="96.0" y="454.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="middle">0</text>
+<line x1="207.3" y1="178.0" x2="207.3" y2="438.0" stroke="#e4dfd4" stroke-width="1"/>
+<text x="207.3" y="454.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="middle">40</text>
+<line x1="318.7" y1="178.0" x2="318.7" y2="438.0" stroke="#e4dfd4" stroke-width="1"/>
+<text x="318.7" y="454.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="middle">80</text>
+<line x1="430.0" y1="178.0" x2="430.0" y2="438.0" stroke="#e4dfd4" stroke-width="1"/>
+<text x="430.0" y="454.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="middle">120</text>
+<text x="30.0" y="184.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#2456c9" text-anchor="start">Pi-Bolt</text>
+<rect x="96.0" y="199.0" width="82.5" height="10.0" fill="#2456c9" rx="2" opacity="0.85"/>
+<text x="183.5" y="208.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" fill="#14171a" text-anchor="start">29.7</text>
+<text x="96.0" y="208.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="end">1_</text>
+<rect x="96.0" y="217.0" width="275.0" height="10.0" fill="#2456c9" rx="2" opacity="0.85"/>
+<text x="376.0" y="226.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" fill="#14171a" text-anchor="start">98.8</text>
+<text x="96.0" y="226.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="end">2_</text>
+<rect x="96.0" y="235.0" width="249.9" height="10.0" fill="#2456c9" rx="2" opacity="0.85"/>
+<text x="350.9" y="244.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" fill="#14171a" text-anchor="start">89.8</text>
+<text x="96.0" y="244.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="end">3_</text>
+<text x="30.0" y="276.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#a94f05" text-anchor="start">JCode</text>
+<rect x="96.0" y="291.0" width="69.6" height="10.0" fill="#a94f05" rx="2" opacity="0.85"/>
+<text x="170.6" y="300.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" fill="#14171a" text-anchor="start">25.0</text>
+<text x="96.0" y="300.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="end">1_</text>
+<rect x="96.0" y="309.0" width="228.6" height="10.0" fill="#a94f05" rx="2" opacity="0.85"/>
+<text x="329.6" y="318.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" fill="#14171a" text-anchor="start">82.1</text>
+<text x="96.0" y="318.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="end">2_</text>
+<rect x="96.0" y="327.0" width="195.3" height="10.0" fill="#a94f05" rx="2" opacity="0.85"/>
+<text x="296.3" y="336.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" fill="#14171a" text-anchor="start">70.2</text>
+<text x="96.0" y="336.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="end">3_</text>
+<text x="30.0" y="368.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#6d28a8" text-anchor="start">Hax</text>
+<rect x="96.0" y="383.0" width="39.4" height="10.0" fill="#6d28a8" rx="2" opacity="0.85"/>
+<text x="140.4" y="392.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" fill="#14171a" text-anchor="start">14.2</text>
+<text x="96.0" y="392.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="end">1_</text>
+<rect x="96.0" y="401.0" width="247.5" height="10.0" fill="#6d28a8" rx="2" opacity="0.85"/>
+<text x="348.5" y="410.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" fill="#14171a" text-anchor="start">88.9</text>
+<text x="96.0" y="410.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="end">2_</text>
+<rect x="96.0" y="419.0" width="207.3" height="10.0" fill="#6d28a8" rx="2" opacity="0.85"/>
+<text x="308.3" y="428.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="600" fill="#14171a" text-anchor="start">74.5</text>
+<text x="96.0" y="428.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="end">3_</text>
+<text x="30.0" y="488.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="start">bars: T1 / T2 / T3 per agent. Mean peaks: Pi-Bolt 72.8 · JCode 59.1 · Hax 59.2 MiB</text>
+<text x="540.0" y="138.0" font-family="ui-serif, 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#14171a" text-anchor="start">CPU seconds, all three trials</text>
+<text x="540.0" y="156.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="start">cgroup cpu.stat; total across three trials</text>
+<text x="540.0" y="202.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#2456c9" text-anchor="start">Pi-Bolt</text>
+<rect x="614.0" y="190.0" width="91.0" height="16.0" fill="#2456c9" rx="3"/>
+<text x="711.0" y="202.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#14171a" text-anchor="start">202.5 s</text>
+<text x="540.0" y="246.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#a94f05" text-anchor="start">JCode</text>
+<rect x="614.0" y="234.0" width="168.7" height="16.0" fill="#a94f05" rx="3"/>
+<text x="788.7" y="246.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#14171a" text-anchor="start">375.5 s</text>
+<text x="540.0" y="290.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#6d28a8" text-anchor="start">Hax</text>
+<rect x="614.0" y="278.0" width="300.0" height="16.0" fill="#6d28a8" rx="3"/>
+<text x="920.0" y="290.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#14171a" text-anchor="start">667.6 s</text>
+<text x="540.0" y="348.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#46505c" text-anchor="start">Reliability</text>
+<text x="540.0" y="370.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="start">trials completed</text>
+<text x="840.0" y="370.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#14171a" text-anchor="end">9 / 9</text>
+<text x="540.0" y="390.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="start">timeouts</text>
+<text x="840.0" y="390.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#14171a" text-anchor="end">0</text>
+<text x="540.0" y="410.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="start">OOM kills</text>
+<text x="840.0" y="410.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#14171a" text-anchor="end">0</text>
+<text x="540.0" y="430.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="start">CPU throttled</text>
+<text x="840.0" y="430.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#14171a" text-anchor="end">0.000 s</text>
+<text x="30.0" y="512.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="start">Memory accounting is cgroup-level and charges children and subagents; it is not process RSS.</text>
+<text x="30.0" y="560.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#5c6675" text-anchor="start">Values from cgroup_final.txt and resource samples. Limits: MemoryMax=3 GiB, CPUQuota=200%.</text>
+</svg>

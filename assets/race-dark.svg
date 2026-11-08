@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="548" viewBox="0 0 1000 548" role="img" aria-label="Nine-trial race. Each trial's wall-clock seconds to completion, grouped by task, with verified pass or fail. T1: JCode 206 seconds pass; Pi-Bolt 366 fail; Hax 192 fail. T2: Pi-Bolt 439, JCode 645, Hax 978, all pass. T3: Pi-Bolt 262, JCode 260, Hax 377, all pass.">
+<title>The nine-trial race</title>
+<desc>Nine-trial race. Each trial's wall-clock seconds to completion, grouped by task, with verified pass or fail. T1: JCode 206 seconds pass; Pi-Bolt 366 fail; Hax 192 fail. T2: Pi-Bolt 439, JCode 645, Hax 978, all pass. T3: Pi-Bolt 262, JCode 260, Hax 377, all pass.</desc>
+<rect x="0.0" y="0.0" width="1000.0" height="548.0" fill="#0f1216"/>
+<text x="30.0" y="38.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#8d98a7" text-anchor="start" letter-spacing="1.6">FIGURE 2  ·  EXECUTION</text>
+<text x="30.0" y="64.0" font-family="ui-serif, 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif" font-size="24" font-weight="650" fill="#f2f0ea" text-anchor="start">The nine-trial race</text>
+<text x="30.0" y="86.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#bcc5d1" text-anchor="start">Wall-clock seconds to completion. Solid bar: verified pass. Hollow bar: critical gate failed.</text>
+<line x1="30.0" y1="104.0" x2="970.0" y2="104.0" stroke="#29313c" stroke-width="1"/>
+<text x="30.0" y="132.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#f2f0ea" text-anchor="start">T1 · cross-module safety</text>
+<line x1="76.0" y1="154.0" x2="76.0" y2="292.0" stroke="#29313c" stroke-width="1"/>
+<text x="76.0" y="308.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="middle">0s</text>
+<line x1="174.7" y1="154.0" x2="174.7" y2="292.0" stroke="#29313c" stroke-width="1"/>
+<text x="174.7" y="308.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="middle">210s</text>
+<line x1="273.3" y1="154.0" x2="273.3" y2="292.0" stroke="#29313c" stroke-width="1"/>
+<text x="273.3" y="308.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="middle">420s</text>
+<text x="30.0" y="178.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#8fb3ff" text-anchor="start">Pi-Bolt</text>
+<rect x="76.0" y="167.0" width="171.8" height="14.0" fill="#0f1216" rx="3" stroke="#8fb3ff" stroke-width="1.6"/>
+<line x1="76.0" y1="186.0" x2="242.1" y2="186.0" stroke="#c2cbd8" stroke-width="2" opacity="0.45"/>
+<text x="253.8" y="178.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="start">366</text>
+<text x="76.0" y="201.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#ff9a91" text-anchor="start">FAIL</text>
+<text x="112.0" y="201.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">h07 stale callback</text>
+<text x="30.0" y="224.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#f6b45b" text-anchor="start">JCode</text>
+<rect x="76.0" y="213.0" width="96.8" height="14.0" fill="#f6b45b" rx="3"/>
+<line x1="76.0" y1="232.0" x2="168.9" y2="232.0" stroke="#c2cbd8" stroke-width="2" opacity="0.45"/>
+<text x="178.8" y="224.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="start">206</text>
+<text x="76.0" y="247.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#5eead4" text-anchor="start">PASS</text>
+<text x="30.0" y="270.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#c9a6ff" text-anchor="start">Hax</text>
+<rect x="76.0" y="259.0" width="90.3" height="14.0" fill="#0f1216" rx="3" stroke="#c9a6ff" stroke-width="1.6"/>
+<line x1="76.0" y1="278.0" x2="163.2" y2="278.0" stroke="#c2cbd8" stroke-width="2" opacity="0.45"/>
+<text x="172.3" y="270.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="start">192</text>
+<text x="76.0" y="293.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#ff9a91" text-anchor="start">FAIL</text>
+<text x="112.0" y="293.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">h07 stale callback</text>
+<text x="351.3" y="132.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#f2f0ea" text-anchor="start">T2 · replay performance</text>
+<line x1="397.3" y1="154.0" x2="397.3" y2="292.0" stroke="#29313c" stroke-width="1"/>
+<text x="397.3" y="308.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="middle">0s</text>
+<line x1="496.0" y1="154.0" x2="496.0" y2="292.0" stroke="#29313c" stroke-width="1"/>
+<text x="496.0" y="308.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="middle">510s</text>
+<line x1="594.7" y1="154.0" x2="594.7" y2="292.0" stroke="#29313c" stroke-width="1"/>
+<text x="594.7" y="308.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="middle">1020s</text>
+<text x="351.3" y="178.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#8fb3ff" text-anchor="start">Pi-Bolt</text>
+<rect x="397.3" y="167.0" width="85.0" height="14.0" fill="#8fb3ff" rx="3"/>
+<line x1="397.3" y1="186.0" x2="452.6" y2="186.0" stroke="#c2cbd8" stroke-width="2" opacity="0.45"/>
+<text x="488.3" y="178.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="start">439</text>
+<text x="397.3" y="201.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#5eead4" text-anchor="start">PASS</text>
+<text x="351.3" y="224.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#f6b45b" text-anchor="start">JCode</text>
+<rect x="397.3" y="213.0" width="124.9" height="14.0" fill="#f6b45b" rx="3"/>
+<line x1="397.3" y1="232.0" x2="455.7" y2="232.0" stroke="#c2cbd8" stroke-width="2" opacity="0.45"/>
+<text x="528.2" y="224.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="start">645</text>
+<text x="397.3" y="247.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#5eead4" text-anchor="start">PASS</text>
+<text x="351.3" y="270.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#c9a6ff" text-anchor="start">Hax</text>
+<rect x="397.3" y="259.0" width="189.1" height="14.0" fill="#c9a6ff" rx="3"/>
+<line x1="397.3" y1="278.0" x2="469.9" y2="278.0" stroke="#c2cbd8" stroke-width="2" opacity="0.45"/>
+<text x="592.5" y="270.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="start">978</text>
+<text x="397.3" y="293.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#5eead4" text-anchor="start">PASS</text>
+<text x="672.7" y="132.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="700" fill="#f2f0ea" text-anchor="start">T3 · crash-safe coordinator</text>
+<line x1="718.7" y1="154.0" x2="718.7" y2="292.0" stroke="#29313c" stroke-width="1"/>
+<text x="718.7" y="308.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="middle">0s</text>
+<line x1="817.3" y1="154.0" x2="817.3" y2="292.0" stroke="#29313c" stroke-width="1"/>
+<text x="817.3" y="308.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="middle">210s</text>
+<line x1="916.0" y1="154.0" x2="916.0" y2="292.0" stroke="#29313c" stroke-width="1"/>
+<text x="916.0" y="308.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="middle">420s</text>
+<text x="672.7" y="178.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#8fb3ff" text-anchor="start">Pi-Bolt</text>
+<rect x="718.7" y="167.0" width="123.3" height="14.0" fill="#8fb3ff" rx="3"/>
+<line x1="718.7" y1="186.0" x2="835.1" y2="186.0" stroke="#c2cbd8" stroke-width="2" opacity="0.45"/>
+<text x="847.9" y="178.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="start">262</text>
+<text x="718.7" y="201.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#5eead4" text-anchor="start">PASS</text>
+<text x="672.7" y="224.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#f6b45b" text-anchor="start">JCode</text>
+<rect x="718.7" y="213.0" width="122.0" height="14.0" fill="#f6b45b" rx="3"/>
+<line x1="718.7" y1="232.0" x2="822.7" y2="232.0" stroke="#c2cbd8" stroke-width="2" opacity="0.45"/>
+<text x="846.7" y="224.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="start">260</text>
+<text x="718.7" y="247.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#5eead4" text-anchor="start">PASS</text>
+<text x="672.7" y="270.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#c9a6ff" text-anchor="start">Hax</text>
+<rect x="718.7" y="259.0" width="177.1" height="14.0" fill="#c9a6ff" rx="3"/>
+<line x1="718.7" y1="278.0" x2="862.9" y2="278.0" stroke="#c2cbd8" stroke-width="2" opacity="0.45"/>
+<text x="901.8" y="270.0" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="start">377</text>
+<text x="718.7" y="293.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#5eead4" text-anchor="start">PASS</text>
+<path d="M180.0,366.0 Q183.2,296.6 160.0,232.0 M160.0,232.0 L159.5,241.0 M160.0,232.0 L166.1,238.6" fill="none" stroke="#f2f0ea" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<text x="188.0" y="370.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="600" fill="#bcc5d1" text-anchor="start">only JCode rejected the stale version</text>
+<rect x="30.0" y="389.0" width="22.0" height="10.0" fill="#c2cbd8" rx="2"/>
+<text x="60.0" y="398.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">API service time (sum of request durations; spans may overlap)</text>
+<text x="30.0" y="422.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">JCode's CLI emitted no tool-level trace; tool activity is unknown and not inferred.</text>
+<text x="30.0" y="532.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">Elapsed = barrier release to agent exit; fill encodes pass/fail in addition to the printed label.</text>
+</svg>

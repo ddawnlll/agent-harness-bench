@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="620" viewBox="0 0 1000 620" role="img" aria-label="Safety case h07. After a fill of 10 at 100 and an accepted stop acknowledgement, protection is ACTIVE at version 1. A stale callback at version 0 reports CANCELLED. JCode ignores it because the version is not newer; protection stays ACTIVE. Pi-Bolt and Hax apply it, leaving the open position unprotected, and fail the gate.">
+<title>Why one stale callback decided the ranking</title>
+<desc>Safety case h07. After a fill of 10 at 100 and an accepted stop acknowledgement, protection is ACTIVE at version 1. A stale callback at version 0 reports CANCELLED. JCode ignores it because the version is not newer; protection stays ACTIVE. Pi-Bolt and Hax apply it, leaving the open position unprotected, and fail the gate.</desc>
+<rect x="0.0" y="0.0" width="1000.0" height="620.0" fill="#0f1216"/>
+<text x="30.0" y="38.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#8d98a7" text-anchor="start" letter-spacing="1.6">FIGURE 3  ·  SAFETY CASE</text>
+<text x="30.0" y="64.0" font-family="ui-serif, 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif" font-size="24" font-weight="650" fill="#f2f0ea" text-anchor="start">Why one stale callback decided the ranking</text>
+<text x="30.0" y="86.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#bcc5d1" text-anchor="start">Hidden case h07: a venue callback at version 0 arrives after an accepted stop at version 1.</text>
+<line x1="30.0" y1="104.0" x2="970.0" y2="104.0" stroke="#29313c" stroke-width="1"/>
+<text x="190.0" y="118.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="650" fill="#bcc5d1" text-anchor="start">1 · fill 10 @ 100</text>
+<text x="360.0" y="118.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="650" fill="#bcc5d1" text-anchor="start">2 · stop ACK accepted (v1)</text>
+<text x="560.0" y="118.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="650" fill="#bcc5d1" text-anchor="start">3 · stale callback v0</text>
+<text x="760.0" y="118.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="650" fill="#bcc5d1" text-anchor="start">4 · state</text>
+<rect x="30.0" y="122.0" width="940.0" height="88.0" fill="#3a2a12" rx="10"/>
+<rect x="43.5" y="141.5" width="9.0" height="9.0" fill="#f6b45b" stroke="none"/>
+<text x="64.0" y="151.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#f6b45b" text-anchor="start">JCode</text>
+<text x="64.0" y="171.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#bcc5d1" text-anchor="start">keeps ACTIVE</text>
+<rect x="190.0" y="132.0" width="128.0" height="28.0" fill="#151a21" rx="6" stroke="#3b4552" stroke-width="1"/>
+<text x="254.0" y="150.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="middle">position +10</text>
+<rect x="360.0" y="132.0" width="128.0" height="28.0" fill="#151a21" rx="6" stroke="#3b4552" stroke-width="1"/>
+<text x="424.0" y="150.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="middle">ACTIVE</text>
+<rect x="560.0" y="132.0" width="128.0" height="28.0" fill="#151a21" rx="6" stroke="#3b4552" stroke-width="1"/>
+<text x="624.0" y="150.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="middle">v0 CANCELLED</text>
+<rect x="760.0" y="132.0" width="168.0" height="28.0" fill="#5eead4" rx="6" stroke="#5eead4" stroke-width="1"/>
+<text x="844.0" y="150.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="650" fill="#0f1216" text-anchor="middle">ACTIVE · protected</text>
+<text x="932.0" y="150.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="750" fill="#5eead4" text-anchor="start">PASS</text>
+<path d="M320.0,146.0 Q336.8,147.8 354.0,146.0 M354.0,146.0 L345.4,143.4 M354.0,146.0 L346.1,150.3" fill="none" stroke="#f2f0ea" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M490.0,146.0 Q521.8,149.3 554.0,146.0 M554.0,146.0 L545.4,143.4 M554.0,146.0 L546.1,150.3" fill="none" stroke="#f2f0ea" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M690.0,146.0 Q721.8,149.3 754.0,146.0 M754.0,146.0 L745.4,143.4 M754.0,146.0 L746.1,150.3" fill="none" stroke="#f2f0ea" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<rect x="30.0" y="228.0" width="940.0" height="88.0" fill="#1b2745" rx="10"/>
+<circle cx="48.0" cy="252.0" r="5.0" fill="#8fb3ff" stroke="none"/>
+<text x="64.0" y="257.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#8fb3ff" text-anchor="start">Pi-Bolt</text>
+<text x="64.0" y="277.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#bcc5d1" text-anchor="start">applies stale callback</text>
+<rect x="190.0" y="238.0" width="128.0" height="28.0" fill="#151a21" rx="6" stroke="#3b4552" stroke-width="1"/>
+<text x="254.0" y="256.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="middle">position +10</text>
+<rect x="360.0" y="238.0" width="128.0" height="28.0" fill="#151a21" rx="6" stroke="#3b4552" stroke-width="1"/>
+<text x="424.0" y="256.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="middle">ACTIVE</text>
+<rect x="560.0" y="238.0" width="128.0" height="28.0" fill="#151a21" rx="6" stroke="#3b4552" stroke-width="1"/>
+<text x="624.0" y="256.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="middle">v0 CANCELLED</text>
+<rect x="760.0" y="238.0" width="168.0" height="28.0" fill="#ff9a91" rx="6" stroke="#ff9a91" stroke-width="1"/>
+<text x="844.0" y="256.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="650" fill="#0f1216" text-anchor="middle">CANCELLED · unprotected</text>
+<text x="932.0" y="256.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="750" fill="#ff9a91" text-anchor="start">FAIL h07</text>
+<path d="M320.0,252.0 Q337.0,253.8 354.0,252.0 M354.0,252.0 L345.4,249.4 M354.0,252.0 L346.1,256.3" fill="none" stroke="#f2f0ea" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M490.0,252.0 Q522.0,255.3 554.0,252.0 M554.0,252.0 L545.4,249.4 M554.0,252.0 L546.1,256.3" fill="none" stroke="#f2f0ea" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M690.0,252.0 Q722.0,255.3 754.0,252.0 M754.0,252.0 L745.4,249.4 M754.0,252.0 L746.1,256.3" fill="none" stroke="#f2f0ea" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<rect x="30.0" y="334.0" width="940.0" height="88.0" fill="#2a1f3d" rx="10"/>
+<path d="M48.0,353.1 L53.5,361.5 L42.5,361.5 Z" fill="#c9a6ff" stroke="none"/>
+<text x="64.0" y="363.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="17" font-weight="700" fill="#c9a6ff" text-anchor="start">Hax</text>
+<text x="64.0" y="383.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#bcc5d1" text-anchor="start">applies stale callback</text>
+<rect x="190.0" y="344.0" width="128.0" height="28.0" fill="#151a21" rx="6" stroke="#3b4552" stroke-width="1"/>
+<text x="254.0" y="362.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="middle">position +10</text>
+<rect x="360.0" y="344.0" width="128.0" height="28.0" fill="#151a21" rx="6" stroke="#3b4552" stroke-width="1"/>
+<text x="424.0" y="362.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="middle">ACTIVE</text>
+<rect x="560.0" y="344.0" width="128.0" height="28.0" fill="#151a21" rx="6" stroke="#3b4552" stroke-width="1"/>
+<text x="624.0" y="362.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="650" fill="#f2f0ea" text-anchor="middle">v0 CANCELLED</text>
+<rect x="760.0" y="344.0" width="168.0" height="28.0" fill="#ff9a91" rx="6" stroke="#ff9a91" stroke-width="1"/>
+<text x="844.0" y="362.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="650" fill="#0f1216" text-anchor="middle">CANCELLED · unprotected</text>
+<text x="932.0" y="362.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" font-weight="750" fill="#ff9a91" text-anchor="start">FAIL h07</text>
+<path d="M320.0,358.0 Q337.4,359.4 354.0,358.0 M354.0,358.0 L345.4,355.2 M354.0,358.0 L346.0,362.2" fill="none" stroke="#f2f0ea" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M490.0,358.0 Q522.4,360.9 554.0,358.0 M554.0,358.0 L545.4,355.3 M554.0,358.0 L546.1,362.2" fill="none" stroke="#f2f0ea" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<path d="M690.0,358.0 Q722.4,360.9 754.0,358.0 M754.0,358.0 L745.4,355.3 M754.0,358.0 L746.1,362.2" fill="none" stroke="#f2f0ea" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+<line x1="30.0" y1="474.0" x2="970.0" y2="474.0" stroke="#29313c" stroke-width="1"/>
+<text x="30.0" y="504.0" font-family="ui-serif, 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#f2f0ea" text-anchor="start">The invariant</text>
+<text x="30.0" y="530.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#f2f0ea" text-anchor="start">A position is protected only when an ACTIVE stop covers exactly the open quantity.</text>
+<text x="30.0" y="552.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#f2f0ea" text-anchor="start">A stale callback is not evidence of loss. Applying it makes an unprotected position look protected.</text>
+<text x="30.0" y="578.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">Grader assertion: status ACTIVE, is_protected true, halted false. Pi-Bolt and Hax failed this case.</text>
+<text x="30.0" y="604.0" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11" font-weight="400" fill="#8d98a7" text-anchor="start">Values 10 @ 100, stop 95, versions 0/1 and state CANCELLED are the literal fixtures of hidden case h07.</text>
+</svg>

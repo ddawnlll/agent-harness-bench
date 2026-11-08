@@ -1,0 +1,7 @@
+{
+  "id": "neg07_network_import",
+  "description": "Optimised and output-correct, but the engine imports socket (forbidden network module). Must fail the P0 policy gate even with a perfect score.",
+  "expect_status": "FAIL",
+  "expected_failing_gates": ["no_third_party_or_network"],
+  "expected_zero_performance": false
+}

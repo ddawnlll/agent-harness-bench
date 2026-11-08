@@ -1,0 +1,4 @@
+{
+  "expected_failed_gates": ["no_duplicate_ownership"],
+  "reason": "SELECT then UPDATE outside a transaction lets two workers own the same job"
+}

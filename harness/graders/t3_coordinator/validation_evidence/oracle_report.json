@@ -1,0 +1,432 @@
+{
+  "task_id": "t3",
+  "status": "PASS",
+  "total": 100.0,
+  "categories": {
+    "functional": {
+      "score": 40.0,
+      "max": 40,
+      "passed_cases": 9,
+      "total_cases": 9
+    },
+    "concurrency_recovery": {
+      "score": 35.0,
+      "max": 35,
+      "passed_cases": 6,
+      "total_cases": 6
+    },
+    "tests": {
+      "score": 15.0,
+      "max": 15,
+      "passed_cases": 2,
+      "total_cases": 2
+    },
+    "maintainability": {
+      "score": 10.0,
+      "max": 10,
+      "passed_cases": 5,
+      "total_cases": 5
+    }
+  },
+  "gates": [
+    {
+      "id": "no_duplicate_ownership",
+      "severity": "P0",
+      "passed": true,
+      "detail": "all evidence passed",
+      "evidence": [
+        "C1",
+        "C2",
+        "C5",
+        "C6"
+      ]
+    },
+    {
+      "id": "persistence_restart",
+      "severity": "P0",
+      "passed": true,
+      "detail": "all evidence passed",
+      "evidence": [
+        "C4"
+      ]
+    },
+    {
+      "id": "no_lost_completion",
+      "severity": "P0",
+      "passed": true,
+      "detail": "all evidence passed",
+      "evidence": [
+        "C3",
+        "C5"
+      ]
+    },
+    {
+      "id": "bounded_retries",
+      "severity": "P0",
+      "passed": true,
+      "detail": "all evidence passed",
+      "evidence": [
+        "F5"
+      ]
+    },
+    {
+      "id": "non_memory_storage",
+      "severity": "P0",
+      "passed": true,
+      "detail": "all evidence passed",
+      "evidence": [
+        "C4",
+        "S_MEMDB"
+      ]
+    },
+    {
+      "id": "crash_recovery",
+      "severity": "P0",
+      "passed": true,
+      "detail": "all evidence passed",
+      "evidence": [
+        "C2",
+        "C6"
+      ]
+    },
+    {
+      "id": "test_integrity",
+      "severity": "P0",
+      "passed": true,
+      "detail": "all evidence passed",
+      "evidence": [
+        "T1",
+        "S_TESTS"
+      ]
+    },
+    {
+      "id": "corrupted_state_safe",
+      "severity": "P0",
+      "passed": true,
+      "detail": "all evidence passed",
+      "evidence": [
+        "F10"
+      ]
+    },
+    {
+      "id": "no_network_thirdparty",
+      "severity": "P0",
+      "passed": true,
+      "detail": "all evidence passed",
+      "evidence": [
+        "S_IMPORTS"
+      ]
+    },
+    {
+      "id": "idempotent_completion",
+      "severity": "P0",
+      "passed": true,
+      "detail": "all evidence passed",
+      "evidence": [
+        "F4"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "F1",
+      "requirement": "add_job persists payload; duplicate id rejected",
+      "severity": "P1",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 62.51
+    },
+    {
+      "id": "F2",
+      "requirement": "claim atomically leases one job; no second owner",
+      "severity": "P1",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 11.38
+    },
+    {
+      "id": "F3",
+      "requirement": "complete persists result and releases the lease",
+      "severity": "P1",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 15.16
+    },
+    {
+      "id": "F4",
+      "requirement": "repeated completion is idempotent (no double count)",
+      "severity": "P0",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 10.22
+    },
+    {
+      "id": "F5",
+      "requirement": "bounded retries; exhaustion is terminal FAILED",
+      "severity": "P0",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 1021.07
+    },
+    {
+      "id": "F7",
+      "requirement": "heartbeat extends the lease",
+      "severity": "P1",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 1220.13
+    },
+    {
+      "id": "F8",
+      "requirement": "invalid input rejected with documented errors",
+      "severity": "P1",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 1127.39
+    },
+    {
+      "id": "F9",
+      "requirement": "ordered, filterable append-only audit trail",
+      "severity": "P1",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 33.43
+    },
+    {
+      "id": "F10",
+      "requirement": "corrupt persisted state tolerated and repaired",
+      "severity": "P0",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 123.97
+    },
+    {
+      "id": "C1",
+      "requirement": "8 processes x 200 jobs: exactly one owner per job",
+      "severity": "P0",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 3282.32
+    },
+    {
+      "id": "C2",
+      "requirement": "SIGKILL mid-ownership + lease expiry reclaim",
+      "severity": "P0",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 1744.98
+    },
+    {
+      "id": "C3",
+      "requirement": "late duplicate completion is not lost/corrupting",
+      "severity": "P0",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 2074.79
+    },
+    {
+      "id": "C4",
+      "requirement": "state survives process restart (graceful + abrupt)",
+      "severity": "P0",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 853.82
+    },
+    {
+      "id": "C5",
+      "requirement": "kill one of three workers; survivors recover all",
+      "severity": "P0",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 2719.55
+    },
+    {
+      "id": "C6",
+      "requirement": "expired lease reclaimed with incremented attempt",
+      "severity": "P0",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 1263.33
+    },
+    {
+      "id": "T1",
+      "requirement": "public test suite passes unmodified",
+      "severity": "P0",
+      "passed": true,
+      "detail": "public suite: 13 tests, 0 failures, 0 errors",
+      "duration_ms": 1470
+    },
+    {
+      "id": "T2",
+      "requirement": "candidate added at least one passing test of their own",
+      "severity": "P1",
+      "passed": true,
+      "detail": "added test modules: ['test_recovery_extra'], 2 tests",
+      "duration_ms": null
+    },
+    {
+      "id": "M1",
+      "requirement": "public API is documented (docstrings)",
+      "severity": "P1",
+      "passed": true,
+      "detail": "Coordinator and all public methods documented",
+      "duration_ms": null
+    },
+    {
+      "id": "M2",
+      "requirement": "no TODO/FIXME/NotImplementedError stubs left",
+      "severity": "P1",
+      "passed": true,
+      "detail": "no stub markers",
+      "duration_ms": null
+    },
+    {
+      "id": "M3",
+      "requirement": "audit receipts are append-only (enforced in SQL)",
+      "severity": "P1",
+      "passed": true,
+      "detail": "append-only triggers declared (2)",
+      "duration_ms": null
+    },
+    {
+      "id": "M4",
+      "requirement": "no bare excepts / debug prints; sources compile",
+      "severity": "P1",
+      "passed": true,
+      "detail": "no bare excepts, no debug prints, sources compile",
+      "duration_ms": null
+    },
+    {
+      "id": "M5",
+      "requirement": "no eval/exec/wildcard imports",
+      "severity": "P1",
+      "passed": true,
+      "detail": "no eval/exec/wildcard imports",
+      "duration_ms": null
+    },
+    {
+      "id": "S_TESTS",
+      "requirement": "baseline test files are present and byte-identical",
+      "severity": "P0",
+      "passed": true,
+      "detail": "baseline tests intact",
+      "duration_ms": null
+    },
+    {
+      "id": "S_IMPORTS",
+      "requirement": "no third-party imports and no network modules",
+      "severity": "P0",
+      "passed": true,
+      "detail": "stdlib-only imports, no network modules",
+      "duration_ms": null
+    },
+    {
+      "id": "S_MEMDB",
+      "requirement": "no in-memory SQLite database is used for storage",
+      "severity": "P0",
+      "passed": true,
+      "detail": "no sqlite3 :memory: connection",
+      "duration_ms": null
+    }
+  ],
+  "determinism": {
+    "repeats": 2,
+    "agreement": true,
+    "stress_rounds": [
+      {
+        "round": 0,
+        "passed": true,
+        "claimed": 200,
+        "duplicates": 0,
+        "errors": 0,
+        "done": 200,
+        "results": 200,
+        "jobs": 200,
+        "workers": 8
+      },
+      {
+        "round": 1,
+        "passed": true,
+        "claimed": 200,
+        "duplicates": 0,
+        "errors": 0,
+        "done": 200,
+        "results": 200,
+        "jobs": 200,
+        "workers": 8
+      }
+    ]
+  },
+  "evidence_refs": [
+    "/home/researcher/agent-benchmark/graders/t3_coordinator/validation_evidence/oracle_report.artifacts/public.json",
+    "/home/researcher/agent-benchmark/graders/t3_coordinator/validation_evidence/oracle_report.artifacts/functional.json",
+    "/home/researcher/agent-benchmark/graders/t3_coordinator/validation_evidence/oracle_report.artifacts/corruption.json",
+    "/home/researcher/agent-benchmark/graders/t3_coordinator/validation_evidence/oracle_report.artifacts/recovery.json",
+    "/home/researcher/agent-benchmark/graders/t3_coordinator/validation_evidence/oracle_report.artifacts/static_analysis.json"
+  ],
+  "grader": {
+    "version": "1.0.0",
+    "task_id": "t3",
+    "elapsed_s": 18.21,
+    "workspace": "/tmp/t3-oracle-ws",
+    "workspace_untouched": true,
+    "baseline_repo": "/home/researcher/agent-benchmark/graders/t3_coordinator/baseline_repo",
+    "baseline_sha": "4b4f88d092b049f9ae02d9aa678337ace96c4d10",
+    "test_command": "python3 -m unittest discover -s tests -v",
+    "time_budget_s": 175.0,
+    "groups": [
+      {
+        "label": "public",
+        "rc": 0,
+        "timed_out": false,
+        "elapsed_s": 1.47,
+        "discovery_error": null,
+        "counts": {
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "label": "functional",
+        "rc": 0,
+        "timed_out": false,
+        "elapsed_s": 3.74,
+        "discovery_error": null,
+        "counts": {
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "label": "corruption",
+        "rc": 0,
+        "timed_out": false,
+        "elapsed_s": 0.47,
+        "discovery_error": null,
+        "counts": {
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "label": "recovery",
+        "rc": 0,
+        "timed_out": false,
+        "elapsed_s": 12.29,
+        "discovery_error": null,
+        "counts": {
+          "tests": 6,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      }
+    ]
+  }
+}

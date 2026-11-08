@@ -1,0 +1,6 @@
+{"type":"SUBMIT_ENTRY","seq":1,"order_id":"E1","symbol":"BTCUSD","side":"BUY","qty":10,"price":100.0,"stop_distance":5.0}
+{"type":"ENTRY_ACK","seq":2,"order_id":"E1","native_id":"N1","accepted":true}
+{"type":"FILL","seq":3,"order_id":"E1","fill_id":"F1","qty":10,"price":100.0}
+{"type":"STOP_ACK","seq":4,"client_stop_id":"STOP-E1-1","native_id":"S1","accepted":true}
+{"type":"RESTART","seq":5}
+{"type":"END","seq":6}

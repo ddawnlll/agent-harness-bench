@@ -1,0 +1,55 @@
+{
+  "start_dir": "/tmp/t3-grade-xmf4r8xw/workspace/_hidden_a0d885e9",
+  "records": [
+    {
+      "id": "test_recovery.TestConcurrency.test_C1_parallel_claiming_has_exactly_one_owner",
+      "case": "C1",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 3282.32
+    },
+    {
+      "id": "test_recovery.TestCrashRecovery.test_C2_sigkill_mid_ownership_then_lease_expiry_reclaim",
+      "case": "C2",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 1744.98
+    },
+    {
+      "id": "test_recovery.TestCrashRecovery.test_C3_late_duplicate_completion_after_reclaim",
+      "case": "C3",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 2074.79
+    },
+    {
+      "id": "test_recovery.TestCrashRecovery.test_C4_state_survives_process_restart",
+      "case": "C4",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 853.82
+    },
+    {
+      "id": "test_recovery.TestCrashRecovery.test_C5_kill_worker_mid_flight_survivors_recover",
+      "case": "C5",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 2719.55
+    },
+    {
+      "id": "test_recovery.TestCrashRecovery.test_C6_expired_lease_is_reclaimed_and_counted",
+      "case": "C6",
+      "passed": true,
+      "detail": "",
+      "duration_ms": 1263.33
+    }
+  ],
+  "counts": {
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "elapsed_s": 11.986,
+  "discovery_error": null
+}

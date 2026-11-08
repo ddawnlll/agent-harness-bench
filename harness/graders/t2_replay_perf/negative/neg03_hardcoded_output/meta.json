@@ -1,0 +1,7 @@
+{
+  "id": "neg03_hardcoded_output",
+  "description": "The CLI ignores the input and always writes the committed golden document for data/small.jsonl. Extremely fast, completely wrong for every hidden workload.",
+  "expect_status": "FAIL",
+  "expected_failing_gates": ["parity", "constant_output"],
+  "expected_zero_performance": true
+}

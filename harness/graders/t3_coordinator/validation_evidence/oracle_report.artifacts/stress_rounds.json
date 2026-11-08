@@ -1,0 +1,26 @@
+{
+  "rounds": [
+    {
+      "round": 0,
+      "passed": true,
+      "claimed": 200,
+      "duplicates": 0,
+      "errors": 0,
+      "done": 200,
+      "results": 200,
+      "jobs": 200,
+      "workers": 8
+    },
+    {
+      "round": 1,
+      "passed": true,
+      "claimed": 200,
+      "duplicates": 0,
+      "errors": 0,
+      "done": 200,
+      "results": 200,
+      "jobs": 200,
+      "workers": 8
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+name: verify
+on:
+  push:
+  pull_request:
+jobs:
+  publication:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Regenerate charts and fail on drift
+        run: python3 tools/make_charts.py --check
+      - name: SVG structure and accessibility
+        run: python3 tools/check_svg.py
+      - name: Contrast audit
+        run: python3 tools/check_contrast.py
+      - name: Site build reproducibility
+        run: python3 tools/build_site.py --check
+      - name: Security and link gate
+        run: python3 tools/check_publish.py
+      - name: Publication audit
+        run: python3 tools/verify_publication.py
+      - name: Unit tests
+        run: python3 -m unittest discover -s tests -p "test_*.py" -v

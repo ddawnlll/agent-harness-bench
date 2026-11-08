@@ -1,0 +1,339 @@
+{
+  "candidate_problems": [],
+  "cases": [
+    {
+      "detail": "fixtures unchanged",
+      "duration_ms": 0.0,
+      "id": "c_fixtures_untampered",
+      "passed": true,
+      "requirement": "TASK.md: do not touch data/ (committed fixtures are inputs)",
+      "severity": "P1"
+    },
+    {
+      "detail": "replay/ and tests/ present",
+      "duration_ms": 0.0,
+      "id": "c_layout",
+      "passed": true,
+      "requirement": "TASK.md: keep the replay package, the CLI and the tests in place",
+      "severity": "P0"
+    },
+    {
+      "detail": "40 passed, 0 failed, 5 skipped",
+      "duration_ms": 974.0,
+      "id": "c_public_tests",
+      "passed": false,
+      "requirement": "TASK.md: python3 -m unittest discover -s tests -v must pass",
+      "severity": "P0"
+    },
+    {
+      "detail": "baseline suite has 51 tests, candidate suite has 45",
+      "duration_ms": 0.0,
+      "id": "c_tests_not_reduced",
+      "passed": false,
+      "requirement": "TASK.md: do not delete tests (the suite must not shrink)",
+      "severity": "P1"
+    },
+    {
+      "detail": "51 passed, 0 failed",
+      "duration_ms": 2911.64,
+      "id": "c_pristine_tests",
+      "passed": true,
+      "requirement": "TASK.md: public tests must keep passing (pristine copies)",
+      "severity": "P0"
+    },
+    {
+      "detail": "extra input fields are ignored",
+      "duration_ms": 0.0,
+      "id": "c_irrelevant_field_invariance",
+      "passed": true,
+      "requirement": "Parity must not depend on input file bytes/known hashes: unknown event fields are ignored by the documented loader",
+      "severity": "P1"
+    },
+    {
+      "detail": "rc=2 output_written=False",
+      "duration_ms": 0.0,
+      "id": "c_cli_invalid_input",
+      "passed": true,
+      "requirement": "TASK.md: the event schema/CLI contract is unchanged (invalid input exits 2 and writes nothing)",
+      "severity": "P1"
+    },
+    {
+      "detail": "parity fraction 1.00; mismatches: none",
+      "duration_ms": 0.0,
+      "id": "c_parity_hidden_workloads",
+      "passed": true,
+      "requirement": "TASK.md: output must be identical to the pristine engine on the hidden small/large/adversarial/fresh workloads",
+      "severity": "P0"
+    },
+    {
+      "detail": "all profiles byte-identical",
+      "duration_ms": 0.0,
+      "id": "c_byte_identical",
+      "passed": true,
+      "requirement": "TASK.md: output must be byte-identical (canonical JSON, one line, trailing newline)",
+      "severity": "P1"
+    },
+    {
+      "detail": "contract valid on all profiles",
+      "duration_ms": 0.0,
+      "id": "c_output_contract",
+      "passed": true,
+      "requirement": "TASK.md: result schema, digest format and lifecycle counters stay valid",
+      "severity": "P0"
+    },
+    {
+      "detail": "event_count/audit.entries match the input on every profile",
+      "duration_ms": 0.0,
+      "id": "c_no_skipped_work",
+      "passed": true,
+      "requirement": "TASK.md: every event must be processed (no workload reduction)",
+      "severity": "P0"
+    },
+    {
+      "detail": "no debug prints",
+      "duration_ms": 0.0,
+      "id": "c_no_debug_prints",
+      "passed": true,
+      "requirement": "TASK.md: keep the code maintainable (no debug prints, no dead debug scaffolding in replay/)",
+      "severity": "P2"
+    },
+    {
+      "detail": "241 changed lines in .py files",
+      "duration_ms": 0.0,
+      "id": "c_change_scope",
+      "passed": true,
+      "requirement": "TASK.md: implementation changes only, keep the result contract",
+      "severity": "P2"
+    },
+    {
+      "detail": "large median speedup 5.63x (baseline 11262 ms, candidate 2002 ms)",
+      "duration_ms": 0.0,
+      "id": "c_speedup_large",
+      "passed": true,
+      "requirement": "TASK.md: at least 3x faster on a large workload",
+      "severity": "P1"
+    },
+    {
+      "detail": "adversarial median speedup 4.54x (baseline 1925 ms, candidate 424 ms)",
+      "duration_ms": 0.0,
+      "id": "c_speedup_adversarial",
+      "passed": true,
+      "requirement": "TASK.md: similar speedups on adversarial workloads",
+      "severity": "P2"
+    },
+    {
+      "detail": "peak RSS ratio 0.85x (baseline 66195456 bytes, candidate 56430592 bytes)",
+      "duration_ms": 0.0,
+      "id": "c_memory_no_regression",
+      "passed": true,
+      "requirement": "TASK.md: peak memory must not regress meaningfully",
+      "severity": "P2"
+    }
+  ],
+  "categories": {
+    "correctness": {
+      "components": {
+        "determinism": 3.0,
+        "output_contract": 3.0,
+        "parity_hidden_workloads": 22.0,
+        "pristine_tests": 6.0,
+        "public_tests": 0.0
+      },
+      "max": 40.0,
+      "score": 34.0
+    },
+    "maintainability": {
+      "components": {
+        "changed_lines": 241,
+        "fixtures_untampered": true,
+        "no_debug_prints": true,
+        "no_forbidden_imports": true,
+        "suite_not_reduced": false,
+        "test_files_intact": false
+      },
+      "max": 10.0,
+      "score": 6.0
+    },
+    "memory": {
+      "components": {
+        "peak_rss_ratio_h_large": 0.852
+      },
+      "max": 15.0,
+      "score": 13.88
+    },
+    "performance": {
+      "components": {
+        "adversarial_speedup": 10.0,
+        "large_speedup": 25.0
+      },
+      "max": 35.0,
+      "scaling": {
+        "adversarial_full_marks_at_speedup": 2.5,
+        "anti_cheat_gate_zeroes_performance": true,
+        "large_full_marks_at_speedup": 3.0,
+        "noise_dead_band_speedup": 1.2,
+        "parity_gate_zeroes_performance": true
+      },
+      "score": 35.0
+    }
+  },
+  "determinism": {
+    "agreement": true,
+    "detail": {
+      "h_adversarial": {
+        "baseline_distinct_outputs": 1,
+        "candidate_distinct_outputs": 1
+      },
+      "h_fresh": {
+        "baseline_distinct_outputs": 1,
+        "candidate_distinct_outputs": 1
+      },
+      "h_large": {
+        "baseline_distinct_outputs": 1,
+        "candidate_distinct_outputs": 1
+      },
+      "h_small": {
+        "baseline_distinct_outputs": 1,
+        "candidate_distinct_outputs": 1
+      }
+    },
+    "repeats": 1
+  },
+  "evidence_refs": [
+    "/tmp/t2-validate-et5dws09/work_neg02_tests_weakened/t2-h6w5cqyb/candidate",
+    "/tmp/t2-validate-et5dws09/work_neg02_tests_weakened/t2-h6w5cqyb/baseline",
+    "/tmp/t2-validate-et5dws09/work_neg02_tests_weakened/t2-h6w5cqyb/inputs",
+    "/tmp/t2-validate-et5dws09/work_neg02_tests_weakened/t2-h6w5cqyb/outputs"
+  ],
+  "gates": [
+    {
+      "detail": "test files modified: ['test_engine.py']; missing: ['test_cli.py']",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg02_tests_weakened/t2-h6w5cqyb/candidate/tests/test_engine.py",
+        "/tmp/t2-validate-et5dws09/work_neg02_tests_weakened/t2-h6w5cqyb/candidate/tests/test_cli.py"
+      ],
+      "id": "test_integrity",
+      "passed": false,
+      "severity": "P0"
+    },
+    {
+      "detail": "no third-party imports, network use, timing tricks or persistent caches detected",
+      "evidence": [],
+      "id": "no_third_party_or_network",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "rc=0 total=45 failed=[] skipped=['test_engine.AccountingTests.test_cash_conservation::test_cash_conservation', 'test_engine.AccountingTests.test_fees_and_cash_flow::test_fees_and_cash_flow', 'test_engine.AccountingTests.test_pnl_marks_open_positions::test_pnl_marks_open_positions', 'test_engine.AccountingTests.test_positions_net_to_flat::test_positions_net_to_flat', 'test_engine.AccountingTests.test_traded_quantity_is_double_counted_across_accounts::test_traded_quantity_is_double_counted_across_accounts']\nhes_golden_document (test_engine.ResultDocumentTests.test_small_fixture_matches_golden_document) ... ok\ntest_cancels_reference_existing_order_ids (test_events.GeneratorTests.test_cancels_reference_existing_order_ids) ... ok\ntest_different_seeds_differ (test_events.GeneratorTests.test_different_seeds_differ) ... ok\ntest_events_are_plain_json (test_events.GeneratorTests.test_events_are_plain_json) ... ok\ntest_same_seed_same_bytes (test_events.GeneratorTests.test_same_seed_same_bytes) ... ok\ntest_sequence_numbers_are_strictly_increasing (test_events.GeneratorTests.test_sequence_numbers_are_strictly_increasing) ... ok\ntest_timestamps_are_non_decreasing (test_events.GeneratorTests.test_timestamps_are_non_decreasing) ... ok\ntest_bad_side_is_rejected (test_events.LoaderTests.test_bad_side_is_rejected) ... ok\ntest_blank_lines_are_ignored (test_events.LoaderTests.test_blank_lines_are_ignored) ... ok\ntest_committed_fixtures_load (test_events.LoaderTests.test_committed_fixtures_load) ... ok\ntest_invalid_json_is_rejected (test_events.LoaderTests.test_invalid_json_is_rejected) ... ok\ntest_load_returns_canonical_order (test_events.LoaderTests.test_load_returns_canonical_order) ... ok\ntest_missing_field_is_rejected (test_events.LoaderTests.test_missing_field_is_rejected) ... ok\ntest_non_positive_price_is_rejected (test_events.LoaderTests.test_non_positive_price_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 45 tests in 0.684s\n\nOK (skipped=5)\n",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg02_tests_weakened/t2-h6w5cqyb/candidate/tests"
+      ],
+      "id": "public_tests",
+      "passed": false,
+      "severity": "P0"
+    },
+    {
+      "detail": "candidate code passes the pristine test suite (51 tests)",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg02_tests_weakened/t2-h6w5cqyb/pristine_tests"
+      ],
+      "id": "pristine_tests",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "pristine baseline replays all hidden workloads cleanly",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg02_tests_weakened/t2-h6w5cqyb/outputs/baseline_*"
+      ],
+      "id": "baseline_sane",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "ok",
+      "evidence": [],
+      "id": "constant_output",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "hidden-workload outputs match the pristine engine exactly",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg02_tests_weakened/t2-h6w5cqyb/outputs/baseline_*",
+        "/tmp/t2-validate-et5dws09/work_neg02_tests_weakened/t2-h6w5cqyb/outputs/candidate_*"
+      ],
+      "id": "parity",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "repeated runs on the same input are byte-identical",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg02_tests_weakened/t2-h6w5cqyb/outputs/candidate_*"
+      ],
+      "id": "determinism",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "candidate does not write cache/state files",
+      "evidence": [],
+      "id": "no_cache_artifacts",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "no timing/caching anomalies (large median 2001.7 ms, floor 112.6 ms, first/later ratio n/a)",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg02_tests_weakened/t2-h6w5cqyb/outputs/candidate_h_large_*"
+      ],
+      "id": "fake_speed",
+      "passed": true,
+      "severity": "P0"
+    }
+  ],
+  "grader_version": "1.0.0",
+  "kept_work_dir": true,
+  "metrics": {
+    "baseline_median_ms": {
+      "h_adversarial": 1925.03,
+      "h_fresh": 217.56,
+      "h_large": 11261.96,
+      "h_small": 200.28
+    },
+    "candidate_median_ms": {
+      "h_adversarial": 424.38,
+      "h_fresh": 150.89,
+      "h_large": 2001.69,
+      "h_small": 185.15
+    },
+    "peak_rss_bytes": {
+      "baseline": {
+        "h_adversarial": 33050624,
+        "h_fresh": 18800640,
+        "h_large": 66195456,
+        "h_small": 18518016
+      },
+      "candidate": {
+        "h_adversarial": 30486528,
+        "h_fresh": 18698240,
+        "h_large": 56430592,
+        "h_small": 18616320
+      },
+      "ratio_h_large": 0.852
+    },
+    "repeats": 1,
+    "speedup": {
+      "h_adversarial": 4.536,
+      "h_fresh": 1.442,
+      "h_large": 5.626,
+      "h_small": 1.082
+    }
+  },
+  "pass_threshold": 80.0,
+  "status": "FAIL",
+  "task_id": "t2",
+  "total": 88.88,
+  "work_dir": "/tmp/t2-validate-et5dws09/work_neg02_tests_weakened/t2-h6w5cqyb"
+}

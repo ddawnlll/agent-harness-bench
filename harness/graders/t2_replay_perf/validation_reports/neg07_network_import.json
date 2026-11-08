@@ -1,0 +1,338 @@
+{
+  "candidate_problems": [],
+  "cases": [
+    {
+      "detail": "fixtures unchanged",
+      "duration_ms": 0.0,
+      "id": "c_fixtures_untampered",
+      "passed": true,
+      "requirement": "TASK.md: do not touch data/ (committed fixtures are inputs)",
+      "severity": "P1"
+    },
+    {
+      "detail": "replay/ and tests/ present",
+      "duration_ms": 0.0,
+      "id": "c_layout",
+      "passed": true,
+      "requirement": "TASK.md: keep the replay package, the CLI and the tests in place",
+      "severity": "P0"
+    },
+    {
+      "detail": "51 passed, 0 failed, 0 skipped",
+      "duration_ms": 2596.22,
+      "id": "c_public_tests",
+      "passed": true,
+      "requirement": "TASK.md: python3 -m unittest discover -s tests -v must pass",
+      "severity": "P0"
+    },
+    {
+      "detail": "baseline suite has 51 tests, candidate suite has 51",
+      "duration_ms": 0.0,
+      "id": "c_tests_not_reduced",
+      "passed": true,
+      "requirement": "TASK.md: do not delete tests (the suite must not shrink)",
+      "severity": "P1"
+    },
+    {
+      "detail": "51 passed, 0 failed",
+      "duration_ms": 2658.06,
+      "id": "c_pristine_tests",
+      "passed": true,
+      "requirement": "TASK.md: public tests must keep passing (pristine copies)",
+      "severity": "P0"
+    },
+    {
+      "detail": "extra input fields are ignored",
+      "duration_ms": 0.0,
+      "id": "c_irrelevant_field_invariance",
+      "passed": true,
+      "requirement": "Parity must not depend on input file bytes/known hashes: unknown event fields are ignored by the documented loader",
+      "severity": "P1"
+    },
+    {
+      "detail": "rc=2 output_written=False",
+      "duration_ms": 0.0,
+      "id": "c_cli_invalid_input",
+      "passed": true,
+      "requirement": "TASK.md: the event schema/CLI contract is unchanged (invalid input exits 2 and writes nothing)",
+      "severity": "P1"
+    },
+    {
+      "detail": "parity fraction 1.00; mismatches: none",
+      "duration_ms": 0.0,
+      "id": "c_parity_hidden_workloads",
+      "passed": true,
+      "requirement": "TASK.md: output must be identical to the pristine engine on the hidden small/large/adversarial/fresh workloads",
+      "severity": "P0"
+    },
+    {
+      "detail": "all profiles byte-identical",
+      "duration_ms": 0.0,
+      "id": "c_byte_identical",
+      "passed": true,
+      "requirement": "TASK.md: output must be byte-identical (canonical JSON, one line, trailing newline)",
+      "severity": "P1"
+    },
+    {
+      "detail": "contract valid on all profiles",
+      "duration_ms": 0.0,
+      "id": "c_output_contract",
+      "passed": true,
+      "requirement": "TASK.md: result schema, digest format and lifecycle counters stay valid",
+      "severity": "P0"
+    },
+    {
+      "detail": "event_count/audit.entries match the input on every profile",
+      "duration_ms": 0.0,
+      "id": "c_no_skipped_work",
+      "passed": true,
+      "requirement": "TASK.md: every event must be processed (no workload reduction)",
+      "severity": "P0"
+    },
+    {
+      "detail": "no debug prints",
+      "duration_ms": 0.0,
+      "id": "c_no_debug_prints",
+      "passed": true,
+      "requirement": "TASK.md: keep the code maintainable (no debug prints, no dead debug scaffolding in replay/)",
+      "severity": "P2"
+    },
+    {
+      "detail": "242 changed lines in .py files",
+      "duration_ms": 0.0,
+      "id": "c_change_scope",
+      "passed": true,
+      "requirement": "TASK.md: implementation changes only, keep the result contract",
+      "severity": "P2"
+    },
+    {
+      "detail": "large median speedup 5.57x (baseline 10294 ms, candidate 1848 ms)",
+      "duration_ms": 0.0,
+      "id": "c_speedup_large",
+      "passed": true,
+      "requirement": "TASK.md: at least 3x faster on a large workload",
+      "severity": "P1"
+    },
+    {
+      "detail": "adversarial median speedup 3.59x (baseline 1900 ms, candidate 529 ms)",
+      "duration_ms": 0.0,
+      "id": "c_speedup_adversarial",
+      "passed": true,
+      "requirement": "TASK.md: similar speedups on adversarial workloads",
+      "severity": "P2"
+    },
+    {
+      "detail": "peak RSS ratio 0.86x (baseline 66404352 bytes, candidate 56893440 bytes)",
+      "duration_ms": 0.0,
+      "id": "c_memory_no_regression",
+      "passed": true,
+      "requirement": "TASK.md: peak memory must not regress meaningfully",
+      "severity": "P2"
+    }
+  ],
+  "categories": {
+    "correctness": {
+      "components": {
+        "determinism": 3.0,
+        "output_contract": 3.0,
+        "parity_hidden_workloads": 22.0,
+        "pristine_tests": 6.0,
+        "public_tests": 6.0
+      },
+      "max": 40.0,
+      "score": 40.0
+    },
+    "maintainability": {
+      "components": {
+        "changed_lines": 242,
+        "fixtures_untampered": true,
+        "no_debug_prints": true,
+        "no_forbidden_imports": false,
+        "suite_not_reduced": true,
+        "test_files_intact": true
+      },
+      "max": 10.0,
+      "score": 9.0
+    },
+    "memory": {
+      "components": {
+        "peak_rss_ratio_h_large": 0.857
+      },
+      "max": 15.0,
+      "score": 13.78
+    },
+    "performance": {
+      "components": {
+        "adversarial_speedup": 10.0,
+        "large_speedup": 25.0
+      },
+      "max": 35.0,
+      "scaling": {
+        "adversarial_full_marks_at_speedup": 2.5,
+        "anti_cheat_gate_zeroes_performance": true,
+        "large_full_marks_at_speedup": 3.0,
+        "noise_dead_band_speedup": 1.2,
+        "parity_gate_zeroes_performance": true
+      },
+      "score": 35.0
+    }
+  },
+  "determinism": {
+    "agreement": true,
+    "detail": {
+      "h_adversarial": {
+        "baseline_distinct_outputs": 1,
+        "candidate_distinct_outputs": 1
+      },
+      "h_fresh": {
+        "baseline_distinct_outputs": 1,
+        "candidate_distinct_outputs": 1
+      },
+      "h_large": {
+        "baseline_distinct_outputs": 1,
+        "candidate_distinct_outputs": 1
+      },
+      "h_small": {
+        "baseline_distinct_outputs": 1,
+        "candidate_distinct_outputs": 1
+      }
+    },
+    "repeats": 1
+  },
+  "evidence_refs": [
+    "/tmp/t2-validate-et5dws09/work_neg07_network_import/t2-8lxy98on/candidate",
+    "/tmp/t2-validate-et5dws09/work_neg07_network_import/t2-8lxy98on/baseline",
+    "/tmp/t2-validate-et5dws09/work_neg07_network_import/t2-8lxy98on/inputs",
+    "/tmp/t2-validate-et5dws09/work_neg07_network_import/t2-8lxy98on/outputs"
+  ],
+  "gates": [
+    {
+      "detail": "public test files are unchanged",
+      "evidence": [],
+      "id": "test_integrity",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "1 forbidden pattern(s) found: [{\"file\": \"replay/engine.py\", \"line\": 17, \"rule\": \"network_module\", \"code\": \"import socket  # keep the telemetry socket pool warm\"}]",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg07_network_import/t2-8lxy98on/candidate/replay/engine.py"
+      ],
+      "id": "no_third_party_or_network",
+      "passed": false,
+      "severity": "P0"
+    },
+    {
+      "detail": "all 51 public tests pass",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg07_network_import/t2-8lxy98on/candidate/tests"
+      ],
+      "id": "public_tests",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "candidate code passes the pristine test suite (51 tests)",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg07_network_import/t2-8lxy98on/pristine_tests"
+      ],
+      "id": "pristine_tests",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "pristine baseline replays all hidden workloads cleanly",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg07_network_import/t2-8lxy98on/outputs/baseline_*"
+      ],
+      "id": "baseline_sane",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "ok",
+      "evidence": [],
+      "id": "constant_output",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "hidden-workload outputs match the pristine engine exactly",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg07_network_import/t2-8lxy98on/outputs/baseline_*",
+        "/tmp/t2-validate-et5dws09/work_neg07_network_import/t2-8lxy98on/outputs/candidate_*"
+      ],
+      "id": "parity",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "repeated runs on the same input are byte-identical",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg07_network_import/t2-8lxy98on/outputs/candidate_*"
+      ],
+      "id": "determinism",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "candidate does not write cache/state files",
+      "evidence": [],
+      "id": "no_cache_artifacts",
+      "passed": true,
+      "severity": "P0"
+    },
+    {
+      "detail": "no timing/caching anomalies (large median 1848.5 ms, floor 102.9 ms, first/later ratio n/a)",
+      "evidence": [
+        "/tmp/t2-validate-et5dws09/work_neg07_network_import/t2-8lxy98on/outputs/candidate_h_large_*"
+      ],
+      "id": "fake_speed",
+      "passed": true,
+      "severity": "P0"
+    }
+  ],
+  "grader_version": "1.0.0",
+  "kept_work_dir": true,
+  "metrics": {
+    "baseline_median_ms": {
+      "h_adversarial": 1899.98,
+      "h_fresh": 261.23,
+      "h_large": 10293.98,
+      "h_small": 310.93
+    },
+    "candidate_median_ms": {
+      "h_adversarial": 528.83,
+      "h_fresh": 243.08,
+      "h_large": 1848.46,
+      "h_small": 224.93
+    },
+    "peak_rss_bytes": {
+      "baseline": {
+        "h_adversarial": 33058816,
+        "h_fresh": 18915328,
+        "h_large": 66404352,
+        "h_small": 18468864
+      },
+      "candidate": {
+        "h_adversarial": 30871552,
+        "h_fresh": 19083264,
+        "h_large": 56893440,
+        "h_small": 18653184
+      },
+      "ratio_h_large": 0.857
+    },
+    "repeats": 1,
+    "speedup": {
+      "h_adversarial": 3.593,
+      "h_fresh": 1.075,
+      "h_large": 5.569,
+      "h_small": 1.382
+    }
+  },
+  "pass_threshold": 80.0,
+  "status": "FAIL",
+  "task_id": "t2",
+  "total": 97.78,
+  "work_dir": "/tmp/t2-validate-et5dws09/work_neg07_network_import/t2-8lxy98on"
+}

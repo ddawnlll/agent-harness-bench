@@ -1,0 +1,90 @@
+{
+  "derivations": [
+    "trials: summary_raw.json + runs/<task>/<agent>/hidden_grader.json",
+    "resource totals: runs/<task>/<agent>/cgroup_final.txt (samples as fallback)",
+    "tokens/cost: telemetry/api_usage.jsonl chat-completions rows",
+    "tool counts: native stdout traces (Pi-Bolt/Hax only), counts only",
+    "aggregates: recomputed, not copied from verdict.json"
+  ],
+  "published_derivatives": {
+    "results/publication-data.json": "76a6383123425507e1a25a8e2a257917fac1311804b232c6664af9fdb32b9d6b",
+    "results/telemetry/api_usage.jsonl": "7bbda2f2bd63c470e31ccd8217cfe82935a14e562d1a3175f6fc7c62bbc73570",
+    "results/telemetry/events.jsonl": "c3ae484bb3b289b23e0b822a0c0875d1b023810794a6b342f330f533eac8539e",
+    "results/telemetry/resource_samples.jsonl": "b82c5364ff3a6e9a1b455771c16aed75ece966379e0927a8898e9cc84b0435cd"
+  },
+  "redactions": "see tools/derive_data.py SECRET_PATTERNS",
+  "schema": "agent-harness-bench/transform/1",
+  "source_files": {
+    "AGENT_BENCHMARK_FORENSIC_REPORT.html": {
+      "bytes": 347624,
+      "sha256": "f73ca4878c7872a529f464a0296b5e845fda5490b96b958ee5365fca5077c08c"
+    },
+    "runs/t1_order_lifecycle/hax/hidden_grader.json": {
+      "bytes": 8820,
+      "sha256": "a046b337d3137e129578eb60b60235f43923ecb31f9a5b3d16c7c9e38aa5ee8e"
+    },
+    "runs/t1_order_lifecycle/jcode/hidden_grader.json": {
+      "bytes": 8607,
+      "sha256": "4474b0c1f8e5e1c459277c1274473cc18df517600efadb43f60f3a862933a198"
+    },
+    "runs/t1_order_lifecycle/pi-bolt/hidden_grader.json": {
+      "bytes": 8634,
+      "sha256": "7de2c6c78c4dc729642bae3d441881bae6307caf47195b837f4ed87c1f1bdc8d"
+    },
+    "runs/t2_replay_perf/hax/hidden_grader.json": {
+      "bytes": 9446,
+      "sha256": "a1a4df91c8f360795b65cfe6590a7656c7ec2e335b235cd89a3cf38b9fc86637"
+    },
+    "runs/t2_replay_perf/jcode/hidden_grader.json": {
+      "bytes": 9446,
+      "sha256": "a2533b0d3886eeacc935fd5d5c1ffad61bbcb1007c229ad5352f5d40c80611e1"
+    },
+    "runs/t2_replay_perf/pi-bolt/hidden_grader.json": {
+      "bytes": 9445,
+      "sha256": "c53f757f92c502de2612f962754a40d7155a878800659b724cabf79b8af8989f"
+    },
+    "runs/t3_coordinator/hax/hidden_grader.json": {
+      "bytes": 10449,
+      "sha256": "fb9703bc1011ff840a0a4091f74554e7c1d3ff8540b461519306fc4f1ea88c76"
+    },
+    "runs/t3_coordinator/jcode/hidden_grader.json": {
+      "bytes": 10456,
+      "sha256": "1191dcb76ac61a20bb3dbe3413090a94bc9f28b66542f8fad39e84454c213815"
+    },
+    "runs/t3_coordinator/pi-bolt/hidden_grader.json": {
+      "bytes": 10470,
+      "sha256": "14e749acedb39a9cd74cf1d1b166bf0d92ffc501e0f0c1708a3d01d93e5bcba2"
+    },
+    "summary_raw.json": {
+      "bytes": 136635,
+      "sha256": "870017e13f9a11f15e8d7b47f55a00c6838ea8ff50c3297fd5760bb3f8e8e06a"
+    },
+    "telemetry/api_usage.jsonl": {
+      "bytes": 436799,
+      "sha256": "24e3bae9c0ee279320d43b6243115651f92865d3a26ae8cc35c5368e2444eb39"
+    },
+    "telemetry/environment.json": {
+      "bytes": 3332,
+      "sha256": "440e50c60679f9571ced9a2aff6f28497db24880bb59697171e494a4182801ee"
+    },
+    "telemetry/events.jsonl": {
+      "bytes": 25344,
+      "sha256": "4c102750a3f2092e2484007ae3a1cfaed27f6ae878d7f8597fd4ccceb4e818e3"
+    },
+    "telemetry/resource_samples.jsonl": {
+      "bytes": 3787196,
+      "sha256": "ba00473df9804ae2c585dbedfdefc21cc5d3803bc707cea2603da297cf2aca04"
+    },
+    "verdict.json": {
+      "bytes": 30617,
+      "sha256": "3bd83ed03945b33cf8627321bc954b533064e19290eb00b44a3be1998572f490"
+    }
+  },
+  "source_run": "run-20261107T233553Z",
+  "source_seal": {
+    "checked": 755,
+    "mismatches": [],
+    "ok": true,
+    "seal_sha256": "05306b0c91c7a3f7ba9d26786a66a2aaec9dd4da23f9bc4ec8c4fa75c740d4fa"
+  }
+}

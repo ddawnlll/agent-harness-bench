@@ -1,0 +1,227 @@
+{
+  "baseline_code_sha256": {
+    "replay/__init__.py": "11bd5353a7ce40671e817bd28cbad154f790e30840be9bae192a08c83ec0f7d3",
+    "replay/book.py": "4b4ea0a405935d68d8ffe783fac6f6f42c8ee79fbbcb6afee6b64373e91ce18a",
+    "replay/cli.py": "bafa186d7614815654716b8054739c4bc9ec67d44e3c29f8a53c220dd087443d",
+    "replay/engine.py": "7947e1ea82881604a9342fa9a256d90468b42385b5f440530fbe07d331055798",
+    "replay/events.py": "14b0550369212392675f3f97e3560896f77e4088c80155c77b7896aa4a067c5a"
+  },
+  "baseline_for_grader": "graders/t2_replay_perf/baseline_repo (git archive export of start_commit)",
+  "dependencies": "standard library only",
+  "fixtures": {
+    "data/adversarial_small.jsonl": {
+      "bytes": 159842,
+      "events": 1600,
+      "sha256": "e473c87eb47510b24b159162a7cb7f593d82604855f9e9ffa4c8f3b50e2ced13"
+    },
+    "data/medium.jsonl": {
+      "bytes": 375072,
+      "events": 4000,
+      "sha256": "02bc798dd30a2f4050e2b16a75092b982a460a3885bb8de2d9131a92efb15bad"
+    },
+    "data/small.jsonl": {
+      "bytes": 55620,
+      "events": 600,
+      "sha256": "a954b9417c8f53ac362c98055d50af60072f907fe48e728c6ee0f157a4d905fa"
+    },
+    "tests/golden/small.json": {
+      "bytes": 9600,
+      "sha256": "ee7e433473ab411c794b39d502078b449d88ef0a9d417b68a00dc134ffce474b"
+    }
+  },
+  "gates": [
+    {
+      "id": "test_integrity",
+      "severity": "P0"
+    },
+    {
+      "id": "no_third_party_or_network",
+      "severity": "P0"
+    },
+    {
+      "id": "public_tests",
+      "severity": "P0"
+    },
+    {
+      "id": "pristine_tests",
+      "severity": "P0"
+    },
+    {
+      "id": "baseline_sane",
+      "severity": "P0"
+    },
+    {
+      "id": "constant_output",
+      "severity": "P0"
+    },
+    {
+      "id": "parity",
+      "severity": "P0"
+    },
+    {
+      "id": "determinism",
+      "severity": "P0"
+    },
+    {
+      "id": "no_cache_artifacts",
+      "severity": "P0"
+    },
+    {
+      "id": "fake_speed",
+      "severity": "P0"
+    }
+  ],
+  "grader_version": "1.0.0",
+  "hidden_cases": {
+    "generator": "graders/t2_replay_perf/hidden_cases.py (independent of the candidate repo)",
+    "profiles": [
+      {
+        "accounts": 6,
+        "events": 700,
+        "id": "h_small",
+        "purpose": "parity + contract on a small workload",
+        "seed": 9001001,
+        "target_live_orders": 40
+      },
+      {
+        "accounts": 72,
+        "duplicate_timestamp_rate": 0.1,
+        "events": 32000,
+        "id": "h_large",
+        "purpose": "primary speedup measurement (baseline ~8s)",
+        "seed": 9001002,
+        "target_live_orders": 1200
+      },
+      {
+        "accounts": 10,
+        "events": 10000,
+        "id": "h_adversarial",
+        "purpose": "deep book, one-tick spread, 70% shared timestamps, 12% duplicate order ids, 1/3/7/13/1000 quantities (heavy partial fills), cancels of dead orders",
+        "seed": 9001003,
+        "target_live_orders": 1200
+      },
+      {
+        "events": 900,
+        "id": "h_fresh",
+        "purpose": "unseen-input parity (defeats hardcoded outputs) plus an identical stream with extra irrelevant JSON fields (defeats input-hash keyed tricks)",
+        "seed": 9001004
+      }
+    ],
+    "repeats": {
+      "default_measured": 3,
+      "interleaving": "baseline and candidate alternate within each repeat",
+      "warmup_runs": 1
+    }
+  },
+  "language": "python",
+  "negative_controls": {
+    "neg01_output_value_changed": [
+      "parity"
+    ],
+    "neg02_tests_weakened": [
+      "test_integrity",
+      "public_tests"
+    ],
+    "neg03_hardcoded_output": [
+      "parity",
+      "constant_output"
+    ],
+    "neg04_reduced_workload": [
+      "parity"
+    ],
+    "neg05_nondeterministic_ties": [
+      "determinism"
+    ],
+    "neg06_hash_cache": [
+      "no_cache_artifacts",
+      "fake_speed"
+    ],
+    "neg07_network_import": [
+      "no_third_party_or_network"
+    ]
+  },
+  "pass_rule": "status=PASS iff all P0 gates pass AND total >= 80",
+  "public_tests": {
+    "count": 51,
+    "files": [
+      "tests/test_book.py",
+      "tests/test_engine.py",
+      "tests/test_cli.py",
+      "tests/test_events.py"
+    ],
+    "note": "Hashed against the baseline copies; modification or deletion is a P0 gate failure."
+  },
+  "python_version": "3.13",
+  "replay_command": "python3 -m replay.cli --events FILE --out FILE",
+  "score_weights": {
+    "correctness": {
+      "components": {
+        "determinism": 3,
+        "output_contract": 3,
+        "parity_hidden_workloads": 22,
+        "pristine_tests": 6,
+        "public_tests": 6
+      },
+      "max": 40
+    },
+    "maintainability": {
+      "components": {
+        "baseline_test_files_intact": 2,
+        "changed_lines_le_1500": 2,
+        "fixtures_untampered": 1,
+        "no_debug_prints": 2,
+        "no_forbidden_imports": 1,
+        "suite_not_reduced": 2
+      },
+      "max": 10
+    },
+    "memory": {
+      "formula": "15 * clamp((1.5 - candidate_peak_rss/baseline_peak_rss) / 0.7, 0, 1) on h_large",
+      "max": 15,
+      "measurement": "resource.getrusage(RUSAGE_CHILDREN).ru_maxrss in an isolated wrapper process"
+    },
+    "performance": {
+      "components": {
+        "adversarial_speedup": 10,
+        "large_speedup": 25
+      },
+      "max": 35,
+      "scaling": {
+        "adversarial_full_marks_at_speedup": 2.5,
+        "large_full_marks_at_speedup": 3.0,
+        "noise_dead_band_speedup": 1.2,
+        "zeroed_by": "parity, output contract, skipped work, cache artefacts, fake speed, constant output"
+      }
+    }
+  },
+  "start_commit": "390b675f7c3bdbd8717ba7b43b28c725262f4687",
+  "start_commit_message": "Initial replay engine, fixtures and public tests",
+  "start_commit_sha": "390b675f7c3bdbd8717ba7b43b28c725262f4687",
+  "status_values": [
+    "PASS",
+    "FAIL",
+    "INVALID"
+  ],
+  "task_id": "t2",
+  "task_repo": "tasks/t2_replay_perf/repo",
+  "test_command": "python3 -m unittest discover -s tests -v",
+  "timeout_seconds": {
+    "per_replay": 300,
+    "test_suite": 420,
+    "single_grading_run": 180,
+    "agent_task": 1800
+  },
+  "timeouts_seconds": {
+    "agent_task": 1800,
+    "per_replay": 300,
+    "single_grading_run": 180,
+    "test_suite": 420
+  },
+  "title": "Replay engine performance engineering under output-parity constraints",
+  "validation": {
+    "notes": "graders/t2_replay_perf/GRADER_NOTES.md",
+    "per_run_reports": "graders/t2_replay_perf/validation_reports/",
+    "report": "graders/t2_replay_perf/validation_report.json",
+    "script": "graders/t2_replay_perf/validate.py"
+  }
+}

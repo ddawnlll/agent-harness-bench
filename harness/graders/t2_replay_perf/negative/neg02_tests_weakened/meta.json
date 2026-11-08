@@ -1,0 +1,7 @@
+{
+  "id": "neg02_tests_weakened",
+  "description": "Optimised, but the public tests are weakened: test_cli.py is deleted and the accounting tests are skipped.",
+  "expect_status": "FAIL",
+  "expected_failing_gates": ["test_integrity", "public_tests"],
+  "expected_zero_performance": false
+}

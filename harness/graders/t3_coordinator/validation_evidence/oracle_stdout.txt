@@ -1,0 +1,26 @@
+==============================================================================
+t3_coordinator grader v1.0.0 -- task t3
+status: PASS   total: 100.0/100
+------------------------------------------------------------------------------
+  functional              40.00/40  (9/9 cases)
+  concurrency_recovery    35.00/35  (6/6 cases)
+  tests                   15.00/15  (2/2 cases)
+  maintainability         10.00/10  (5/5 cases)
+------------------------------------------------------------------------------
+P0 gates:
+  [PASS] no_duplicate_ownership
+  [PASS] persistence_restart
+  [PASS] no_lost_completion
+  [PASS] bounded_retries
+  [PASS] non_memory_storage
+  [PASS] crash_recovery
+  [PASS] test_integrity
+  [PASS] corrupted_state_safe
+  [PASS] no_network_thirdparty
+  [PASS] idempotent_completion
+------------------------------------------------------------------------------
+cases: 25/25 passed
+determinism: repeats=2 agreement=True
+elapsed: 18.21s
+json: /home/researcher/agent-benchmark/graders/t3_coordinator/validation_evidence/oracle_report.json
+==============================================================================

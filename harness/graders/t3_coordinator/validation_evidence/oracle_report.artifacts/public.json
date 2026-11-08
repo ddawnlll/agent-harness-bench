@@ -1,0 +1,104 @@
+{
+  "start_dir": "tests",
+  "records": [
+    {
+      "id": "test_public.TestBasics.test_add_and_status_roundtrip",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 7.33
+    },
+    {
+      "id": "test_public.TestBasics.test_audit_records_events",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 5.83
+    },
+    {
+      "id": "test_public.TestBasics.test_claim_and_complete_happy_path",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 6.34
+    },
+    {
+      "id": "test_public.TestBasics.test_duplicate_add_raises",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 5.01
+    },
+    {
+      "id": "test_public.TestBasics.test_list_jobs_filter",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 8.9
+    },
+    {
+      "id": "test_public.TestBasics.test_stats_counts_results",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 9.63
+    },
+    {
+      "id": "test_public.TestBasics.test_unknown_job_raises",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 6.53
+    },
+    {
+      "id": "test_public.TestBasics.test_wrong_worker_cannot_complete",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 8.15
+    },
+    {
+      "id": "test_public.TestCli.test_cli_add_and_status",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 397.67
+    },
+    {
+      "id": "test_public.TestPersistence.test_jobs_survive_reopen",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 12.38
+    },
+    {
+      "id": "test_public.TestStorageShape.test_schema_is_created_and_audit_is_append_only",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 6.62
+    },
+    {
+      "id": "test_recovery_extra.TestLeaseRecovery.test_expired_lease_is_reclaimed",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 709.2
+    },
+    {
+      "id": "test_recovery_extra.TestLeaseRecovery.test_retry_budget_is_bounded",
+      "case": null,
+      "passed": true,
+      "detail": "",
+      "duration_ms": 11.82
+    }
+  ],
+  "counts": {
+    "tests": 13,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "elapsed_s": 1.274,
+  "discovery_error": null
+}

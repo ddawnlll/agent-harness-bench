@@ -1,0 +1,4 @@
+{
+  "expected_failed_gates": ["crash_recovery"],
+  "reason": "an expired lease is never reclaimed, so a crashed worker's job is stuck forever"
+}

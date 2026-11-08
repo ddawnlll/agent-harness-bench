@@ -1,0 +1,16 @@
+{
+  "rounds": [
+    {
+      "round": 0,
+      "passed": false,
+      "claimed": 200,
+      "duplicates": 17,
+      "errors": 7,
+      "done": 0,
+      "results": 0,
+      "jobs": 200,
+      "workers": 8,
+      "failure": "Lists differ: [{'op': 'complete_error', 'job': 'stress-0[860 chars]w7'}] != []\n\nFirst list contains 7 additional elements.\nFirst extra element 0:\n{'op': 'complete_error', 'job': 'stress-0b8cd24e-0000', 'error': 'InvalidTransitionError: job stress-0b8cd24e-0000 is already DONE'}\n\nDiff is 989 characters long. Set self.maxDiff to None to see it. : workers reported errors: [{'op': 'complete_error', 'job': 'stress-0b8cd24e-0000', 'error': 'InvalidTransitionError: job stress-0b8cd24e-0000 is already DONE'}, {'op': 'complete_error', 'job': 'stress-0b8cd24e-0000', 'error': 'LeaseError: job stress-0b8cd24e-0000 has no lease'}, {'op': 'complete_error', 'job': 'stress-0b8cd24e-0001', 'error': 'LeaseError: job stress-0b8cd24e-0001 is leased by w4, not w2'}, {'op': 'complete_error', 'job': 'stress-0b8c"
+    }
+  ]
+}
