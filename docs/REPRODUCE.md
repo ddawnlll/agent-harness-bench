@@ -1,19 +1,18 @@
 # Reproduce the publication
 
-The repository publishes **derivatives only**. The original sealed run — raw
-logs, frozen workspaces, patches, unsanitized report — is preserved outside the
-repository and is not redistributed. This document describes how the committed
-derivatives were produced from that sealed run, how to re-derive and check them,
-and which steps can be verified from the files in this checkout.
+The repository publishes **derivatives only**. The sealed run — raw logs, frozen
+workspaces, patches, unsanitized report — is preserved outside the repository
+and is not redistributed. This document describes how the committed derivatives
+were produced, how to re-derive and check them, and which steps are present in
+this checkout.
 
 ## Prerequisites
 
-- **Python 3.13, standard library only.** No third-party packages are needed for
-  the derivation, the charts or the checks described here.
-- Optional: Node.js and Playwright for the site QA step, and a browser only if
-  you want to inspect the figures.
-- The sealed run directory, if you are re-deriving data. Without it you can still
-  check the committed charts and data hashes.
+- **Python 3.13, standard library only.** No third-party packages are required
+  for derivation, charts or checks.
+- Optional: Node.js and Playwright for site QA; a browser to inspect figures.
+- The sealed run directory, if re-deriving data. Without it you can still
+  regenerate the charts from the committed dataset and verify hashes.
 
 ## 1. Rebuild the sanitized dataset
 
@@ -21,18 +20,12 @@ and which steps can be verified from the files in this checkout.
 python3 tools/derive_data.py --source <sealed-run> --out results
 ```
 
-`<sealed-run>` is the run directory that contains `SHA256SUMS`, `summary_raw.json`,
-`telemetry/`, `runs/<task>/<agent>/` and `verdict.json`. The script:
-
-1. verifies every file in `SHA256SUMS` and aborts on any mismatch;
-2. recomputes tokens, cost, CPU, memory, elapsed time and aggregates from
-   primary records — it never trusts `verdict.json` for an aggregate;
-3. re-checks token totals, list-price cost and elapsed time against the
-   controller summary and records any discrepancy;
-4. redacts host identifiers (see [SECURITY.md](SECURITY.md));
-5. writes `results/publication-data.json`,
-   `results/telemetry/{api_usage,resource_samples,events}.jsonl` and
-   `results/TRANSFORM.json`.
+`<sealed-run>` contains `SHA256SUMS`, `summary_raw.json`, `telemetry/`,
+`runs/<task>/<agent>/` and `verdict.json`. The script verifies every hash and
+aborts on mismatch, recomputes tokens, cost, CPU, memory, elapsed time and
+aggregates from primary records, re-checks them against the controller summary,
+redacts host identifiers, and writes `results/publication-data.json`,
+`results/telemetry/*.jsonl` and `results/TRANSFORM.json`.
 
 Expected output for the recorded run:
 
@@ -40,27 +33,22 @@ Expected output for the recorded run:
 data: 9 trials, seal ok (755 files), discrepancies=0, verdict=JCODE
 ```
 
-The command was re-run against the sealed evidence during the preparation of
-this documentation and reproduced `results/publication-data.json` byte-for-byte
-(SHA-256 `76a6383123425507e1a25a8e2a257917fac1311804b232c6664af9fdb32b9d6b`).
-Do not commit a regenerated copy over the published one unless the hashes also
-match; `TRANSFORM.json` records the published hashes.
+The command was re-run against the sealed evidence while preparing this
+documentation and reproduced `publication-data.json` byte-for-byte (SHA-256
+`76a6383123425507e1a25a8e2a257917fac1311804b232c6664af9fdb32b9d6b`).
 
 ## 2. Rebuild the figures
 
 ```bash
 python3 tools/make_charts.py            # write assets/*.svg
-python3 tools/make_charts.py --check    # regenerate in memory, compare bytes
+python3 tools/make_charts.py --check    # regenerate in memory and compare
 ```
 
-`--check` is the reproducibility claim. It prints
-`CHART CHECK OK: 12 SVGs byte-identical` and exits 0 when the committed light
-and dark figures match what the committed data produces; it exits non-zero and
-lists the differing files otherwise. There are six figures (hero, race, safety,
-timing, economics, resources) in two themes.
+`--check` prints `CHART CHECK OK: 12 SVGs byte-identical` and exits 0 when the
+committed light and dark figures match the committed data; otherwise it lists
+the differences and exits non-zero. Six figures × two themes.
 
-A dependency-free structural check is available if you do not have the
-repository's SVG checker:
+A dependency-free structural check without the repository's SVG checker:
 
 ```bash
 python3 - <<'PY'
@@ -77,56 +65,47 @@ PY
 python3 tools/build_site.py
 ```
 
-This renders the static documentation site from `docs/`, `assets/` and
-`results/publication-data.json` into `site/`. It is deterministic: no clocks, no
-network, no environment-dependent output.
+Renders the static site from `docs/`, `assets/` and
+`results/publication-data.json` into `site/`, deterministically (no clocks,
+network or environment-dependent output).
 
-**Status in this snapshot:** `tools/build_site.py` is not included in the
-documentation-only checkout; the command is the repository's build entry point
-and is listed here for reproducibility, but it was not run while preparing these
-docs.
+**Status:** not included in this documentation-only checkout; listed for
+reproducibility, not run here.
 
 ## 4. Publication checks
 
 ```bash
-python3 tools/check_svg.py           # XML well-formedness and SVG hygiene
+python3 tools/check_svg.py           # SVG well-formedness and hygiene
 python3 tools/check_contrast.py      # WCAG AA contrast for every token pair
-python3 tools/check_publish.py       # secret/path/PII scan over the whole tree
-python3 tools/verify_publication.py  # end-to-end gate: data, charts, site, docs
+python3 tools/check_publish.py       # secret/path/PII scan over the tree
+python3 tools/verify_publication.py  # end-to-end gate
 python3 tools/make_charts.py --check
 ```
 
-Exit code 0 means the check passed. `check_contrast.py` and `check_publish.py`
-are inherited from the author's previous benchmark
-([`ddawnlll/goal-extension-benchmark`](https://github.com/ddawnlll/goal-extension-benchmark),
+`check_contrast.py` and `check_publish.py` are inherited from the author's
+previous benchmark ([`ddawnlll/goal-extension-benchmark`](https://github.com/ddawnlll/goal-extension-benchmark),
 MIT); `verify_publication.py` is the aggregate gate.
 
-**Status in this snapshot:** only `make_charts.py --check` is present and was
-run. `check_svg.py`, `check_contrast.py`, `check_publish.py` and
-`verify_publication.py` are part of the full repository's tooling but are not in
-this documentation-only checkout, so their passing status cannot be asserted
-from these files. The equivalent checks that *can* be run here are documented in
-[SECURITY.md](SECURITY.md).
+**Status:** only `make_charts.py --check` is present here and was run.
+`check_svg.py`, `check_contrast.py`, `check_publish.py` and
+`verify_publication.py` belong to the full repository but not this
+documentation-only checkout, so their passing status is not asserted. The checks
+that can be run here are documented in [SECURITY.md](SECURITY.md).
 
 ## 5. Browser QA (optional)
-
-If Playwright is installed and the site has been built:
 
 ```bash
 npx playwright install chromium
 npx playwright test tests/site.spec.ts
 ```
 
-The QA spec loads `site/index.html` from disk, asserts that no request leaves
-the local filesystem, exercises both colour schemes, checks that every figure has
-an `alt`/`aria-label`, and captures light and dark screenshots for review.
-**Status:** optional and not part of the data pipeline; the spec lives in the
-full repository and was not executed here.
+The spec loads `site/index.html` from disk, asserts no request leaves the local
+filesystem, exercises both colour schemes, checks every figure has an
+`alt`/`aria-label`, and captures light/dark screenshots. Optional; not run here.
 
-## 6. Transformation record and hashes
+## 6. Transformation and hashes
 
-`results/TRANSFORM.json` is the provenance record. It lists the source run id,
-the verified seal, and the SHA-256 of every file consumed from the sealed run:
+`results/TRANSFORM.json` records the source run id, seal and per-file hashes.
 
 | Item | SHA-256 |
 |---|---|
@@ -138,16 +117,15 @@ the verified seal, and the SHA-256 of every file consumed from the sealed run:
 | Sealed `summary_raw.json` | `870017e13f9a11f15e8d7b47f55a00c6838ea8ff50c3297fd5760bb3f8e8e06a` |
 | Sealed `verdict.json` | `3bd83ed03945b33cf8627321bc954b533064e19290eb00b44a3be1998572f490` |
 
-The transformation is: read-only copy from the sealed run → verify seal →
-recompute metrics → redact → deterministic JSON/JSONL. No original file is
-modified, and no metric is estimated.
+Transformation: read-only copy from the sealed run → verify seal → recompute
+metrics → redact → deterministic JSON/JSONL. No original file is modified and no
+metric is estimated.
 
 ## 7. What cannot be reproduced
 
-- **The agent runs themselves.** Model sampling is stochastic, the provider is
-  an external service, and the exact nine trials cannot be replayed; only the
-  data they produced is preserved.
-- **The sealed evidence.** It stays outside the repository. Without it,
-  `derive_data.py` cannot run, but the published dataset and charts can still be
-  checked against their recorded hashes and regenerated from committed data.
-- **JCode's tool-level trace.** It was never emitted, so it cannot be recovered.
+- **The agent runs.** Model sampling is stochastic and the provider external;
+  only the data the nine trials produced is preserved.
+- **The sealed evidence** (not redistributed). Without it `derive_data.py`
+  cannot run, but the published data and charts can still be checked against
+  their hashes and regenerated from the committed dataset.
+- **JCode's tool trace**, which was never emitted.

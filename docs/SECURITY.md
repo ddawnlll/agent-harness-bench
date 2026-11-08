@@ -1,68 +1,49 @@
 # Security and publication policy
 
-This repository is a record of a benchmark. It is not a service, it holds no
-credentials, and it does not redistribute agent source trees or raw run
-artifacts. This document states what was scanned, what was removed, what is
-deliberately absent, how to report a leak, and what the release gate can and
-cannot certify from this checkout.
+This repository is a record of a benchmark. It is not a service, holds no
+credentials, and does not redistribute agent source trees or raw run artifacts.
+This document states what was scanned, what was removed, what is absent, how to
+report a leak, and what the release gate can certify from this checkout.
 
 ## 1. Publication model
 
-Only **sanitized derivatives** are published:
+Only **sanitized derivatives** are published: `results/publication-data.json`
+(recomputed metrics and grades), `results/telemetry/*.jsonl` (measurements with
+identifying fields removed), `results/TRANSFORM.json` (provenance, seal,
+hashes), `assets/*.svg` (deterministic figures) and `docs/`.
 
-- `results/publication-data.json` — recomputed metrics and grades;
-- `results/telemetry/*.jsonl` — measurements, with identifying fields removed;
-- `results/TRANSFORM.json` — provenance, seal and hashes;
-- `assets/*.svg` — deterministic figures generated from the dataset;
-- `docs/` — this documentation.
-
-The original sealed run (frozen workspaces, patches, raw logs, unsanitized
-single-file HTML report) is preserved outside the repository. It is **not**
-redistributed, because it contains agent-generated code, full command traces and
-host-specific paths. Nothing in this repository is copied from it except
-sanitized, recomputed values.
+The sealed run — frozen workspaces, patches, raw logs and the unsanitized
+single-file HTML report — is preserved outside the repository. It is not
+redistributed because it contains agent-generated code, full command traces and
+host-specific paths. Nothing here is copied from it except sanitized, recomputed
+values.
 
 ## 2. What was scanned
 
-The derivation and review pipeline scanned the published material and the source
-records for:
-
-- credential-shaped strings: provider API keys, personal access tokens, GitHub
-  tokens, and authorization headers;
-- absolute home paths for Linux and macOS;
-- the operator's user name and the host's real hostname;
-- IPv4 addresses;
-- cgroup paths and systemd unit names;
-- session identifiers and provider request identifiers;
-- compressed or embedded HTML payloads (the sealed report is a single HTML file;
-  it is excluded rather than shipped);
-- patches, diffs and logs, which were not published in raw form.
+The derivation and review scanned published material and source records for:
+provider API keys, personal access tokens, GitHub tokens and authorization
+headers; absolute Linux and macOS home paths; the operator's user name and the
+real hostname; IPv4 addresses; cgroup paths and systemd unit names; session and
+provider request identifiers; compressed or embedded HTML payloads (the sealed
+report is excluded rather than shipped); and patches, diffs and logs, which are
+not published raw.
 
 ## 3. Redaction rules
 
-`tools/derive_data.py` applies these substitutions on every string it writes:
+`tools/derive_data.py` substitutes home paths, the real hostname, cgroup paths,
+IPv4 addresses, cloud/provider key prefixes, GitHub token shapes and
+authorization values before writing any string. The placeholders are generic
+(`<user>`, `bench-host`, `<cgroup>`, `<redacted-ip>`, `<redacted-key>`,
+`<redacted-token>`).
 
-| Input pattern | Published as |
-|---|---|
-| Linux home path | `/home/<user>` |
-| macOS home path | `/Users/<user>` |
-| real hostname | `bench-host` |
-| cgroup path | `<cgroup>` |
-| IPv4 address | `<redacted-ip>` |
-| cloud/provider key prefix | `<redacted-key>` |
-| GitHub token shapes | `<redacted-token>` |
-| authorization header value | redacted placeholder |
+Telemetry is published through **field allowlists**, a stronger control than
+pattern matching:
 
-Telemetry is additionally published through **field allowlists**, which is a
-stronger control than pattern matching:
-
-- API records drop provider request ids and session ids and keep only task,
-  agent, timestamps, model/effort fields, status, durations, token counts, cost
-  and usage provenance;
-- resource samples drop I/O device statistics and host-load corner values, and
-  keep cgroup counters, memory, pids, pressure and steal;
-- lifecycle events drop workspace paths, cgroup, unit, pid and relay details,
-  and keep event type, task, agent, timestamps and non-identifying detail.
+- API records drop provider request ids and session ids, keeping task, agent,
+  timestamps, model/effort fields, status, durations, tokens, cost and usage
+  provenance;
+- resource samples drop I/O device statistics and host-load corner values;
+- lifecycle events drop workspace paths, cgroup, unit, pid and relay details.
 
 Request bodies, prompts, model responses and authorization headers were never
 persisted by the relay, so they cannot leak from the published data.
@@ -71,59 +52,53 @@ persisted by the relay, so they cannot leak from the published data.
 
 | Artifact | Reason |
 |---|---|
-| The sealed run directory | frozen agent workspaces, patches, full logs and the unsanitized report |
-| The upstream credential | only a short fingerprint prefix ever appeared in the run manifest |
+| The sealed run directory | frozen agent workspaces, patches, logs, unsanitized report |
+| The upstream credential | only a short fingerprint prefix ever appeared in the manifest |
 | Raw request/response bodies | never recorded by design |
-| Agent binaries | pinned by SHA-256 and version only; not redistributed |
-| Frozen task workspaces | reproducible from pinned commits and the public patches' descriptions, without shipping gigabytes of agent output |
-| The unsanitized HTML report | embeds the above; the sanitized dataset replaces it |
+| Agent binaries | identified by SHA-256 and version only |
+| Frozen task workspaces | reproducible from pinned commits without shipping agent output |
+| The unsanitized HTML report | embeds the above; replaced by the sanitized dataset |
 
-The three agent binaries are identified in the dataset by SHA-256
-(`1eecc82d…` Pi-Bolt, `059d05f0…` JCode, `377d315e…` Hax) and version strings.
-The hashes let a reader confirm which binaries were measured without shipping
-them.
+The three binaries are identified by SHA-256 (`1eecc82d…` Pi-Bolt, `059d05f0…`
+JCode, `377d315e…` Hax) and version strings, so provenance is checkable without
+redistribution.
 
 ## 5. Verification performed for this release
 
-What can be checked directly in this checkout:
-
 | Check | Method | Result |
 |---|---|---|
-| Evidence seal | `derive_data.py` verifies `SHA256SUMS` while re-deriving | 755 files checked, 0 mismatches |
-| Reconciliation | token totals, list price, elapsed, CPU source | `status: OK`, 0 discrepancies |
-| Deterministic derivation | re-run against the sealed run and compared bytes | `publication-data.json` reproduced byte-for-byte |
+| Evidence seal | sealed `SHA256SUMS` verified during re-derivation | 755 files, 0 mismatches |
+| Reconciliation | tokens, list price, elapsed, CPU source | `OK`, 0 discrepancies |
+| Deterministic derivation | re-run against sealed evidence, byte comparison | dataset reproduced exactly |
 | Deterministic charts | `python3 tools/make_charts.py --check` | `CHART CHECK OK: 12 SVGs byte-identical` |
 | SVG well-formedness | stdlib XML parse of all 12 assets | all parse |
-| Documentation scan | grep for home paths, user name, hostname fragment, key shapes and authorization headers | no credential or path findings; see the release report |
-| Redaction presence | `TRANSFORM.json` lists the applied redactions | present |
+| Documentation scan | grep for home paths, user name, hostname fragment, key shapes, authorization headers | no credential or path findings |
+| Redaction record | `TRANSFORM.json` lists applied redactions | present |
 
-**Release gate status.** The checks above pass. The repository's full publication
-gate (`tools/check_publish.py` and `tools/verify_publication.py`) is **not
-included in this documentation-only checkout**, so this document does not claim
-that those scripts pass. It claims only what the table shows. A full release
-should run the complete gate in the assembled repository before tagging; if any
-check there fails, the release gate is not passed.
+**Release gate status.** These checks pass. The repository's full publication
+gate (`tools/check_publish.py`, `tools/verify_publication.py`) is **not included
+in this documentation-only checkout**, so this document does not claim those
+scripts pass — only what the table shows. The assembled repository should run
+the complete gate before tagging; if it fails there, the gate is not passed.
 
 ## 6. Residual risks
 
-- **Model-generated text.** Published telemetry contains counts, not messages,
-  so this risk is low here. The sealed report outside the repository does contain
-  model output and agent-generated code; treat it as untrusted.
-- **Path names.** Redaction replaces absolute home paths, but generic
-  repository-relative paths and task names remain. They are not personal data.
-- **The redaction patterns are finite.** Pattern-based scrubbing cannot prove the
-  absence of every possible identifier. Field allowlists reduce the surface
-  substantially but not to zero.
-- **Host fingerprinting.** CPU model, kernel version, memory size and core count
-  are published because they are part of the measured environment. Together they
-  describe a host class, not a specific machine.
-- **Loopback relay.** During a run, any local process could use the relay while a
-  trial was active. This is a run-time risk, not a publication risk.
+- **Model-generated text.** Published telemetry holds counts, not messages, so
+  risk is low here. The sealed report outside the repository does contain model
+  output and agent code; treat it as untrusted.
+- **Repository-relative paths and task names** remain; they are not personal
+  data.
+- **Finite patterns.** Pattern scrubbing cannot prove every identifier is gone.
+  Allowlists reduce the surface substantially, not to zero.
+- **Host fingerprinting.** CPU model, kernel, memory and core count are published
+  as part of the measured environment. Together they describe a host class, not
+  a specific machine.
+- **Loopback relay.** During a run, any local process could use it while a trial
+  was active. That is a run-time risk, not a publication risk.
 
 ## 7. Reporting a leak
 
-Open an issue in the repository describing **where** the problem is, without
-pasting the suspected secret, personal datum or path. If a credential is
-involved, do not reproduce it in the issue; the maintainer will remove the
-content and rewrite history if necessary. For anything that looks like a live key,
-rotate it first and report second.
+Open an issue describing **where** the problem is, without pasting the suspected
+secret, personal datum or path. If a credential is involved, do not reproduce
+it; the maintainer will remove the content and rewrite history if necessary.
+Rotate a live key first, report second.

@@ -61,7 +61,7 @@
       "status": "PASS"
     },
     {
-      "detail": "PUBLISH CHECK OK: 268 text files scanned, 0 secret/identifier findings, links and report seal verified, 0 warnings",
+      "detail": "PUBLISH CHECK OK: 269 text files scanned, 0 secret/identifier findings, links and report seal verified, 0 warnings",
       "id": "publish_safety",
       "status": "PASS"
     },
@@ -96,7 +96,7 @@
       "status": "PASS"
     }
   ],
-  "generated_utc": "2026-11-08T10:09:48.861743+00:00",
+  "generated_utc": "2026-11-08T10:12:08.300774+00:00",
   "hashes": {
     "README.md": "9b4a837701f7bf35e0859c85121579e3d35059ca7bad4dce45363110adb27a5e",
     "publication-data.json": "76a6383123425507e1a25a8e2a257917fac1311804b232c6664af9fdb32b9d6b",
